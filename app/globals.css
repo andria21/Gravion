@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 10% 10%;
+    --foreground: 210 40% 98%;
+    
+    --card: 220 10% 13%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 220 10% 13%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 180 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 120 100% 40%;
+    --accent-foreground: 210 40% 98%;
+    
+    --muted: 220 10% 16%;
+    --muted-foreground: 210 40% 66%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 10% 20%;
+    --input: 220 10% 16%;
+    --ring: 180 100% 50%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 10% 10%;
+    --foreground: 210 40% 98%;
+    
+    --card: 220 10% 13%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 220 10% 13%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 10% 10%;
+    
+    --secondary: 30 100% 50%;
+    --secondary-foreground: 220 10% 10%;
+    
+    --accent: 120 100% 40%;
+    --accent-foreground: 220 10% 10%;
+    
+    --muted: 220 10% 16%;
+    --muted-foreground: 210 40% 66%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 10% 20%;
+    --input: 220 10% 16%;
+    --ring: 180 100% 50%;
+    
+    --chart-1: 180 100% 50%;
+    --chart-2: 30 100% 50%;
+    --chart-3: 120 100% 40%;
+    --chart-4: 280 100% 50%;
+    --chart-5: 340 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(rgba(0, 200, 255, 0.03) 1px, transparent 1px),
+      radial-gradient(rgba(0, 200, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron tracking-wider;
+  }
+}
+
+@layer components {
+  .reticle {
+    position: relative;
+  }
+  
+  .reticle::before,
+  .reticle::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+  
+  .reticle::before {
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid theme('colors.primary.DEFAULT');
+    border-left: 2px solid theme('colors.primary.DEFAULT');
+  }
+  
+  .reticle::after {
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid theme('colors.primary.DEFAULT');
+    border-right: 2px solid theme('colors.primary.DEFAULT');
+  }
+  
+  .reticle:hover::before,
+  .reticle:hover::after {
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .reticle-secondary::before,
+  .reticle-secondary::after {
+    border-color: theme('colors.secondary.DEFAULT');
+  }
+  
+  .reticle-accent::before,
+  .reticle-accent::after {
+    border-color: theme('colors.accent.DEFAULT');
+  }
+  
+  .hud-frame {
+    position: relative;
+  }
+  
+  .hud-frame::before,
+  .hud-frame::after {
+    content: '';
+    position: absolute;
+    background-color: theme('colors.primary.DEFAULT');
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hud-frame::before {
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+  }
+  
+  .hud-frame::after {
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+  }
+  
+  .hud-frame:hover::before,
+  .hud-frame:hover::after {
+    opacity: 0.6;
+  }
+  
+  .hud-border-left,
+  .hud-border-right {
+    position: absolute;
+    top: 10%;
+    width: 1px;
+    height: 80%;
+    background-color: theme('colors.primary.DEFAULT');
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hud-border-left {
+    left: 0;
+  }
+  
+  .hud-border-right {
+    right: 0;
+  }
+  
+  .hud-frame:hover .hud-border-left,
+  .hud-frame:hover .hud-border-right {
+    opacity: 0.6;
+  }
+  
+  .targeting-circle {
+    position: relative;
+  }
+  
+  .targeting-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border: 1px solid theme('colors.primary.DEFAULT');
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  
+  .targeting-circle:hover::before {
+    opacity: 0.3;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-titillium {
+  font-family: 'Titillium Web', sans-serif;
+}
