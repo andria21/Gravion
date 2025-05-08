@@ -25,7 +25,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto px-4 py-32 text-center">
           <div className="mb-8 inline-block">
             <span className="inline-block px-3 py-1 text-xs font-medium rounded-full border border-primary/30 text-primary mb-4">
-              PATENT PENDING
+              PATENT PENDING 63/791, 903
             </span>
           </div>
 
@@ -118,7 +118,7 @@ export default function Home() {
             className="mb-10"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <UseCaseCard
               title="Military"
               description="Advanced submarine detection and tracking using thermal anomalies and intelligent algorithmic processing for enhanced defense intelligence."
@@ -136,6 +136,13 @@ export default function Home() {
               description="Rapid thermal scanning in wilderness areas to locate missing persons, delivering crucial time advantages in life-saving operations."
               icon={Search}
               variant="accent"
+            />
+            <UseCaseCard
+              title="Law Enforcement"
+              description="Biometric monitoring system to assess officer stress levels during critical incidents, enabling proactive wellness interventions and improved operational safety."
+              icon={Shield}
+              variant="primary"
+              comingSoon={true}
             />
           </div>
         </div>

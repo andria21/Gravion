@@ -3,6 +3,11 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { SectionHeader } from '@/components/ui/section-header'
 import { HudContainer } from '@/components/ui/hud-container'
+import Irakli from '../../assets/team-images/Irakli.jpg';
+import Andria from '../../assets/team-images/Andria.png';
+
+// Add this style block
+import './team-animations.css';
 
 export default function AboutPage() {
   return (
@@ -48,7 +53,7 @@ export default function AboutPage() {
               </p>
               
               <p className="mb-4">
-                By combining advanced thermal analysis, multi-spectral imaging, and proprietary AI algorithms, we're creating technology that saves lives, enhances defense capabilities, and transforms resource exploration.
+                By combining advanced thermal analysis, multi-spectral imaging, and proprietary AI algorithms, we&apos;re creating technology that saves lives, enhances defense capabilities, and transforms resource exploration.
               </p>
               
               <div className="mt-8">
@@ -104,15 +109,15 @@ export default function AboutPage() {
               
               <div className="space-y-4 text-lg">
                 <p className="text-muted-foreground">
-                  I'm a builder and operator with a background in field operations, technical service, and high-pressure logistics. I founded a successful appliance service business from scratch, scaled it profitably, and I've since launched Gravion — an AI reconnaissance and anomaly detection platform designed for real-world deployment.
+                  I&apos;m a builder and operator with a background in field operations, technical service, and high-pressure logistics. I founded a successful appliance service business from scratch, scaled it profitably, and I&apos;ve since launched Gravion — an AI reconnaissance and anomaly detection platform designed for real-world deployment.
                 </p>
                 
                 <p className="text-muted-foreground">
-                  While I'm not a coder, I drive execution: organizing development, defining system logic, and translating mission needs into software features. I move fast — Gravion already has a working prototype, mission video, and demo-ready website.
+                  While I&apos;m not a coder, I drive execution: organizing development, defining system logic, and translating mission needs into software features. I move fast — Gravion already has a working prototype, mission video, and demo-ready website.
                 </p>
                 
                 <p className="text-muted-foreground">
-                  I'm obsessed with building tools that make a real-world impact, especially in rescue, defense, and mineral exploration.
+                  I&apos;m obsessed with building tools that make a real-world impact, especially in rescue, defense, and mineral exploration.
                 </p>
               </div>
               
@@ -139,24 +144,41 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <SectionHeader 
             title="OUR TEAM" 
-            description="Built by operators with deep field and technical experience."
-            className="mb-10"
+            className="mb-6"
             align="center"
           />
+          
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-muted-foreground mb-4">
+              Curiosity may have killed the cat—but it also sparked the future. Gravion was born from a random thought, a moment of clarity, and a team driven by a shared vision. What started as a single idea quickly evolved through late-night discussions and cross-discipline collaboration into something much larger: a new perception of what technology can be.
+            </p>
+            
+            <p className="text-muted-foreground mb-4">
+              Gravion is the Earth&apos;s X-ray—capable of revealing natural resources, hidden terrains, and, most importantly, human lives in danger. From marine drones scanning the ocean floor to cave-rescue operators saving those trapped in hostile environments, Gravion is the next step in intelligent exploration and humanitarian technology.
+            </p>
+            
+            <p className="text-muted-foreground mb-4">
+              But we&apos;re more than tools—we&apos;re a movement. Built on the belief that innovation should lead to fairness, safety, and progress, Gravion stands as a balance between chaos and clarity, between automation and human value. This company doesn&apos;t just serve society—it&apos;s powered by it. Our responsibility is not just to profit, but to purpose.
+            </p>
+            
+            <p className="text-muted-foreground">
+              Meet the dedicated teams and individuals below who are building Gravion for something greater than themselves. Let&apos;s make it together.
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Dr. Elara Vega",
+                name: "Irakli Darsavelidze",
                 role: "Chief Technical Officer",
-                bio: "Former NASA AI research lead with 15+ years specializing in satellite imagery analysis and machine learning applications for remote sensing.",
-                image: "https://images.pexels.com/photos/5384445/pexels-photo-5384445.jpeg"
+                bio: "-",
+                image: Irakli
               },
               {
-                name: "Col. Marcus Reid (Ret.)",
-                role: "Director of Operations",
-                bio: "30 years of military experience with expertise in defense intelligence and mission-critical field operations in challenging environments.",
-                image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg"
+                name: "Andria Marqarovi",
+                role: "Software Developer",
+                bio: "-",
+                image: Andria
               },
               {
                 name: "Dr. Sophia Chen",
@@ -167,13 +189,16 @@ export default function AboutPage() {
             ].map((member, index) => (
               <HudContainer key={index} className="h-full">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle">
-                    <Image 
-                      src={member.image} 
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                    <div className="team-image-container">
+                      <Image 
+                        src={member.image} 
+                        alt={member.name}
+                        fill
+                        className="object-cover team-image"
+                      />
+                    </div>
                   </div>
                   
                   <h3 className="text-xl font-medium mb-1">{member.name}</h3>
@@ -207,13 +232,16 @@ export default function AboutPage() {
             ].map((member, index) => (
               <HudContainer key={index} className="h-full">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle">
-                    <Image 
-                      src={member.image} 
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                    <div className="team-image-container">
+                      <Image 
+                        src={member.image} 
+                        alt={member.name}
+                        fill
+                        className="object-cover team-image"
+                      />
+                    </div>
                   </div>
                   
                   <h3 className="text-xl font-medium mb-1">{member.name}</h3>
@@ -293,7 +321,7 @@ export default function AboutPage() {
           />
           
           <p className="max-w-2xl mx-auto mb-8 text-muted-foreground">
-            Whether you're interested in our technology for defense applications, search and rescue operations, or resource exploration, we're ready to discuss how Gravion Space can transform your capabilities.
+            Whether you&apos;re interested in our technology for defense applications, search and rescue operations, or resource exploration, we&apos;re ready to discuss how Gravion Space can transform your capabilities.
           </p>
           
           <Button asChild size="lg">

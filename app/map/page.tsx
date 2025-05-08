@@ -6,8 +6,10 @@ import { Button } from '@/components/ui/button'
 import { SectionHeader } from '@/components/ui/section-header'
 import { HudContainer } from '@/components/ui/hud-container'
 import { ResourceSelect } from '@/components/ui/resource-select'
-import { Crosshair, Radar, Search, Thermometer, Target } from 'lucide-react'
+import { Crosshair, Radar, Search, Thermometer, Target, Pencil, Circle as CircleIcon } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
+
+const libraries = ["places", "drawing", "geometry"]
 
 const mapContainerStyle = {
   width: '100%',
@@ -43,7 +45,9 @@ const options = {
     }
   ],
   disableDefaultUI: true,
-  zoomControl: true,
+  zoomControl: false,
+  mapTypeControl: false,
+  
 }
 
 export default function MapPage() {
@@ -53,19 +57,165 @@ export default function MapPage() {
   const [isResourceSelectOpen, setIsResourceSelectOpen] = useState(false)
   const [selectedLocation, setSelectedLocation] = useState<{lat: number, lng: number} | null>(null)
   const [isScanning, setIsScanning] = useState(false)
+  const [isDrawingMode, setIsDrawingMode] = useState(false)
+  const [drawingType, setDrawingType] = useState<'polygon' | 'circle'>('polygon')
+  const [drawnAreas, setDrawnAreas] = useState<google.maps.Polygon[]>([])
+  const [drawnCircles, setDrawnCircles] = useState<google.maps.Circle[]>([])
+  const searchBoxRef = useRef<google.maps.places.SearchBox | null>(null)
+  const mapRef = useRef<google.maps.Map | null>(null)
+  const drawingManagerRef = useRef<google.maps.drawing.DrawingManager | null>(null)
   
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
-  })  
+    libraries: libraries as any,
+  })
+
+  const handleZoomIn = useCallback(() => {
+    if (mapRef.current) {
+      const currentZoom = mapRef.current.getZoom();
+      if (typeof currentZoom === 'number') {
+        mapRef.current.setZoom(currentZoom + 1);
+      }
+    }
+  }, []);
+
+  const handleZoomOut = useCallback(() => {
+    if (mapRef.current) {
+      const currentZoom = mapRef.current.getZoom();
+      // Prevent zooming out too much (Google Maps typically has a min zoom level around 0-3)
+      if (typeof currentZoom === 'number' && currentZoom > 0) { 
+        mapRef.current.setZoom(currentZoom - 1);
+      }
+    }
+  }, []);
+
+
   
-  const handleScan = () => {
-    if (!selectedLocation) {
+
+  const onMapLoad = useCallback((map: google.maps.Map) => {
+    mapRef.current = map
+    const input = document.createElement("input")
+    input.type = "text"
+    input.placeholder = "Search location..."
+    input.className = "absolute top-4 left-1/2 -translate-x-1/2 z-10 w-64 px-4 py-2 rounded bg-card/90 border border-primary/20 text-sm font-mono text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+    
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input)
+    
+    const searchBox = new google.maps.places.SearchBox(input)
+    searchBoxRef.current = searchBox
+
+    // Initialize drawing manager
+    const drawingManager = new google.maps.drawing.DrawingManager({
+      drawingMode: null,
+      drawingControl: false,
+      polygonOptions: {
+        fillColor: "#00FFFF",
+        fillOpacity: 0.2,
+        strokeColor: "#00FFFF",
+        strokeWeight: 2,
+        editable: true,
+        zIndex: 1,
+      },
+      circleOptions: {
+        fillColor: "#00FFFF",
+        fillOpacity: 0.2,
+        strokeColor: "#00FFFF",
+        strokeWeight: 2,
+        editable: true,
+        zIndex: 1,
+      }
+    });
+    
+    drawingManager.setMap(map);
+    drawingManagerRef.current = drawingManager;
+    
+    // Add listener for when a polygon is completed
+    google.maps.event.addListener(drawingManager, 'polygoncomplete', (polygon: google.maps.Polygon) => {
+      setDrawnAreas(prev => [...prev, polygon]);
+      drawingManager.setDrawingMode(null);
+      setIsDrawingMode(false);
+      
       toast({
-        title: "No location selected",
-        description: "Please select a location on the map first.",
-        variant: "destructive"
+        title: "Area defined",
+        description: "Custom polygon area has been drawn for scanning."
+      });
+    });
+    
+    // Add listener for when a circle is completed
+    google.maps.event.addListener(drawingManager, 'circlecomplete', (circle: google.maps.Circle) => {
+      setDrawnCircles(prev => [...prev, circle]);
+      drawingManager.setDrawingMode(null);
+      setIsDrawingMode(false);
+      
+      toast({
+        title: "Area defined",
+        description: `Circular area with radius ${Math.round(circle.getRadius())}m has been drawn for scanning.`
+      });
+    });
+
+    searchBox.addListener("places_changed", () => {
+      const places = searchBox.getPlaces()
+      
+      if (places?.length === 0) return
+      
+      const place = places?.[0]
+      if (!place?.geometry?.location) return
+      
+      const newLocation = {
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng()
+      }
+      
+      setSelectedLocation(newLocation)
+      map.setCenter(newLocation)
+      map.setZoom(15)
+      
+      toast({
+        title: "Location found",
+        description: `Selected: ${place.formatted_address}`
       })
-      return
+    })
+  }, [toast])
+  
+  // Add a function to toggle drawing mode
+  const toggleDrawingMode = useCallback(() => {
+    if (drawingManagerRef.current) {
+      if (isDrawingMode) {
+        drawingManagerRef.current.setDrawingMode(null);
+        setIsDrawingMode(false);
+      } else {
+        const mode = drawingType === 'polygon' 
+          ? google.maps.drawing.OverlayType.POLYGON 
+          : google.maps.drawing.OverlayType.CIRCLE;
+        drawingManagerRef.current.setDrawingMode(mode);
+        setIsDrawingMode(true);
+      }
+    }
+  }, [isDrawingMode, drawingType]);
+  
+  // Update the clear drawn areas function to handle circles too
+  const clearDrawnAreas = useCallback(() => {
+    drawnAreas.forEach(polygon => polygon.setMap(null));
+    drawnCircles.forEach(circle => circle.setMap(null));
+    setDrawnAreas([]);
+    setDrawnCircles([]);
+    toast({
+      title: "Areas cleared",
+      description: "All drawn areas have been removed."
+    });
+  }, [drawnAreas, drawnCircles, toast]);
+  
+  // Update the scan function to handle circles too and adjust scan time based on area size
+  const handleScan = () => {
+    const totalDrawnShapes = drawnAreas.length + drawnCircles.length;
+    
+    if (!selectedLocation && totalDrawnShapes === 0) {
+      toast({
+        title: "No area selected",
+        description: "Please select a location or draw an area on the map first.",
+        variant: "destructive"
+      });
+      return;
     }
     
     if (selectedResources.length === 0) {
@@ -73,24 +223,61 @@ export default function MapPage() {
         title: "No resources selected",
         description: "Please select at least one resource to scan for.",
         variant: "destructive"
-      })
-      return
+      });
+      return;
     }
 
-    setIsScanning(true)
-    toast({
-      title: "Scan initiated",
-      description: `Scanning for ${selectedResources.length} resources at lat: ${selectedLocation.lat.toFixed(4)}, lng: ${selectedLocation.lng.toFixed(4)}`
-    })
+    setIsScanning(true);
+    
+    // Calculate scan duration based on area size
+    let scanDuration = 3000; // Base duration in milliseconds
+    
+    if (totalDrawnShapes > 0) {
+      // Calculate total area of all shapes
+      let totalArea = 0;
+      
+      // Calculate area of polygons
+      drawnAreas.forEach(polygon => {
+        const path = polygon.getPath();
+        const pathArray = [];
+        for (let i = 0; i < path.getLength(); i++) {
+          const point = path.getAt(i);
+          pathArray.push({ lat: point.lat(), lng: point.lng() });
+        }
+        totalArea += google.maps.geometry.spherical.computeArea(path);
+      });
+      
+      // Calculate area of circles
+      drawnCircles.forEach(circle => {
+        const radius = circle.getRadius();
+        const circleArea = Math.PI * radius * radius;
+        totalArea += circleArea;
+      });
+      
+      // Adjust scan duration based on area (in square meters)
+      // For very large areas (> 10 km²), cap the duration at 15 seconds
+      const areaInSquareKm = totalArea / 1000000;
+      scanDuration = Math.min(3000 + (areaInSquareKm * 1200), 15000);
+      
+      toast({
+        title: "Scan initiated",
+        description: `Scanning ${totalDrawnShapes} custom area(s) for ${selectedResources.length} resources. Estimated time: ${Math.round(scanDuration/1000)} seconds.`
+      });
+    } else {
+      toast({
+        title: "Scan initiated",
+        description: `Scanning for ${selectedResources.length} resources at lat: ${selectedLocation?.lat.toFixed(4)}, lng: ${selectedLocation?.lng.toFixed(4)}`
+      });
+    }
     
     setTimeout(() => {
-      setIsScanning(false)
+      setIsScanning(false);
       toast({
         title: "Scan complete",
         description: `Analysis complete for ${selectedResources.join(', ')}. No significant deposits detected.`
-      })
-    }, 3000)
-  }
+      });
+    }, scanDuration);
+  };
   
   const onMapClick = useCallback((event: google.maps.MapMouseEvent) => {
     if (event.latLng) {
@@ -174,8 +361,70 @@ export default function MapPage() {
                         <Target className="h-4 w-4 mr-2" />
                         Multi-Spectral
                       </Button>
+                      <Button 
+                        variant={activeMode === 'drawing' ? 'default' : 'outline'} 
+                        size="sm" 
+                        className="justify-start"
+                        onClick={() => {
+                          setActiveMode('drawing');
+                        }}
+                      >
+                        <Pencil className="h-4 w-4 mr-2" />
+                        Free Drawing
+                      </Button>
                     </div>
                   </div>
+                  
+                  {activeMode === 'drawing' && (
+                    <div>
+                      <h3 className="text-sm font-medium mb-2">Drawing Tools</h3>
+                      <div className="grid grid-cols-2 gap-2 mb-2">
+                        <Button 
+                          variant={drawingType === 'polygon' ? 'default' : 'outline'} 
+                          size="sm" 
+                          onClick={() => setDrawingType('polygon')}
+                        >
+                          <Pencil className="h-4 w-4 mr-2" />
+                          Polygon
+                        </Button>
+                        <Button 
+                          variant={drawingType === 'circle' ? 'default' : 'outline'} 
+                          size="sm" 
+                          onClick={() => setDrawingType('circle')}
+                        >
+                          <CircleIcon className="h-4 w-4 mr-2" />
+                          Circle
+                        </Button>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <Button 
+                          variant={isDrawingMode ? 'default' : 'outline'} 
+                          size="sm" 
+                          onClick={toggleDrawingMode}
+                        >
+                          {isDrawingMode ? 'Cancel Drawing' : 'Start Drawing'}
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={clearDrawnAreas}
+                          disabled={drawnAreas.length + drawnCircles.length === 0}
+                        >
+                          Clear Areas
+                        </Button>
+                      </div>
+                      <div className="mt-2 text-xs text-muted-foreground">
+                        {isDrawingMode ? 
+                          drawingType === 'polygon' ?
+                            'Click on the map to create polygon vertices. Complete by clicking the first point.' :
+                            'Click on the map to set center, then drag to set radius.' : 
+                          (drawnAreas.length + drawnCircles.length) > 0 ? 
+                            `${drawnAreas.length + drawnCircles.length} area(s) defined for scanning.` : 
+                            `Click "Start Drawing" to define a custom ${drawingType} area for scanning.`
+                        }
+                      </div>
+                    </div>
+                  )}
                   
                   <div>
                     <h3 className="text-sm font-medium mb-2">Selected Location</h3>
@@ -184,12 +433,16 @@ export default function MapPage() {
                         <div>LAT: {selectedLocation.lat.toFixed(4)}</div>
                         <div>LNG: {selectedLocation.lng.toFixed(4)}</div>
                       </div>
+                    ) : (drawnAreas.length + drawnCircles.length) > 0 ? (
+                      <div className="text-sm text-muted-foreground">
+                        {drawnAreas.length + drawnCircles.length} custom area(s) selected for scanning.
+                      </div>
                     ) : (
                       <div className="text-sm text-muted-foreground">
-                        Click on the map to select a location.
+                        Click on the map to select a location or draw an area.
                       </div>
                     )}
-                    {selectedLocation && (
+                    {(selectedLocation || (drawnAreas.length + drawnCircles.length) > 0) && (
                       <div className="mt-2">
                         <Button
                           variant="outline"
@@ -208,7 +461,7 @@ export default function MapPage() {
                     <Button 
                       className="w-full" 
                       onClick={handleScan}
-                      disabled={!selectedLocation || isScanning}
+                      disabled={((!selectedLocation && drawnAreas.length === 0) || isScanning)}
                     >
                       {isScanning ? (
                         <>
@@ -271,6 +524,7 @@ export default function MapPage() {
                     {activeMode === 'thermal' && 'THERMAL IMAGING ACTIVE'}
                     {activeMode === 'radar' && 'RADAR SCANNING ACTIVE'}
                     {activeMode === 'multi' && 'MULTI-SPECTRAL ANALYSIS ACTIVE'}
+                    {activeMode === 'drawing' && 'FREE DRAWING MODE ACTIVE'}
                   </div>
                 </div>
                 
@@ -289,6 +543,7 @@ export default function MapPage() {
                       center={center}
                       options={options}
                       onClick={onMapClick}
+                      onLoad={onMapLoad}
                     >
                       {selectedLocation && (
                         <Marker

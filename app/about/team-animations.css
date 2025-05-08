@@ -1,0 +1,49 @@
+.team-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.team-image {
+  transition: transform 0.5s ease-in-out;
+}
+
+.targeting-circle:hover .team-image {
+  transform: scale(1.1);
+}
+
+/* Pulse animation for targeting circles */
+.targeting-circle::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  opacity: 0;
+  z-index: 5;
+}
+
+.targeting-circle:hover::before {
+  opacity: 1;
+  border-color: var(--primary);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

@@ -90,6 +90,26 @@ const planets: PlanetData[] = [
     rotation: "58.6 days",
     atmosphere: "Minimal - sodium, potassium",
   },
+  {
+    id: "jupiter",
+    name: "Jupiter",
+    description: "The largest planet in our solar system, a gas giant with a Great Red Spot, a storm larger than Earth.",
+    image: "https://images-assets.nasa.gov/image/PIA02852/PIA02852~orig.jpg?w=863&h=629&fit=clip&crop=faces%2Cfocalpoint",
+    distance: "588 million km",
+    type: "Gas Giant",
+    rotation: "9.9 hours",
+    atmosphere: "Hydrogen, Helium",
+  },
+  {
+    id: "saturn",
+    name: "Saturn",
+    description: "Known for its stunning ring system, Saturn is another gas giant in our solar system.",
+    image: "https://images-assets.nasa.gov/image/PIA04913/PIA04913~orig.jpg?w=1016&h=1011&fit=clip&crop=faces%2Cfocalpoint",
+    distance: "1.2 billion km",
+    type: "Gas Giant",
+    rotation: "10.7 hours",
+    atmosphere: "Hydrogen, Helium",
+  },
 ];
 
 export default function PlanetsPage() {
@@ -268,6 +288,10 @@ export default function PlanetsPage() {
                               "Water plume detection"}
                             {activePlanet.id === "mercury" &&
                               "Extreme temperature variation mapping"}
+                            {activePlanet.id === "jupiter" &&
+                              "Great Red Spot monitoring, atmospheric dynamics"}
+                            {activePlanet.id === "saturn" &&
+                              "Ring system stability, moon interactions"}
                           </div>
                         </div>
                       </div>
