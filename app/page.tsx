@@ -25,7 +25,7 @@ export default function Home() {
         <div className="container relative z-10 mx-auto px-4 py-32 text-center">
           <div className="mb-8 inline-block">
             <span className="inline-block px-3 py-1 text-xs font-medium rounded-full border border-primary/30 text-primary mb-4">
-              PATENT PENDING 63/791, 903
+              PATENT PENDING - 63/791, 903
             </span>
           </div>
 
