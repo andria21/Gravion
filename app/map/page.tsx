@@ -8,6 +8,7 @@ import { HudContainer } from '@/components/ui/hud-container'
 import { ResourceSelect } from '@/components/ui/resource-select'
 import { Crosshair, Radar, Search, Thermometer, Target, Pencil, Circle as CircleIcon } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
+import { motion } from 'framer-motion' // Import motion
 
 const libraries = ["places", "drawing", "geometry"]
 
@@ -93,7 +94,19 @@ export default function MapPage() {
   
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
-    mapRef.current = map
+    mapRef.current = map;
+
+    // If the searchBox is already initialized, prevent re-initialization.
+    // This stops duplicate search inputs if onMapLoad is called multiple times.
+    if (searchBoxRef.current) {
+      // Ensure the drawing manager (if it exists) is associated with the current map instance.
+      if (drawingManagerRef.current) {
+        drawingManagerRef.current.setMap(map);
+      }
+      return;
+    }
+
+    // Original initialization logic (runs only if searchBoxRef.current is null):
     const input = document.createElement("input")
     input.type = "text"
     input.placeholder = "Search location..."
@@ -177,6 +190,21 @@ export default function MapPage() {
     })
   }, [toast])
   
+  const onMapUnmount = useCallback(() => {
+    // Clear listeners and refs to prevent memory leaks and ensure clean re-initialization on remount
+    if (drawingManagerRef.current) {
+      google.maps.event.clearInstanceListeners(drawingManagerRef.current);
+      drawingManagerRef.current.setMap(null);
+    }
+    // Note: Listeners attached via searchBox.addListener() might need specific cleanup 
+    // if their callbacks capture component state that could become stale.
+    // For simple cases, this is often not an issue.
+
+    mapRef.current = null;
+    searchBoxRef.current = null; // Crucial: allow re-initialization if map remounts
+    drawingManagerRef.current = null;
+  }, []);
+
   // Add a function to toggle drawing mode
   const toggleDrawingMode = useCallback(() => {
     if (drawingManagerRef.current) {
@@ -712,6 +740,44 @@ export default function MapPage() {
           </div>
         </div>
       </section>
+      
+      {/* Enhanced Future Vision Section */}
+      <motion.section 
+        className="py-16 bg-background/30"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center p-8 rounded-lg shadow-xl bg-card/80 backdrop-blur-sm border border-primary/20">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold tracking-wider mb-8 text-primary"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Our Vision: One Year From Now
+            </motion.h2>
+            <motion.p 
+              className="text-md md:text-lg text-muted-foreground mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              This demonstration showcases the current capabilities of Gravion&apos;s anomaly detection. In one year, we envision this platform evolving into a comprehensive planetary analysis suite.
+            </motion.p>
+            <motion.p 
+              className="text-md md:text-lg text-muted-foreground"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              Future enhancements will include real-time data fusion from multiple satellite constellations, advanced AI-driven predictive modeling for resource discovery, and seamless integration with ground-based robotic exploration units. Our goal is to provide unparalleled insights into planetary surfaces, accelerating scientific discovery and resource utilization efforts across the solar system.
+            </motion.p>
+          </div>
+        </div>
+      </motion.section>
+      
     </div>
   )
 }

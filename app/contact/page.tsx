@@ -17,6 +17,7 @@ import { SectionHeader } from '@/components/ui/section-header'
 import { HudContainer } from '@/components/ui/hud-container'
 import { Satellite, Mail, MapPin, Phone } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
+import LOGO from "../../assets/Logo_Emblem.png";
 
 export default function ContactPage() {
   const { toast } = useToast()
@@ -157,8 +158,14 @@ export default function ContactPage() {
             <div>
               <HudContainer className="h-full">
                 <div className="flex items-center mb-6">
-                  <Satellite className="h-5 w-5 text-primary mr-2" />
-                  <h2 className="text-xl font-bold tracking-wider">REQUEST BETA ACCESS</h2>
+                <Image
+                    src={LOGO}
+                    alt="Gravion Logo"
+                    width={40}
+                    height={100}
+                    className="h-7 w-7 text-primary mr-2"
+                  />
+                  <h2 className="text-xl font-bold tracking-wider">GET IN TOUCH</h2>
                 </div>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -232,7 +239,7 @@ export default function ContactPage() {
                   </div>
                   
                   <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "REQUEST BETA ACCESS"}
+                    {isSubmitting ? "Submitting..." : "SUBMIT"}
                   </Button>
                 </form>
               </HudContainer>

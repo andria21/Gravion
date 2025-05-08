@@ -139,7 +139,7 @@ export default function Home() {
             />
             <UseCaseCard
               title="Law Enforcement"
-              description="Biometric monitoring system to assess officer stress levels during critical incidents, enabling proactive wellness interventions and improved operational safety."
+              description="AI-enhanced 911 cross-referencing ambient sounds to generate visual models of the caller's environment for better situational awareness and improved operational safety."
               icon={Shield}
               variant="primary"
               comingSoon={true}
