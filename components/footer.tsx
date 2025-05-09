@@ -17,17 +17,15 @@ export default function Footer() {
                 height={100}
                 className="text-primary"
               />
-              <span className="text-lg font-bold tracking-wider">
-                GRAVION SPACE
-              </span>
+              <span className="text-lg font-bold tracking-wider">GRAVION</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              AI-powered anomaly detection from space — for rescue, defense, and
-              mining.
+              AI-powered reconnaissance system — For land, life, and what lies
+              beneath.
             </p>
             <p className="text-xs text-muted-foreground">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}
-              Cosmos products LLC
+              ©️ Cosmos products LLC
             </p>
           </div>
 
@@ -78,16 +76,15 @@ export default function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-center">Contact</h3>
+            <h3 className="text-sm font-semibold text-center">Reach Out</h3>
             <p className="text-sm text-muted-foreground">
-              Interested in our technology or want to join our beta? Reach out
-              to us.
+              Interested in our technology or would like to discuss integration?
             </p>
             <Link
               href="/contact"
               className="inline-block text-sm text-primary hover:text-primary/80 transition-colors"
             >
-              Contact Us
+              Send a Message
             </Link>
           </div>
         </div>

@@ -11,6 +11,8 @@ import Image from 'next/image'
 
 import LOGO from "../assets/Logo_Emblem.png";
 
+import "./navbar/navigation.css";
+
 const routes = [
   {
     name: 'Home',
@@ -59,13 +61,16 @@ export default function Navigation() {
     )}>
       <div className="px-4 sm:px-6 flex h-16 items-center justify-between w-full">
         <Link href="/" className="flex items-center space-x-2 font-orbitron">
-          <Image 
-            src={LOGO}
-            alt="Gravion Logo"
-            width={40}
-            height={100}
-            className="text-primary"
-          />
+          <div className="relative flex items-center justify-center"> {/* Container for logo and pulse */}
+            <div className="radar-pulse-background"></div> {/* Pulsating background */}
+            <Image
+              src={LOGO}
+              alt="Gravion Logo"
+              width={40}
+              height={100} // Note: If your emblem is more square, you might want to adjust width/height
+              className="text-primary relative z-10 opacity-80" // Ensure logo is above pulse, removed old pulsing-logo
+            />
+          </div>
           <span className="text-xl font-bold tracking-wider">GRAVION</span>
         </Link>
         

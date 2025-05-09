@@ -1,0 +1,54 @@
+/* Add this to your global CSS file (e.g., globals.css) */ /* This comment was existing */
+
+/* Previous animation for the logo itself - you can remove or comment this out if not needed */
+/*
+.pulsing-logo {
+  animation: pulseEffect 2.5s infinite ease-in-out;
+  opacity: 0.9; 
+}
+
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+    opacity: 0.85; 
+  }
+  50% {
+    transform: scale(1.04); 
+    opacity: 1;   
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.85; 
+  }
+}
+*/
+
+/* New styles for the radar pulse background */
+.radar-pulse-background {
+  position: absolute;
+  /* Centered via parent's flex properties and transform in animation */
+  /* top: 50%; */ /* Not needed if parent is flex centering */
+  /* left: 50%; */ /* Not needed if parent is flex centering */
+  width: 30px; /* Initial width of the pulse, adjust as needed */
+  height: 30px; /* Initial height of the pulse, adjust as needed */
+  background-color: red;
+  border-radius: 50%; /* Makes it circular */
+  z-index: 0; /* Ensures it's behind the logo image */
+  animation: radarPulse 2.5s infinite ease-out;
+  /* transform-origin: center center; // Ensured by translate in keyframes */
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.3); /* Start smaller */
+    opacity: 0.7; /* Start somewhat visible */
+  }
+  70% {
+    transform: scale(1.5); /* Expand significantly */
+    opacity: 0; /* Fade out as it expands */
+  }
+  100% {
+    transform: scale(0.3); /* Reset for the next cycle (effectively invisible here due to opacity 0) */
+    opacity: 0;
+  }
+}

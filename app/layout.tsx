@@ -7,7 +7,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Gravion Space | AI-powered anomaly detection from space',
-  description: 'AI-powered anomaly detection from space — for rescue, defense, and mining.',
+  description: 'AI-powered anomaly detection from space — for land, life, and what lies beneath.',
 };
 
 export default function RootLayout({

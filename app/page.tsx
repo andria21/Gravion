@@ -4,7 +4,14 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { HudContainer } from "@/components/ui/hud-container";
 import { UseCaseCard } from "@/components/use-case-card";
-import { Shield, Mountain, Search, Database } from "lucide-react";
+import {
+  Shield,
+  Mountain,
+  Search,
+  Database,
+  Lock,
+  Compass,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -35,7 +42,7 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            For rescue, defense, and mining
+            For land, life, and what lies beneath.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -56,7 +63,7 @@ export default function Home() {
         {/* Tactical targeting overlay effect */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
           <div className="w-6 h-6 relative">
-            <div className="absolute inset-0 border-2 border-primary rounded-full opacity-30 animate-ping"></div>
+            <div className="absolute inset-0 border-2 border-primary rounded-full opacity-30 animate-[ping_4s_ease-out_infinite]"></div>
             <div className="absolute inset-2 bg-primary rounded-full"></div>
           </div>
         </div>
@@ -74,12 +81,6 @@ export default function Home() {
 
           <HudContainer className="mx-auto max-w-4xl">
             <div className="aspect-video relative overflow-hidden rounded bg-black">
-              <Image
-                src="https://images.pexels.com/photos/1172064/pexels-photo-1172064.jpeg"
-                alt="Mission demonstration"
-                fill
-                className="object-cover opacity-80"
-              />
               <div className="absolute inset-0 flex items-center justify-center">
                 <Button
                   variant="outline"
@@ -118,29 +119,43 @@ export default function Home() {
             className="mb-10"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Military"
-              description="Advanced submarine detection and tracking using thermal anomalies and intelligent algorithmic processing for enhanced defense intelligence."
+              description="Gravion supports military operations of all scales by detecting thermal, spectral, and terrain-based anomalies through satellite comparisons over time. It delivers evolving battlefield insight across land, sea, and remote areas — helping teams identify threats, track changes, and adapt strategies with greater speed and precision."
               icon={Shield}
               variant="primary"
             />
             <UseCaseCard
               title="Mining"
-              description="Identify mineral deposits and gold anomalies with precision, reducing exploration costs and environmental impact through targeted operations."
+              description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact — helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
               icon={Mountain}
               variant="secondary"
             />
             <UseCaseCard
               title="Search & Rescue"
-              description="Rapid thermal scanning in wilderness areas to locate missing persons, delivering crucial time advantages in life-saving operations."
+              description="Gravion identifies signs of life and terrain shifts across wide, difficult terrain using thermal and satellite-based anomaly detection. By comparing recent and historical environmental data, it helps rescue teams locate missing persons faster and respond more effectively in time-sensitive or hazardous conditions."
               icon={Search}
               variant="accent"
             />
             <UseCaseCard
               title="Law Enforcement"
-              description="AI-enhanced 911 cross-referencing ambient sounds to generate visual models of the caller's environment for better situational awareness and improved operational safety."
+              description="Gravion cross-references multiple 911 calls and analyzes ambient audio to detect background cues that may be missed by human listeners. By comparing sound patterns, caller environments, and incident timing, it reconstructs a clearer operational picture — helping responders prioritize threats and deploy with greater precision."
               icon={Shield}
+              variant="secondary"
+              comingSoon={true}
+            />
+            <UseCaseCard
+              title="Security Systems"
+              description="Gravion extends its AI-driven anomaly detection to private and commercial security environments, analyzing visual, spectral, and thermal feeds in real time. Designed to support evolving technologies — such as full-property overhead cameras and future autonomous patrol drones — it offers intelligent surveillance, threat recognition, and continuous situational awareness across secured perimeters."
+              icon={Lock}
+              variant="accent"
+              comingSoon={true}
+            />
+            <UseCaseCard
+              title="Discovery Mode"
+              description="Gravion empowers everyday explorers with access to satellite-based terrain scanning, anomaly detection, and time-lapse environmental analysis. From uncovering buried structures and cave systems to identifying fault lines and early signs of natural disasters, Discovery Mode is built for those who seek the unseen — whether for treasure hunting, geological curiosity, or safer hiking through remote terrain"
+              icon={Compass}
               variant="primary"
               comingSoon={true}
             />
@@ -155,59 +170,26 @@ export default function Home() {
             <div>
               <SectionHeader
                 title="TRACTION"
-                description="Our technology is generating significant interest across sectors."
+                description="Our technology is gaining momentum and proving its capabilities in real-world scenarios."
                 className="mb-6"
               />
-
-              <p className="text-lg mb-8">
-                Pilots in discussion with SAR teams and exploration firms.
+              <p className="text-lg text-muted-foreground mb-8">
+                Gravion is in advanced development with early access granted to professionals in search and rescue, exploration, and technical operations. We’re collaborating with SAR personnel, geotech operators, and drone experts to prepare for live mission trials, simulator rollouts, and deployment-ready integration.
               </p>
-
-              <div className="grid grid-cols-2 gap-6">
-                <div className="border border-primary/20 rounded p-4">
-                  <div className="text-3xl font-orbitron text-primary mb-1">
-                    93%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Detection accuracy
-                  </div>
-                </div>
-                <div className="border border-primary/20 rounded p-4">
-                  <div className="text-3xl font-orbitron text-primary mb-1">
-                    5+
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Pilot programs
-                  </div>
-                </div>
-                <div className="border border-primary/20 rounded p-4">
-                  <div className="text-3xl font-orbitron text-primary mb-1">
-                    3
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Global sectors
-                  </div>
-                </div>
-                <div className="border border-primary/20 rounded p-4">
-                  <div className="text-3xl font-orbitron text-primary mb-1">
-                    2x
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Detection speed
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <HudContainer variant="secondary" className="h-full">
-              <SectionHeader title="PATENT-PENDING SYSTEM" className="mb-6" />
+            <HudContainer variant="secondary" className="h-full text-center">
+              <SectionHeader title="PATENT-PENDING SYSTEM" className="mb-6 text-center" />
 
               <p className="mb-4">
                 Gravion AI Core combines satellite, thermal, and terrain data
                 for real-time intelligence.
               </p>
+              <p className="text-muted-foreground text-sm mb-6">
+                Gravion’s core system fuses satellite imaging with inputs from an array of advanced instruments — including ground-penetrating radar, spectrometers, magnetometers, radiometers, gravimeters, and thermal sensors. It leverages acoustic visualization, chemical detection, and terrain vibration analysis to identify voids, buried objects, mineral signatures, radiological anomalies, and underground water sources. Designed for modular deployment, Gravion adapts to diverse field conditions across land, sea, and subterranean environments.
+              </p>
 
-              <div className="relative py-4">
+              {/* <div className="relative py-4">
                 <div className="flex items-center mb-4">
                   <Database className="h-5 w-5 text-secondary mr-2" />
                   <span className="font-medium">
@@ -242,7 +224,7 @@ export default function Home() {
                   deliver intelligence that grows more accurate with each
                   deployment.
                 </div>
-              </div>
+              </div> */}
             </HudContainer>
           </div>
         </div>
