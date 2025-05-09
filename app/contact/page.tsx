@@ -79,7 +79,7 @@ export default function ContactPage() {
               CONTACT US
             </h1>
             <p className="text-lg text-muted-foreground mb-10">
-              Request beta access or speak with our team about how Gravion Space can enhance your operations.
+              Request beta access or speak with our team about how Gravion Space can enhance your operations
             </p>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function ContactPage() {
             <div>
               <SectionHeader 
                 title="GET IN TOUCH" 
-                description="Whether you're interested in joining our beta program or want to learn more about our technology, we're here to help."
+                description="Whether you're interested in joining our beta program or want to learn more about our technology, we're here to help"
                 className="mb-8"
               />
               
@@ -117,18 +117,6 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-medium">Phone</h3>
                     <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-primary" />
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-medium">Location</h3>
-                    <p className="text-muted-foreground">1234 Innovation Dr, Houston, TX 77001</p>
                   </div>
                 </div>
               </div>

@@ -42,7 +42,7 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            For land, life, and what lies beneath.
+            For land, life, and what lies beneath
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -74,7 +74,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <SectionHeader
             title="INTERACTIVE DEMO"
-            description="Experience Gravion AI in action. No signup required."
+            description="Experience Gravion AI in action. No signup required"
             align="center"
             className="mb-10"
           />
@@ -114,7 +114,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <SectionHeader
             title="APPLICATIONS"
-            description="Gravion's technology serves critical missions across multiple domains."
+            description="Gravion's technology serves critical missions across multiple domains"
             align="center"
             className="mb-10"
           />
@@ -235,7 +235,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <SectionHeader
             title="OUR TEAM"
-            description="Built by operators with deep field and technical experience."
+            description="Built by operators with deep field and technical experience"
             align="center"
             className="mb-10"
           />
@@ -282,7 +282,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <SectionHeader
             title="JOIN THE BETA"
-            description="Be among the first to access Gravion's groundbreaking technology."
+            description="Be among the first to access Gravion's groundbreaking technology"
             align="center"
             className="mb-8"
           />

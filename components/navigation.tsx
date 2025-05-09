@@ -10,6 +10,7 @@ import { Menu, X, Satellite, Map, Users, Phone, Globe2 } from 'lucide-react'
 import Image from 'next/image'
 
 import LOGO from "../assets/Logo_Emblem.png";
+import LOGO_TITLE from "../assets/Logo_Text.png";
 
 import "./navbar/navigation.css";
 
@@ -71,7 +72,14 @@ export default function Navigation() {
               className="text-primary relative z-10 opacity-80" // Ensure logo is above pulse, removed old pulsing-logo
             />
           </div>
-          <span className="text-xl font-bold tracking-wider">GRAVION</span>
+          <Image
+              src={LOGO_TITLE}
+              alt="Gravion Logo"
+              width={120}
+              height={300} // Note: If your emblem is more square, you might want to adjust width/height
+              className="[filter:grayscale(1)_brightness(0)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
+            />
+          {/* <span className="text-xl font-bold tracking-wider">GRAVION</span> */}
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">

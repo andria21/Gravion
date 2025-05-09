@@ -392,7 +392,7 @@ export default function MapPage() {
             </h1>
             <p className="text-lg text-muted-foreground mb-10">
               Interactive demonstration of Gravion&apos;s anomaly detection
-              capabilities.
+              capabilities
             </p>
           </div>
         </div>

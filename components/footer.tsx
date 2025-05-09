@@ -20,8 +20,8 @@ export default function Footer() {
               <span className="text-lg font-bold tracking-wider">GRAVION</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              AI-powered reconnaissance system — For land, life, and what lies
-              beneath.
+              AI-powered reconnaissance system <br />
+              For land, life, and what lies beneath.
             </p>
             <p className="text-xs text-muted-foreground">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}

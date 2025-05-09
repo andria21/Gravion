@@ -15,6 +15,7 @@ const RESOURCES = [
   { id: 'lithium', label: 'Lithium', description: 'Lithium-rich formations' },
   { id: 'uranium', label: 'Uranium', description: 'Radioactive mineral deposits' },
   { id: 'rare-earth', label: 'Rare Earth Elements', description: 'Critical mineral concentrations' },
+  { id: 'oil', label: 'Oil', description: 'Fossil fuel deposits' },
 ]
 
 interface ResourceSelectProps {

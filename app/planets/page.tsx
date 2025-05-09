@@ -145,7 +145,7 @@ export default function PlanetsPage() {
               PLANETARY EXPLORATION
             </h1>
             <p className="text-lg text-muted-foreground mb-10">
-              The future of Gravion Space technology beyond Earth&apos;s boundaries.
+              The future of Gravion Space technology beyond Earth&apos;s boundaries
             </p>
           </div>
         </div>
@@ -319,7 +319,7 @@ export default function PlanetsPage() {
         <div className="container mx-auto px-4">
           <SectionHeader
             title="INTERPLANETARY CAPABILITIES"
-            description="The future of Gravion Space technology extends beyond Earth, bringing our detection capabilities to new worlds."
+            description="The future of Gravion Space technology extends beyond Earth, bringing our detection capabilities to new worlds"
             className="mb-10"
             align="center"
           />
@@ -381,7 +381,7 @@ export default function PlanetsPage() {
                 </h2>
                 <p className="text-lg mb-6">
                   Join us on our mission to expand humanity&apos;s reach into the
-                  solar system with cutting-edge detection technology.
+                  solar system with cutting-edge detection technology
                 </p>
                 <div className="inline-block relative">
                   <div className="relative z-10 px-8 py-3 font-orbitron tracking-widest border-2 border-primary text-primary bg-background/80 backdrop-blur-sm">

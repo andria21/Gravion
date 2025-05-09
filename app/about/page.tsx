@@ -30,7 +30,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-lg text-muted-foreground mb-10">
               Pioneering the future of space-based detection technology for
-              critical missions.
+              critical missions
             </p>
           </div>
         </div>
@@ -365,7 +365,7 @@ export default function AboutPage() {
             Whether you&apos;re interested in our technology for defense
             applications, search and rescue operations, or resource exploration,
             we&apos;re ready to discuss how Gravion Space can transform your
-            capabilities.
+            capabilities
           </p>
 
           <Button asChild size="lg">
