@@ -77,7 +77,7 @@ export default function Navigation() {
               alt="Gravion Logo"
               width={120}
               height={300} // Note: If your emblem is more square, you might want to adjust width/height
-              className="[filter:grayscale(1)_brightness(0)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
+              className="[filter:grayscale(1)_brightness(0)_invert(1)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
             />
           {/* <span className="text-xl font-bold tracking-wider">GRAVION</span> */}
         </Link>

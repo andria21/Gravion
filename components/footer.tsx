@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Satellite } from "lucide-react";
 import LOGO from "../assets/Logo_Emblem.png";
+import LOGO_TITLE from "../assets/Logo_Text.png";
 import Image from "next/image";
 
 export default function Footer() {
@@ -17,7 +18,13 @@ export default function Footer() {
                 height={100}
                 className="text-primary"
               />
-              <span className="text-lg font-bold tracking-wider">GRAVION</span>
+              <Image
+              src={LOGO_TITLE}
+              alt="Gravion Logo"
+              width={120}
+              height={300} // Note: If your emblem is more square, you might want to adjust width/height
+              className="[filter:grayscale(1)_brightness(0)_invert(1)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
+            />
             </div>
             <p className="text-sm text-muted-foreground">
               AI-powered reconnaissance system <br />
