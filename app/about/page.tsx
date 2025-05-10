@@ -7,6 +7,7 @@ import Irakli from "../../assets/team-images/Irakli.jpg";
 import Aleksandre from "../../assets/team-images/aleksandre.jpg";
 import Andria from "../../assets/team-images/Andria.png";
 import Ivan from "../../assets/team-images/Ivan.jpg";
+import Dmitri from "../../assets/team-images/dmitri.jpg";
 
 // Add this style block
 import "./team-animations.css";
@@ -277,7 +278,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
                   <div className="team-image-container">
                     <Image
-                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                      src={Dmitri}
                       alt="James Turner"
                       fill
                       className="object-cover team-image"
