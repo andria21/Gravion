@@ -5,6 +5,8 @@ import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 
+import ChatBot from '@/components/chatbot/chatbot';
+
 export const metadata: Metadata = {
   title: 'Gravion Space | AI-powered anomaly detection from space',
   description: 'AI-powered anomaly detection from space — for land, life, and what lies beneath.',
@@ -36,6 +38,7 @@ export default function RootLayout({
           </div>
           <Toaster />
         </ThemeProvider>
+        <ChatBot />
       </body>
     </html>
   );

@@ -55,7 +55,7 @@ const options = {
   ],
   disableDefaultUI: true,
   zoomControl: false,
-  mapTypeControl: false,
+  mapTypeControl: true,
 };
 
 export default function MapPage() {
