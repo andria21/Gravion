@@ -214,7 +214,7 @@ export default function AboutPage() {
               },
               {
                 name: "Andria Marqarovi",
-                role: "Software Developer",
+                role: "Chief Technology Officer",
                 bio: "Andria leads the technical aspect of Gravion — a system-level innovation. He ensured to bring the excellence of DM’s AI with a passion for solving the “unsolvable”. Andria shares: Gravion isn’t theory — it’s a deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.",
                 image: Andria,
               },
