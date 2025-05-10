@@ -41,7 +41,7 @@
 @keyframes radarPulse {
   0% {
     transform: scale(0.3); /* Start smaller */
-    opacity: 0.7; /* Start somewhat visible */
+    opacity: 1; /* Start somewhat visible */
   }
   70% {
     transform: scale(1.5); /* Expand significantly */

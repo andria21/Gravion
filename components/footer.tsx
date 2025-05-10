@@ -10,22 +10,27 @@ export default function Footer() {
       <div className="container py-8 md:py-12 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-center max-w-6xl mx-auto">
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 font-orbitron justify-center">
+            <Link href="/" className="flex items-center space-x-2 font-orbitron justify-center">
+              {/* Added a container for the logo and its pulse effect */}
+              <div className="relative flex items-center justify-center">
+                <div className="radar-pulse-background"></div>{" "}
+                {/* This div creates the pulse */}
+                <Image
+                  src={LOGO}
+                  alt="Gravion Logo"
+                  width={40}
+                  height={100}
+                  className="text-primary relative z-10 opacity-80" // Ensures logo is above pulse
+                />
+              </div>
               <Image
-                src={LOGO}
+                src={LOGO_TITLE}
                 alt="Gravion Logo"
-                width={40}
-                height={100}
-                className="text-primary"
+                width={120}
+                height={300} // Note: If your emblem is more square, you might want to adjust width/height
+                className="[filter:grayscale(1)_brightness(0)_invert(1)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
               />
-              <Image
-              src={LOGO_TITLE}
-              alt="Gravion Logo"
-              width={120}
-              height={300} // Note: If your emblem is more square, you might want to adjust width/height
-              className="[filter:grayscale(1)_brightness(0)_invert(1)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
-            />
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground">
               AI-powered reconnaissance system <br />
               For land, life, and what lies beneath.

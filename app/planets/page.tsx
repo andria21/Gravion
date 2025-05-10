@@ -6,6 +6,15 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { HudContainer } from "@/components/ui/hud-container";
 import { Globe2, Info } from "lucide-react";
 
+import MarsMap from "../../components/PlanetsMaps/Mars";
+import VenusMap from "../../components/PlanetsMaps/Venus";
+import EnceladusMap from "../../components/PlanetsMaps/Enceladus";
+import MercuryMap from "../../components/PlanetsMaps/Mercury";
+import EuropaMap from "../../components/PlanetsMaps/Europa";
+import TitanMap from "../../components/PlanetsMaps/Titan";
+import SaturnMap from "../../components/PlanetsMaps/Saturn";
+import JupiterMap from "../../components/PlanetsMaps/Jupiter";
+
 interface PlanetData {
   id: string;
   name: string;
@@ -60,7 +69,7 @@ const planets: PlanetData[] = [
     description:
       "Despite hostile surface conditions, Venus's upper atmosphere could support cloud-based anomaly detection.",
     image:
-      "https://images-ext-1.discordapp.net/external/aRH-pY9qKRDCFosiShN86WSxyoZtfWOkixujtfl5zVQ/%3Fse%3D2025-05-06T19%253A19%253A16Z%26sp%3Dr%26sv%3D2024-08-04%26sr%3Db%26scid%3D57fef9b3-055e-5bac-a851-76f9ca1964bf%26skoid%3Da3336399-497e-45e5-8f28-4b88ecca3d1f%26sktid%3Da48cca56-e6da-484e-a814-9c849652bcb3%26skt%3D2025-05-06T03%253A13%253A58Z%26ske%3D2025-05-07T03%253A13%253A58Z%26sks%3Db%26skv%3D2024-08-04%26sig%3DQop0FGv80VosqwTNKgPC3aJ98rJm%252Bq88lvgvA2s%252BKmY%253D/https/sdmntprnorthcentralus.oaiusercontent.com/files/00000000-ef3c-622f-abc5-27df3483d84f/raw?format=webp&width=648&height=648",
+      "https://science.nasa.gov/wp-content/uploads/2023/05/venus-mariner-10-pia23791-1920x640-1.jpg?resize=768,256",
     distance: "41 million km",
     type: "Terrestrial",
     rotation: "243 days",
@@ -72,7 +81,7 @@ const planets: PlanetData[] = [
     description:
       "Saturn's icy moon with water geysers makes it a key target for subsurface liquid detection technology.",
     image:
-      "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-c264-622f-9ca6-be8afa561242/raw?se=2025-05-06T19%3A21%3A15Z&sp=r&sv=2024-08-04&sr=b&scid=36db340f-e69f-53e8-b0e0-10bfe43b1faf&skoid=a3336399-497e-45e5-8f28-4b88ecca3d1f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-06T03%3A17%3A43Z&ske=2025-05-07T03%3A17%3A43Z&sks=b&skv=2024-08-04&sig=UuZNgTsbTkHupLX1o7J2i5uGFUCaFxZokzj4rhLfXvs%3D",
+      "https://media.discordapp.net/attachments/1303112998654836768/1370870227704872980/Screen-Shot-2019-07-14-at-6.png?ex=682111e3&is=681fc063&hm=587522b5b4531296fc67f9a07a977569f90ee3e7d6ae03cd5660709e8d7222da&=&format=webp&quality=lossless&width=1076&height=544",
     distance: "1.272 billion km",
     type: "Ice moon",
     rotation: "32.9 hours",
@@ -84,7 +93,7 @@ const planets: PlanetData[] = [
     description:
       "The closest planet to the Sun offers unique opportunities for testing extreme thermal scanning capabilities.",
     image:
-      "https://images-ext-1.discordapp.net/external/rVJ3zzkx7NGg4DFf3k3zl-u2Yj4ENLupBfaJwIQkfTU/https/i.pinimg.com/originals/e3/53/9c/e3539cce25382d900d140f889db17b6a.jpg?format=webp&width=519&height=648",
+      "https://media.discordapp.net/attachments/1303112998654836768/1370871076007186534/PIA19423.png?ex=682112ae&is=681fc12e&hm=aad56453cc1d9ad47006b562b3167b1bdc676d5771327a0551ec04376fe143c4&=&format=webp&quality=lossless",
     distance: "77 million km",
     type: "Terrestrial",
     rotation: "58.6 days",
@@ -93,8 +102,10 @@ const planets: PlanetData[] = [
   {
     id: "jupiter",
     name: "Jupiter",
-    description: "The largest planet in our solar system, a gas giant with a Great Red Spot, a storm larger than Earth.",
-    image: "https://images-assets.nasa.gov/image/PIA02852/PIA02852~orig.jpg?w=863&h=629&fit=clip&crop=faces%2Cfocalpoint",
+    description:
+      "The largest planet in our solar system, a gas giant with a Great Red Spot, a storm larger than Earth.",
+    image:
+      "https://images-assets.nasa.gov/image/PIA02852/PIA02852~orig.jpg?w=863&h=629&fit=clip&crop=faces%2Cfocalpoint",
     distance: "588 million km",
     type: "Gas Giant",
     rotation: "9.9 hours",
@@ -103,8 +114,10 @@ const planets: PlanetData[] = [
   {
     id: "saturn",
     name: "Saturn",
-    description: "Known for its stunning ring system, Saturn is another gas giant in our solar system.",
-    image: "https://images-assets.nasa.gov/image/PIA04913/PIA04913~orig.jpg?w=1016&h=1011&fit=clip&crop=faces%2Cfocalpoint",
+    description:
+      "Known for its stunning ring system, Saturn is another gas giant in our solar system.",
+    image:
+      "https://images-assets.nasa.gov/image/PIA04913/PIA04913~orig.jpg?w=1016&h=1011&fit=clip&crop=faces%2Cfocalpoint",
     distance: "1.2 billion km",
     type: "Gas Giant",
     rotation: "10.7 hours",
@@ -115,6 +128,31 @@ const planets: PlanetData[] = [
 export default function PlanetsPage() {
   const [activePlanet, setActivePlanet] = useState<PlanetData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedPricingTier, setSelectedPricingTier] =
+    useState<string>("basic");
+
+  // Function to get pricing based on planet and tier
+  const getPricing = (planetId: string, tier: string) => {
+    const pricingMap = {
+      mars: { basic: 1000, advanced: 7500, premium: 15000 },
+      europa: { basic: 1250, advanced: 9000, premium: 18000 },
+      titan: { basic: 1200, advanced: 8500, premium: 17000 },
+      venus: { basic: 950, advanced: 7000, premium: 14000 },
+      enceladus: { basic: 1300, advanced: 9500, premium: 19000 },
+      mercury: { basic: 900, advanced: 6800, premium: 13000 },
+      jupiter: { basic: 1500, advanced: 10000, premium: 20000 },
+      saturn: { basic: 1400, advanced: 9800, premium: 19500 },
+    };
+
+    return pricingMap[planetId as keyof typeof pricingMap][
+      tier as keyof typeof pricingMap.mars
+    ];
+  };
+
+  // Format price with commas
+  const formatPrice = (price: number) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
 
   useEffect(() => {
     // Simulate initial loading
@@ -145,7 +183,8 @@ export default function PlanetsPage() {
               PLANETARY EXPLORATION
             </h1>
             <p className="text-lg text-muted-foreground mb-10">
-              The future of Gravion Space technology beyond Earth&apos;s boundaries
+              The future of Gravion Space technology beyond Earth&apos;s
+              boundaries
             </p>
           </div>
         </div>
@@ -185,8 +224,8 @@ export default function PlanetsPage() {
                     <span className="text-sm font-medium">Coming Soon</span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Gravion&apos;s interplanetary anomaly detection capabilities are
-                    currently in development. Stay tuned for updates on our
+                    Gravion&apos;s interplanetary anomaly detection capabilities
+                    are currently in development. Stay tuned for updates on our
                     planetary exploration program.
                   </p>
                 </div>
@@ -208,16 +247,32 @@ export default function PlanetsPage() {
                 </HudContainer>
               ) : activePlanet ? (
                 <HudContainer className="h-full">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="relative h-[300px] md:h-full rounded-md overflow-hidden">
-                      <Image
-                        src={activePlanet.image}
-                        alt={activePlanet.name}
-                        fill
-                        className="object-cover"
-                      />
-
-                      {/* HUD overlay elements */}
+                  <div className="flex flex-col space-y-8">
+                    <div className="relative h-[300px] w-full rounded-md overflow-hidden">
+                      {activePlanet.id === "mars" ? (
+                        <MarsMap />
+                      ) : activePlanet.id === "venus" ? (
+                        <VenusMap />
+                      ) : activePlanet.id === "enceladus" ? (
+                        <EnceladusMap />
+                      ) : activePlanet.id === "europa" ? (
+                        <EuropaMap />
+                      ) : activePlanet.id === "mercury" ? (
+                        <MercuryMap />
+                      ) : activePlanet.id === "titan" ? (
+                        <TitanMap />
+                      ) : activePlanet.id === "saturn" ? (
+                        <SaturnMap />
+                      ) : activePlanet.id === "jupiter" ? (
+                        <JupiterMap />
+                      ) : (
+                        <Image
+                          src={activePlanet.image}
+                          alt={activePlanet.name}
+                          fill
+                          className="object-cover"
+                        />
+                      )}
                       <div className="absolute top-4 left-4 text-xs text-primary font-orbitron opacity-80">
                         TARGET: {activePlanet.name.toUpperCase()}
                       </div>
@@ -232,6 +287,7 @@ export default function PlanetsPage() {
                       <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-primary"></div>
                     </div>
 
+                    {/* Planet details */}
                     <div>
                       <SectionHeader
                         title={activePlanet.name}
@@ -242,26 +298,23 @@ export default function PlanetsPage() {
                         {activePlanet.description}
                       </p>
 
-                      <div className="space-y-4">
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="p-3 bg-card/70 border border-primary/20 rounded">
-                            <div className="text-xs text-muted-foreground">
-                              Type
-                            </div>
-                            <div className="text-sm font-medium">
-                              {activePlanet.type}
-                            </div>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div className="p-3 bg-card/70 border border-primary/20 rounded">
+                          <div className="text-xs text-muted-foreground">
+                            Type
                           </div>
-                          <div className="p-3 bg-card/70 border border-primary/20 rounded">
-                            <div className="text-xs text-muted-foreground">
-                              Rotation Period
-                            </div>
-                            <div className="text-sm font-medium">
-                              {activePlanet.rotation}
-                            </div>
+                          <div className="text-sm font-medium">
+                            {activePlanet.type}
                           </div>
                         </div>
-
+                        <div className="p-3 bg-card/70 border border-primary/20 rounded">
+                          <div className="text-xs text-muted-foreground">
+                            Rotation Period
+                          </div>
+                          <div className="text-sm font-medium">
+                            {activePlanet.rotation}
+                          </div>
+                        </div>
                         <div className="p-3 bg-card/70 border border-primary/20 rounded">
                           <div className="text-xs text-muted-foreground">
                             Atmosphere
@@ -270,29 +323,236 @@ export default function PlanetsPage() {
                             {activePlanet.atmosphere}
                           </div>
                         </div>
+                      </div>
 
-                        <div className="p-3 bg-card/70 border border-primary/20 rounded">
-                          <div className="text-xs text-muted-foreground">
-                            Gravion Detection Focus
-                          </div>
-                          <div className="text-sm font-medium">
-                            {activePlanet.id === "mars" &&
-                              "Surface mapping, resource location"}
-                            {activePlanet.id === "europa" &&
-                              "Subsurface ocean detection"}
-                            {activePlanet.id === "titan" &&
-                              "Methane lake analysis"}
-                            {activePlanet.id === "venus" &&
-                              "Atmospheric composition scanning"}
-                            {activePlanet.id === "enceladus" &&
-                              "Water plume detection"}
-                            {activePlanet.id === "mercury" &&
-                              "Extreme temperature variation mapping"}
-                            {activePlanet.id === "jupiter" &&
-                              "Great Red Spot monitoring, atmospheric dynamics"}
-                            {activePlanet.id === "saturn" &&
-                              "Ring system stability, moon interactions"}
-                          </div>
+                      <div className="p-3 bg-card/70 border border-primary/20 rounded mb-8">
+                        <div className="text-xs text-muted-foreground">
+                          Gravion Detection Focus
+                        </div>
+                        <div className="text-sm font-medium">
+                          {activePlanet.id === "mars" &&
+                            "Surface mapping, resource location"}
+                          {activePlanet.id === "europa" &&
+                            "Subsurface ocean detection"}
+                          {activePlanet.id === "titan" &&
+                            "Methane lake analysis"}
+                          {activePlanet.id === "venus" &&
+                            "Atmospheric composition scanning"}
+                          {activePlanet.id === "enceladus" &&
+                            "Water plume detection"}
+                          {activePlanet.id === "mercury" &&
+                            "Extreme temperature variation mapping"}
+                          {activePlanet.id === "jupiter" &&
+                            "Great Red Spot monitoring, atmospheric dynamics"}
+                          {activePlanet.id === "saturn" &&
+                            "Ring system stability, moon interactions"}
+                        </div>
+                      </div>
+
+                      {/* Scan Coverage Information */}
+                      <div className="p-3 bg-card/70 border border-primary/20 rounded mb-8">
+                        <div className="text-xs text-muted-foreground">
+                          Scan Coverage Limitations
+                        </div>
+                        <div className="text-sm font-medium">
+                          {activePlanet.id === "mars" &&
+                            "Full 360° surface scan available with high-resolution mapping across all regions."}
+                          {activePlanet.id === "europa" &&
+                            "Partial surface data only. No full 360° terrain scans available. Limited to regions captured during spacecraft flybys."}
+                          {activePlanet.id === "titan" &&
+                            "Limited scan regions available. Only selected areas captured during Cassini mission flybys. No global high-resolution data."}
+                          {activePlanet.id === "venus" &&
+                            "Surface imaging via radar only due to permanent cloud cover. No optical scans available. Terrain features are lower-resolution and radar-based."}
+                          {activePlanet.id === "enceladus" &&
+                            "Limited scan regions available. Only selected areas captured during Cassini mission flybys. Focus on regions with detected water plumes."}
+                          {activePlanet.id === "mercury" &&
+                            "Comprehensive surface mapping available from MESSENGER mission. High-resolution data for most surface regions."}
+                          {activePlanet.id === "jupiter" &&
+                            "Atmospheric scan data only. No solid surface available for terrain mapping. Focus on cloud patterns and storm systems."}
+                          {activePlanet.id === "saturn" &&
+                            "Atmospheric scan data only. No solid surface available for terrain mapping. Ring system analysis available at various resolutions."}
+                        </div>
+                      </div>
+
+                      {/* Pricing Section */}
+                      <div className="mt-8">
+                        <SectionHeader title="SCAN PRICING" className="mb-6" />
+
+                        {/* Pricing Tier Selection */}
+                        <div className="flex flex-wrap gap-4 mb-8">
+                          <button
+                            onClick={() => setSelectedPricingTier("basic")}
+                            className={`px-4 py-2 border ${
+                              selectedPricingTier === "basic"
+                                ? "border-primary bg-primary/20 text-primary"
+                                : "border-primary/20 hover:bg-primary/10"
+                            } rounded-md transition-colors`}
+                          >
+                            Basic Scan
+                          </button>
+                          <button
+                            onClick={() => setSelectedPricingTier("advanced")}
+                            className={`px-4 py-2 border ${
+                              selectedPricingTier === "advanced"
+                                ? "border-primary bg-primary/20 text-primary"
+                                : "border-primary/20 hover:bg-primary/10"
+                            } rounded-md transition-colors`}
+                          >
+                            Advanced Scan
+                          </button>
+                          <button
+                            onClick={() => setSelectedPricingTier("premium")}
+                            className={`px-4 py-2 border ${
+                              selectedPricingTier === "premium"
+                                ? "border-primary bg-primary/20 text-primary"
+                                : "border-primary/20 hover:bg-primary/10"
+                            } rounded-md transition-colors`}
+                          >
+                            Premium Scan
+                          </button>
+                        </div>
+
+                        {/* Pricing Tier Details */}
+                        <div className="grid grid-cols-1 gap-6">
+                          {/* Basic Scan */}
+                          {selectedPricingTier === "basic" && activePlanet && (
+                            <div className="p-6 bg-card/70 border border-primary/20 rounded-md">
+                              <div className="flex justify-between items-center mb-4">
+                                <h3 className="text-xl font-bold">
+                                  Basic Scan
+                                </h3>
+                                <div className="text-2xl font-bold text-primary">
+                                  $
+                                  {formatPrice(
+                                    getPricing(activePlanet.id, "basic")
+                                  )}
+                                </div>
+                              </div>
+                              <div className="border-b border-primary/20 mb-4"></div>
+                              <ul className="space-y-3 mb-6">
+                                <li className="flex items-start">
+                                  <span className="text-primary mr-2">•</span>
+                                  <span>Up to 0.4 sq mi (~1 km²)</span>
+                                </li>
+                                <li className="flex items-start">
+                                  <span className="text-primary mr-2">•</span>
+                                  <span>Standard visual scan</span>
+                                </li>
+                                <li className="flex items-start">
+                                  <span className="text-primary mr-2">•</span>
+                                  <span>Basic anomaly detection</span>
+                                </li>
+                              </ul>
+                              <div className="text-sm text-muted-foreground mb-6">
+                                For: hobbyists, small researchers, land
+                                curiosity scans
+                              </div>
+                              <button className="w-full py-3 bg-primary/10 border border-primary text-primary hover:bg-primary/20 transition-colors rounded-md font-medium">
+                                Select Area & Generate Report
+                              </button>
+                            </div>
+                          )}
+
+                          {/* Advanced Scan */}
+                          {selectedPricingTier === "advanced" &&
+                            activePlanet && (
+                              <div className="p-6 bg-card/70 border border-primary/20 rounded-md">
+                                <div className="flex justify-between items-center mb-4">
+                                  <h3 className="text-xl font-bold">
+                                    Advanced Scan
+                                  </h3>
+                                  <div className="text-2xl font-bold text-primary">
+                                    $
+                                    {formatPrice(
+                                      getPricing(activePlanet.id, "advanced")
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="border-b border-primary/20 mb-4"></div>
+                                <ul className="space-y-3 mb-6">
+                                  <li className="flex items-start">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Up to 1 sq mi</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Thermal + terrain overlays</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>
+                                      AI anomaly markers & classification
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Downloadable report</span>
+                                  </li>
+                                </ul>
+                                <div className="text-sm text-muted-foreground mb-6">
+                                  For: mining, insurance, law enforcement, land
+                                  validation
+                                </div>
+                                <button className="w-full py-3 bg-primary/10 border border-primary text-primary hover:bg-primary/20 transition-colors rounded-md font-medium">
+                                  {activePlanet.id === "venus"
+                                    ? "Select Radar-Mapped Area & Generate Report"
+                                    : activePlanet.id === "jupiter" ||
+                                      activePlanet.id === "saturn"
+                                    ? "Select Atmospheric Region & Generate Report"
+                                    : "Select Available Region & Generate Report"}
+                                </button>
+                              </div>
+                            )}
+
+                          {/* Premium Scan */}
+                          {selectedPricingTier === "premium" &&
+                            activePlanet && (
+                              <div className="p-6 bg-card/70 border border-primary/20 rounded-md">
+                                <div className="flex justify-between items-center mb-4">
+                                  <h3 className="text-xl font-bold">
+                                    Premium Scan
+                                  </h3>
+                                  <div className="text-2xl font-bold text-primary">
+                                    $
+                                    {formatPrice(
+                                      getPricing(activePlanet.id, "premium")
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="border-b border-primary/20 mb-4"></div>
+                                <ul className="space-y-3 mb-6">
+                                  <li className="flex items-start">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Up to 5 sq mi</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>
+                                      Includes all advanced features plus:
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start pl-6">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Pattern recognition</span>
+                                  </li>
+                                  <li className="flex items-start pl-6">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Predictive indicators</span>
+                                  </li>
+                                  <li className="flex items-start pl-6">
+                                    <span className="text-primary mr-2">•</span>
+                                    <span>Full AI-generated report pack</span>
+                                  </li>
+                                </ul>
+                                <div className="text-sm text-muted-foreground mb-6">
+                                  For: military, SAR teams, large-scale asset
+                                  scouting
+                                </div>
+                                <button className="w-full py-3 bg-primary/10 border border-primary text-primary hover:bg-primary/20 transition-colors rounded-md font-medium">
+                                  Select Area & Generate Report
+                                </button>
+                              </div>
+                            )}
                         </div>
                       </div>
 
@@ -380,8 +640,8 @@ export default function PlanetsPage() {
                   THE NEXT FRONTIER
                 </h2>
                 <p className="text-lg mb-6">
-                  Join us on our mission to expand humanity&apos;s reach into the
-                  solar system with cutting-edge detection technology
+                  Join us on our mission to expand humanity&apos;s reach into
+                  the solar system with cutting-edge detection technology
                 </p>
                 <div className="inline-block relative">
                   <div className="relative z-10 px-8 py-3 font-orbitron tracking-widest border-2 border-primary text-primary bg-background/80 backdrop-blur-sm">

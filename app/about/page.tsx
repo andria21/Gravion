@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { HudContainer } from "@/components/ui/hud-container";
 import Irakli from "../../assets/team-images/Irakli.jpg";
+import Aleksandre from "../../assets/team-images/aleksandre.jpg";
 import Andria from "../../assets/team-images/Andria.png";
+import Ivan from "../../assets/team-images/Ivan.jpg";
 
 // Add this style block
 import "./team-animations.css";
@@ -95,10 +97,10 @@ export default function AboutPage() {
 
       <section className="py-20 bg-card/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative rounded-lg overflow-hidden h-[400px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 items-center">
+            <div className="relative rounded-lg overflow-hidden h-[500px] w-[430px] mx-auto">
               <Image
-                src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg"
+                src={Ivan}
                 alt="CEO working"
                 fill
                 className="object-cover"
@@ -117,40 +119,43 @@ export default function AboutPage() {
 
               <div className="space-y-4 text-lg">
                 <p className="text-muted-foreground">
-                  I&apos;m a builder and operator with a background in field
-                  operations, technical service, and high-pressure logistics. I
-                  founded a successful appliance service business from scratch,
-                  scaled it profitably, and I&apos;ve since launched Gravion —
-                  an AI reconnaissance and anomaly detection platform designed
-                  for real-world deployment.
+                  I come from running a home services business — real work,
+                  managing crews, solving problems in the field. Along the way,
+                  I learned how different business models operate, and I knew I
+                  eventually wanted to shift from service work to building
+                  something that could scale and have deeper impact.
                 </p>
 
                 <p className="text-muted-foreground">
-                  While I&apos;m not a coder, I drive execution: organizing
-                  development, defining system logic, and translating mission
-                  needs into software features. I move fast — Gravion already
-                  has a working prototype, mission video, and demo-ready
-                  website.
+                  Gravion didn’t come out of nowhere. It started with my
+                  interest in treasure hunting, trying to find what’s hidden
+                  underground. That obsession grew into learning about terrain
+                  scanning, satellite imaging, and AI detection — and it became
+                  clear there was a bigger opportunity here. Not just for
+                  hobbyists, but for law enforcement, search and rescue teams,
+                  military operations, mining, and even planetary analysis.
                 </p>
 
                 <p className="text-muted-foreground">
-                  I&apos;m obsessed with building tools that make a real-world
-                  impact, especially in rescue, defense, and mineral
-                  exploration.
+                  I’m not here to sell a quick startup. I love what Gravion does
+                  — and I’m building it with full focus and passion. This is my
+                  first serious project in the production space, and I’m
+                  determined to make it deliver real results. Gravion is just
+                  the beginning of a much larger path I’m committed to walking.
                 </p>
               </div>
 
               <div className="mt-8 flex items-center">
                 <div className="w-12 h-12 relative rounded-full overflow-hidden mr-4">
                   <Image
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                    src={Ivan}
                     alt="CEO portrait"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div>
-                  <div className="font-medium">James Turner</div>
+                  <div className="font-medium">Ivan Molokoedov</div>
                   <div className="text-sm text-primary">Founder & CEO</div>
                 </div>
               </div>
@@ -182,19 +187,20 @@ export default function AboutPage() {
               technology.
             </p>
 
-            <p className="text-muted-foreground mb-4">
-              But we&apos;re more than tools—we&apos;re a movement. Built on the
-              belief that innovation should lead to fairness, safety, and
-              progress, Gravion stands as a balance between chaos and clarity,
-              between automation and human value. This company doesn&apos;t just
-              serve society—it&apos;s powered by it. Our responsibility is not
-              just to profit, but to purpose.
-            </p>
-
             <p className="text-muted-foreground">
-              Meet the dedicated teams and individuals below who are building
-              Gravion for something greater than themselves. Let&apos;s make it
-              together.
+              Meet the dedicated team members below who are building Gravion for
+              something greater than themselves.
+            </p>
+          </div>
+          <SectionHeader title="DM'S AI TEAM" className="mb-6" align="center" />
+
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-muted-foreground mb-4">
+              DM’s AI was built to simplify — to give companies the tools to
+              move faster, serve better, and think bigger. It is an automation
+              company focused on building AI-powered support bots, but also a
+              company which builds modern websites - powered with their
+              innovative support bots.
             </p>
           </div>
 
@@ -202,22 +208,21 @@ export default function AboutPage() {
             {[
               {
                 name: "Irakli Darsavelidze",
-                role: "Chief Technical Officer",
-                bio: "-",
+                role: "Chief Executive Officer - DM’s AI",
+                bio: "Irakli is the driving force behind DM’s AI — Under his leadership, DM’s AI evolved from an ambitious concept into an operational force. Irakli is the mastermind behind Gravions system level execution. His goal is not only to build products, but to build the right team for the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.",
                 image: Irakli,
               },
               {
                 name: "Andria Marqarovi",
                 role: "Software Developer",
-                bio: "-",
+                bio: "Andria leads the technical aspect of Gravion — a system-level innovation. He ensured to bring the excellence of DM’s AI with a passion for solving the “unsolvable”. Andria shares: Gravion isn’t theory — it’s a deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.",
                 image: Andria,
               },
               {
-                name: "Dr. Sophia Chen",
-                role: "Lead Data Scientist",
-                bio: "Pioneering researcher in thermal imaging analysis with multiple patents in anomaly detection algorithms and real-time data processing.",
-                image:
-                  "https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg",
+                name: "Aleksandre Mirzashvili",
+                role: "Chief Operating Officer",
+                bio: "Aleksandre is Gravion’s and DM’s AI’s operational compass — the one ensuring that all parts, people, and processes are completed with precision. he bridges the gap between vision and practical execution. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. With DM’s AI and Gravion, we  kept every promise, hit every mark, and turned complexity into clarity.",
+                image: Aleksandre,
               },
             ].map((member, index) => (
               <HudContainer key={index} className="h-full">
@@ -241,51 +246,57 @@ export default function AboutPage() {
               </HudContainer>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            {[
-              {
-                name: "James Turner",
-                role: "Chief of Search Operations",
-                bio: "Former search and rescue coordinator with extensive experience in wilderness operations and emergency response coordination.",
-                image:
-                  "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
-              },
-              {
-                name: "Dr. Aisha Patel",
-                role: "Resource Detection Specialist",
-                bio: "Geologist with expertise in mineral exploration and development of remote sensing techniques for identifying resource deposits.",
-                image:
-                  "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
-              },
-              {
-                name: "Leo Nakamura",
-                role: "Systems Architect",
-                bio: "Software engineer specializing in real-time data processing systems and satellite communications infrastructure.",
-                image:
-                  "https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg",
-              },
-            ].map((member, index) => (
-              <HudContainer key={index} className="h-full">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                    <div className="team-image-container">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover team-image"
-                      />
-                    </div>
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader title="ONDE TEAM" className="mb-6" align="center" />
+
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-muted-foreground mb-4">
+              Onde is a creative design studio specializing in high-impact
+              animation, cinematic effects, and sound design. Their team brought
+              Gravion’s vision to life through a precise blend of storytelling
+              and technical execution — not just building visuals, but
+              constructing a tone, a rhythm, and an identity that matched the
+              system’s depth and mission. With specialists covering everything
+              from motion design to sound atmospheres and dynamic transitions,
+              Onde helped shape the way Gravion is experienced, not just seen.
+            </p>
+
+            <p className="text-muted-foreground">
+              Let&apos;s make it together.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-md mx-auto">
+            <HudContainer className="h-full">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                  <div className="team-image-container">
+                    <Image
+                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                      alt="James Turner"
+                      fill
+                      className="object-cover team-image"
+                    />
                   </div>
-
-                  <h3 className="text-xl font-medium mb-1">{member.name}</h3>
-                  <p className="text-primary text-sm mb-4">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
                 </div>
-              </HudContainer>
-            ))}
+
+                <h3 className="text-xl font-medium mb-1">Dmitrii</h3>
+                <p className="text-primary text-sm mb-4">Creative Director</p>
+                <p className="text-muted-foreground text-sm">
+                  At first, I thought Gravion was just another sci-fi pitch —
+                  flashy, distant, maybe even exaggerated. I almost turned it
+                  down. But as I learned what it really was — a platform built
+                  to save lives, locate what others can’t, and turn chaos into
+                  clarity — something changed. It wasn’t fiction. It was
+                  necessary. And I knew we had to be the ones to tell that story
+                </p>
+              </div>
+            </HudContainer>
           </div>
         </div>
       </section>

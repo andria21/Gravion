@@ -11,6 +11,7 @@ import {
   Database,
   Lock,
   Compass,
+  Globe
 } from "lucide-react";
 
 export default function Home() {
@@ -158,6 +159,16 @@ export default function Home() {
               icon={Compass}
               variant="primary"
               comingSoon={true}
+            />
+            {/* New Mars Geological Report Card */}
+            <UseCaseCard
+              title="Mars Geological Reports"
+              description="Select a location on Mars and receive an AI-generated geological report with terrain elevation profiles, radiation exposure indices, and anomaly detection using actual NASA/HiRISE data. Each report includes a commemorative 'Gravion Mars Geo Certificate' with your name and parcel coordinates, plus optional 3D terrain models and digital registry badges. This symbolic, futuristic feature showcases Gravion's analysis capabilities beyond Earth."
+              icon={Globe}
+              variant="primary"
+              comingSoon={false}
+              className="lg:col-start-2 border-cyan-950"
+              disclaimerText="This report is symbolic and speculative. Gravion does not sell legally binding land ownership on Mars or any celestial body."
             />
           </div>
         </div>
