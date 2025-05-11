@@ -8,7 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import ChatBot from '@/components/chatbot/chatbot';
 
 export const metadata: Metadata = {
-  title: 'Gravion | AI-powered anomaly detection from space',
+  title: 'Gravion | AI-powered reconnaissance system',
   description: 'AI-powered anomaly detection from space — for land, life, and what lies beneath.',
   manifest: "/manifest.json",
 };
