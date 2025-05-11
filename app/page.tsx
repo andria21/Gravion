@@ -47,16 +47,22 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="w-full sm:w-auto">
-              <Link href="/map">GET STARTED</Link>
+            <Button asChild size="lg" className="w-full sm:w-auto group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105">
+              <Link href="/map" className="relative z-10">
+                <span className="relative z-10">GET STARTED</span>
+                <span className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+              </Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-black"
             >
-              <Link href="/about">LEARN MORE</Link>
+              <Link href="/about" className="relative z-10">
+                <span className="relative z-10">LEARN MORE</span>
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              </Link>
             </Button>
           </div>
         </div>

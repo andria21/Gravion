@@ -14,6 +14,8 @@ import {
   Target,
   Pencil,
   Circle as CircleIcon,
+  Map,
+  Layers,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion"; // Import motion
@@ -55,7 +57,63 @@ const options = {
   ],
   disableDefaultUI: true,
   zoomControl: false,
-  mapTypeControl: true,
+  mapTypeControl: false,
+};
+
+// Custom Map Type Control Component
+const MapTypeControl = ({ map }: { map: google.maps.Map | null }) => {
+  const [activeMapType, setActiveMapType] = useState<string>("roadmap");
+
+  const changeMapType = useCallback(
+    (mapType: string) => {
+      if (!map) return;
+
+      setActiveMapType(mapType);
+      map.setMapTypeId(mapType);
+    },
+    [map]
+  );
+
+  return (
+    <div className="absolute bottom-0 md:bottom-4 md:right-4 z-10 flex flex-col gap-0 md:gap-2 bg-card/90 p-2 rounded border border-primary/20">
+      <Button
+        variant={activeMapType === "roadmap" ? "default" : "outline"}
+        size="sm"
+        className="justify-start"
+        onClick={() => changeMapType("roadmap")}
+      >
+        <Map className="h-4 w-4 mr-2" />
+        Standard
+      </Button>
+      <Button
+        variant={activeMapType === "satellite" ? "default" : "outline"}
+        size="sm"
+        className="justify-start"
+        onClick={() => changeMapType("satellite")}
+      >
+        <Layers className="h-4 w-4 mr-2" />
+        Satellite
+      </Button>
+      <Button
+        variant={activeMapType === "terrain" ? "default" : "outline"}
+        size="sm"
+        className="justify-start"
+        onClick={() => changeMapType("terrain")}
+      >
+        <Target className="h-4 w-4 mr-2" />
+        Terrain
+      </Button>
+      <Button
+        variant={activeMapType === "hybrid" ? "default" : "outline"}
+        size="sm"
+        className="justify-start"
+        onClick={() => changeMapType("hybrid")}
+      >
+        <Crosshair className="h-4 w-4 mr-2" />
+        Hybrid
+      </Button>
+    </div>
+  );
 };
 
 export default function MapPage() {
@@ -104,9 +162,12 @@ export default function MapPage() {
     }
   }, []);
 
+  const [mapT, setMapT] = useState<google.maps.Map | null>(null);
+
   const onMapLoad = useCallback(
     (map: google.maps.Map) => {
       mapRef.current = map;
+      setMapT(map);
 
       // If the searchBox is already initialized, prevent re-initialization.
       // This stops duplicate search inputs if onMapLoad is called multiple times.
@@ -123,7 +184,7 @@ export default function MapPage() {
       input.type = "text";
       input.placeholder = "Search location...";
       input.className =
-        "absolute top-4 left-1/2 -translate-x-1/2 z-10 w-64 px-4 py-2 rounded bg-card/90 border border-primary/20 text-sm font-mono text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50";
+        "w-54 md:w-64 mx-auto px-4 py-2 rounded bg-card/90 border border-primary/20 text-sm font-mono text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50";
 
       map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
@@ -623,7 +684,7 @@ export default function MapPage() {
                   </div>
                 </div>
 
-                <div className="relative w-full aspect-video bg-black rounded overflow-hidden cursor-crosshair">
+                <div className="relative w-full aspect-video bg-black rounded overflow-hidden cursor-crosshair h-[500px] md:h-[602px]">
                   {!isLoaded ? (
                     <div className="absolute inset-0 flex items-center justify-center bg-card">
                       <div className="animate-spin mr-2">
@@ -636,11 +697,12 @@ export default function MapPage() {
                   ) : (
                     <GoogleMap
                       mapContainerStyle={mapContainerStyle}
-                      zoom={8}
                       center={center}
+                      zoom={10}
                       options={options}
-                      onClick={onMapClick}
                       onLoad={onMapLoad}
+                      onUnmount={onMapUnmount}
+                      onClick={onMapClick}
                     >
                       {selectedLocation && (
                         <Marker
@@ -657,11 +719,32 @@ export default function MapPage() {
                       )}
                     </GoogleMap>
                   )}
+                  {/* Custom zoom controls */}
+                  <div className="absolute top-0 md:top-4 right-0 md:right-4 z-10 flex flex-col gap-2">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="bg-card/90 border border-primary/20"
+                      onClick={handleZoomIn}
+                    >
+                      <span className="text-lg font-bold">+</span>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="bg-card/90 border border-primary/20"
+                      onClick={handleZoomOut}
+                    >
+                      <span className="text-lg font-bold">-</span>
+                    </Button>
+                  </div>
+                  {/* Add custom map type control */}
+                  <MapTypeControl map={mapT} />
 
-                  <div className="absolute top-4 left-4 text-xs text-primary font-orbitron opacity-80">
+                  <div className="absolute top-4 left-4 text-xs text-primary font-orbitron opacity-80 hidden md:block">
                     ZOOM: 8X | MODE: {activeMode.toUpperCase()}
                   </div>
-                  <div className="absolute top-4 right-4 text-xs text-primary font-orbitron opacity-80">
+                  <div className="absolute top-4 right-4 text-xs text-primary font-orbitron opacity-80 hidden md:block">
                     SATELLITE FEED: ACTIVE
                   </div>
 

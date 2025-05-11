@@ -98,27 +98,48 @@ export default function AboutPage() {
 
       <section className="py-20 bg-card/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 items-center">
-            <div className="relative rounded-lg overflow-hidden h-[500px] w-[430px] mx-auto">
-              <Image
-                src={Ivan}
-                alt="CEO working"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/10"></div>
+          <SectionHeader
+            title="FROM THE CEO"
+            className="mb-10"
+            align="center"
+          />
 
-              {/* Targeting overlay */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary"></div>
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary"></div>
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary"></div>
+          <div className="flex flex-col md:flex-row gap-8 items-start max-w-5xl mx-auto">
+            <div className="md:w-2/5 w-full">
+              <div className="relative rounded-lg overflow-hidden aspect-square max-w-[350px] mx-auto">
+                <Image
+                  src={Ivan}
+                  alt="CEO working"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/10"></div>
+
+                {/* Targeting overlay */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary"></div>
+              </div>
+
+              <div className="mt-6 flex items-center justify-center">
+                <div className="w-14 h-14 relative rounded-full overflow-hidden mr-4">
+                  <Image
+                    src={Ivan}
+                    alt="CEO portrait"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="font-medium text-lg">Ivan Molokoedov</div>
+                  <div className="text-primary">Founder & CEO</div>
+                </div>
+              </div>
             </div>
 
-            <div>
-              <SectionHeader title="FROM THE CEO" className="mb-6" />
-
-              <div className="space-y-4 text-lg">
+            <div className="md:w-3/5 md:pt-0 pt-4 text-center md:text-left">
+              <div className="space-y-4">
                 <p className="text-muted-foreground">
                   I come from running a home services business — real work,
                   managing crews, solving problems in the field. Along the way,
@@ -128,37 +149,23 @@ export default function AboutPage() {
                 </p>
 
                 <p className="text-muted-foreground">
-                  Gravion didn’t come out of nowhere. It started with my
-                  interest in treasure hunting, trying to find what’s hidden
-                  underground. That obsession grew into learning about terrain
-                  scanning, satellite imaging, and AI detection — and it became
-                  clear there was a bigger opportunity here. Not just for
+                  Gravion didn&apos;t come out of nowhere. It started with my
+                  interest in treasure hunting, trying to find what&apos;s
+                  hidden underground. That obsession grew into learning about
+                  terrain scanning, satellite imaging, and AI detection — and it
+                  became clear there was a bigger opportunity here. Not just for
                   hobbyists, but for law enforcement, search and rescue teams,
                   military operations, mining, and even planetary analysis.
                 </p>
 
                 <p className="text-muted-foreground">
-                  I’m not here to sell a quick startup. I love what Gravion does
-                  — and I’m building it with full focus and passion. This is my
-                  first serious project in the production space, and I’m
-                  determined to make it deliver real results. Gravion is just
-                  the beginning of a much larger path I’m committed to walking.
+                  I&apos;m not here to sell a quick startup. I love what Gravion
+                  does — and I&apos;m building it with full focus and passion.
+                  This is my first serious project in the production space, and
+                  I&apos;m determined to make it deliver real results. Gravion
+                  is just the beginning of a much larger path I&apos;m committed
+                  to walking.
                 </p>
-              </div>
-
-              <div className="mt-8 flex items-center">
-                <div className="w-12 h-12 relative rounded-full overflow-hidden mr-4">
-                  <Image
-                    src={Ivan}
-                    alt="CEO portrait"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="font-medium">Ivan Molokoedov</div>
-                  <div className="text-sm text-primary">Founder & CEO</div>
-                </div>
               </div>
             </div>
           </div>
