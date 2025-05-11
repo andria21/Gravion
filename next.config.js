@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const withPWA = require("next-pwa");
+
 const nextConfig = {
   output: 'export',
   eslint: {
@@ -7,4 +10,16 @@ const nextConfig = {
   images: { unoptimized: true },
 };
 
-module.exports = nextConfig;
+// export default withPWA({
+//   dest: "public",
+//   cacheOnFrontEndNav: true,
+//   reloadOnOnline: true,
+//   disable: false,
+// })
+
+module.exports = withPWA ({
+  dest: "public",
+  cacheOnFrontEndNav: true,
+  reloadOnOnline: true,
+  disable: false,
+})(nextConfig);

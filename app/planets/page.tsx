@@ -15,6 +15,9 @@ import TitanMap from "../../components/PlanetsMaps/Titan";
 import SaturnMap from "../../components/PlanetsMaps/Saturn";
 import JupiterMap from "../../components/PlanetsMaps/Jupiter";
 
+import PlanetsImage from "../../public/app-images/planets.jpg"
+
+
 interface PlanetData {
   id: string;
   name: string;
@@ -170,7 +173,7 @@ export default function PlanetsPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background to-background"></div>
           <Image
-            src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg"
+            src={PlanetsImage}
             alt="Stars in space"
             fill
             className="object-cover opacity-50"

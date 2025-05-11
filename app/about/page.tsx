@@ -8,6 +8,9 @@ import Aleksandre from "../../assets/team-images/aleksandre.jpg";
 import Andria from "../../assets/team-images/Andria.png";
 import Ivan from "../../assets/team-images/Ivan.jpg";
 import Dmitri from "../../assets/team-images/dmitri.jpg";
+import AboutImage from "../../public/app-images/about.jpg"
+import AboutImage2 from "../../public/app-images/about2.jpeg"
+import AboutImage3 from "../../public/app-images/about3.jpeg"
 
 // Add this style block
 import "./team-animations.css";
@@ -19,7 +22,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background to-background"></div>
           <Image
-            src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src={AboutImage}
             alt="Satellite in orbit"
             fill
             className="object-cover opacity-30"
@@ -79,7 +82,7 @@ export default function AboutPage() {
 
             <div className="relative rounded-lg overflow-hidden h-[400px]">
               <Image
-                src="https://images.pexels.com/photos/4644812/pexels-photo-4644812.jpeg"
+                src={AboutImage2}
                 alt="Satellite control room"
                 fill
                 className="object-cover"
@@ -314,7 +317,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-lg overflow-hidden h-[400px]">
               <Image
-                src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg"
+                src={AboutImage3}
                 alt="Tech innovation"
                 fill
                 className="object-cover"
