@@ -168,8 +168,8 @@ export default function Home() {
             />
             {/* New Mars Geological Report Card */}
             <UseCaseCard
-              title="Mars Geological Reports"
-              description="Select a location on Mars and receive an AI-generated geological report with terrain elevation profiles, radiation exposure indices, and anomaly detection using actual NASA/HiRISE data. Each report includes a commemorative 'Gravion Mars Geo Certificate' with your name and parcel coordinates, plus optional 3D terrain models and digital registry badges. This symbolic, futuristic feature showcases Gravion's analysis capabilities beyond Earth."
+              title="Geological Reports"
+              description="Select a location on Mars or choose from other planets in our solar system (availability may vary) and receive an AI-generated geological report with terrain elevation profiles, radiation exposure indices, and anomaly detection using actual NASA/HiRISE data. Each report includes a commemorative 'Gravion Mars Geo Certificate' with your name and parcel coordinates, plus optional 3D terrain models and digital registry badges. This symbolic, futuristic feature showcases Gravion's analysis capabilities beyond Earth."
               icon={Globe}
               variant="primary"
               comingSoon={false}

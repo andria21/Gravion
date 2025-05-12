@@ -328,6 +328,7 @@ export default function PlanetsPage() {
                         </div>
                       </div>
 
+                      {/* Planet details */}
                       <div className="p-3 bg-card/70 border border-primary/20 rounded mb-8">
                         <div className="text-xs text-muted-foreground">
                           Gravion Detection Focus
@@ -374,6 +375,16 @@ export default function PlanetsPage() {
                             "Atmospheric scan data only. No solid surface available for terrain mapping. Focus on cloud patterns and storm systems."}
                           {activePlanet.id === "saturn" &&
                             "Atmospheric scan data only. No solid surface available for terrain mapping. Ring system analysis available at various resolutions."}
+                        </div>
+                      </div>
+
+                      {/* NFT Certificate Information */}
+                      <div className="p-3 bg-card/70 border border-primary/20 rounded mb-8">
+                        <div className="text-xs text-muted-foreground">
+                          Exclusive NFT Certificate
+                        </div>
+                        <div className="text-sm font-medium">
+                          All planetary scans come with a unique, verifiable NFT certificate, commemorating your contribution to Gravion&apos;s exploration efforts and granting access to exclusive holder benefits.
                         </div>
                       </div>
 
