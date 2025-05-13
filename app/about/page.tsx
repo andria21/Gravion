@@ -8,9 +8,10 @@ import Aleksandre from "../../assets/team-images/aleksandre.jpg";
 import Andria from "../../assets/team-images/Andria.png";
 import Ivan from "../../assets/team-images/Ivan.jpg";
 import Dmitri from "../../assets/team-images/dmitri.jpg";
-import AboutImage from "../../public/app-images/about.jpg"
-import AboutImage2 from "../../public/app-images/about2.jpeg"
-import AboutImage3 from "../../public/app-images/about3.jpeg"
+import AboutImage from "../../public/app-images/about.jpg";
+import AboutImage2 from "../../public/app-images/about2.jpeg";
+import AboutImage3 from "../../public/app-images/about3.jpeg";
+import CEO from "../../assets/team-images/CEO.jpg";
 
 // Add this style block
 import "./team-animations.css";
@@ -111,7 +112,7 @@ export default function AboutPage() {
             <div className="md:w-2/5 w-full">
               <div className="relative rounded-lg overflow-hidden aspect-square max-w-[350px] mx-auto">
                 <Image
-                  src={Ivan}
+                  src={CEO}
                   alt="CEO working"
                   fill
                   className="object-cover"
@@ -162,12 +163,13 @@ export default function AboutPage() {
                 </p>
 
                 <p className="text-muted-foreground">
-                  I&apos;m not here to sell a quick startup. I love what Gravion
-                  does — and I&apos;m building it with full focus and passion.
-                  This is my first serious project in the production space, and
-                  I&apos;m determined to make it deliver real results. Gravion
-                  is just the beginning of a much larger path I&apos;m committed
-                  to walking.
+                  I don’t pursue projects for the sake of difficulty — I pursue
+                  them for their potential. With a background shaped by
+                  discipline and high-performance focus, I’m wired for
+                  execution. Gravion isn’t just another ambitious idea — it’s a
+                  calculated move toward real-world impact. I identify
+                  opportunities where vision meets feasibility, and I build
+                  until results are delivered.
                 </p>
               </div>
             </div>

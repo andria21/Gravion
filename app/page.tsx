@@ -11,8 +11,9 @@ import {
   Database,
   Lock,
   Compass,
-  Globe
+  Globe,
 } from "lucide-react";
+import VideoPlayer from "@/components/video-player/VideoPlayer";
 
 export default function Home() {
   return (
@@ -47,7 +48,11 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="w-full sm:w-auto group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105">
+            <Button
+              asChild
+              size="lg"
+              className="w-full sm:w-auto group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
+            >
               <Link href="/map" className="relative z-10">
                 <span className="relative z-10">GET STARTED</span>
                 <span className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
@@ -86,9 +91,7 @@ export default function Home() {
             className="mb-10"
           />
 
-          <HudContainer className="mx-auto max-w-4xl">
-            <div className="aspect-video relative overflow-hidden rounded bg-black">
-              <div className="absolute inset-0 flex items-center justify-center">
+          {/* <div className="absolute inset-0 flex items-center justify-center">
                 <Button
                   variant="outline"
                   size="lg"
@@ -96,10 +99,27 @@ export default function Home() {
                 >
                   Watch Demo
                 </Button>
-              </div>
+              </div> */}
+
+          <HudContainer className="mx-auto max-w-4xl">
+            <div className="aspect-video relative overflow-hidden rounded bg-black">
+              {/* <video
+                src="https://res.cloudinary.com/djynatwlg/video/upload/v1747128968/xy5m2b6uhckarhqk0vy9.mp4"
+                controls={true}
+                className="w-full h-full object-cover"
+                preload="metadata"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                Your browser does not support the video tag.
+              </video> */}
+
+              <VideoPlayer />
 
               {/* HUD overlay elements */}
-              <div className="absolute top-4 left-4 text-xs text-primary font-orbitron opacity-80">
+              {/* <div className="absolute top-4 left-4 text-xs text-primary font-orbitron opacity-80">
                 MISSION: THERMAL SCAN
               </div>
               <div className="absolute top-4 right-4 text-xs text-primary font-orbitron opacity-80">
@@ -110,7 +130,7 @@ export default function Home() {
               </div>
               <div className="absolute bottom-4 right-4 text-xs text-primary font-orbitron opacity-80">
                 SENSORS: ONLINE
-              </div>
+              </div> */}
             </div>
           </HudContainer>
         </div>
@@ -191,19 +211,34 @@ export default function Home() {
                 className="mb-6"
               />
               <p className="text-lg text-muted-foreground mb-8">
-                Gravion is in advanced development with early access granted to professionals in search and rescue, exploration, and technical operations. We’re collaborating with SAR personnel, geotech operators, and drone experts to prepare for live mission trials, simulator rollouts, and deployment-ready integration.
+                Gravion is in advanced development with early access granted to
+                professionals in search and rescue, exploration, and technical
+                operations. We’re collaborating with SAR personnel, geotech
+                operators, and drone experts to prepare for live mission trials,
+                simulator rollouts, and deployment-ready integration.
               </p>
             </div>
 
             <HudContainer variant="secondary" className="h-full text-center">
-              <SectionHeader title="PATENT-PENDING SYSTEM" className="mb-6 text-center" />
+              <SectionHeader
+                title="PATENT-PENDING SYSTEM"
+                className="mb-6 text-center"
+              />
 
               <p className="mb-4">
                 Gravion AI Core combines satellite, thermal, and terrain data
                 for real-time intelligence.
               </p>
               <p className="text-muted-foreground text-sm mb-6">
-                Gravion’s core system fuses satellite imaging with inputs from an array of advanced instruments — including ground-penetrating radar, spectrometers, magnetometers, radiometers, gravimeters, and thermal sensors. It leverages acoustic visualization, chemical detection, and terrain vibration analysis to identify voids, buried objects, mineral signatures, radiological anomalies, and underground water sources. Designed for modular deployment, Gravion adapts to diverse field conditions across land, sea, and subterranean environments.
+                Gravion’s core system fuses satellite imaging with inputs from
+                an array of advanced instruments — including ground-penetrating
+                radar, spectrometers, magnetometers, radiometers, gravimeters,
+                and thermal sensors. It leverages acoustic visualization,
+                chemical detection, and terrain vibration analysis to identify
+                voids, buried objects, mineral signatures, radiological
+                anomalies, and underground water sources. Designed for modular
+                deployment, Gravion adapts to diverse field conditions across
+                land, sea, and subterranean environments.
               </p>
 
               {/* <div className="relative py-4">
