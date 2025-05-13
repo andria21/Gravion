@@ -1,15 +1,16 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react"; // Added useEffect
+import React, { useRef, useState, useEffect } from "react";
 import { Button } from "../ui/button";
-import { Pause, Play } from "lucide-react";
+import { Pause, Play, Volume2, VolumeX } from "lucide-react"; // Added Volume2 and VolumeX
 
 function VideoPlayer(props: Record<string, unknown>) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null); // Ref for the progress bar
+  const progressBarRef = useRef<HTMLDivElement>(null);
 
-  const [isPlaying, setIsPlaying] = useState(true); // Assuming autoPlay is true
-  const [progress, setProgress] = useState(0); // Current progress percentage
-  const [videoDuration, setVideoDuration] = useState(0); // Total video duration in seconds
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [videoDuration, setVideoDuration] = useState(0);
+  const [isMuted, setIsMuted] = useState(true); // Initialize based on video's muted prop
 
   const togglePlayPause = () => {
     if (videoRef.current) {
@@ -31,6 +32,7 @@ function VideoPlayer(props: Record<string, unknown>) {
   const handleLoadedMetadata = () => {
     if (videoRef.current) {
       setVideoDuration(videoRef.current.duration);
+      setIsMuted(videoRef.current.muted); // Sync initial mute state
     }
   };
 
@@ -45,26 +47,29 @@ function VideoPlayer(props: Record<string, unknown>) {
     }
   };
 
-  // Effect to handle initial autoPlay state for isPlaying
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
   useEffect(() => {
-    if (videoRef.current && videoRef.current.autoplay) {
-        // If autoplay is true and video is not paused initially, set isPlaying to true.
-        // Browsers might block autoplay, so we also check if it's paused.
-        if (!videoRef.current.paused) {
-            setIsPlaying(true);
-        } else {
-            // If autoplay was intended but blocked, reflect that it's not playing.
-            setIsPlaying(false);
-        }
-    } else if (videoRef.current) {
-        // If not autoplaying, initial state should be paused.
+    if (videoRef.current) {
+      // Initial isPlaying state
+      if (videoRef.current.autoplay && !videoRef.current.paused) {
+        setIsPlaying(true);
+      } else {
         setIsPlaying(!videoRef.current.paused);
+      }
+      // Initial isMuted state
+      setIsMuted(videoRef.current.muted);
     }
   }, []);
 
 
   return (
-    <div className="relative group w-full h-full bg-black"> {/* Added bg-black for better visibility if video doesn't load */}
+    <div className="relative group w-full h-full bg-black">
       <video
         ref={videoRef}
         src="https://res.cloudinary.com/djynatwlg/video/upload/v1747128968/xy5m2b6uhckarhqk0vy9.mp4"
@@ -72,18 +77,18 @@ function VideoPlayer(props: Record<string, unknown>) {
         preload="metadata"
         autoPlay
         loop
-        muted
+        muted // Video starts muted by default
         playsInline
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        onClick={togglePlayPause} // Clicking video toggles play/pause
-        onTimeUpdate={handleTimeUpdate} // Update progress
-        onLoadedMetadata={handleLoadedMetadata} // Get video duration
+        onClick={togglePlayPause}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
       >
         Your browser does not support the video tag.
       </video>
 
-      {/* Centered Play/Pause button (appears on group hover) */}
+      {/* Centered Play/Pause button */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         <Button
           variant="ghost"
@@ -103,23 +108,43 @@ function VideoPlayer(props: Record<string, unknown>) {
         </Button>
       </div>
 
-      {/* Controls Bar (appears on group hover) */}
+      {/* Controls Bar */}
       <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/70 via-black/40 to-transparent pointer-events-none">
-        {/* Progress Bar Container */}
-        <div
-          ref={progressBarRef}
-          onClick={handleSeek}
-          className="w-full h-1.5 bg-white/30 rounded-full cursor-pointer group/progress pointer-events-auto mb-2" // Added pointer-events-auto and group for progress hover effect
-        >
+        <div className="flex items-center gap-3 pointer-events-auto"> {/* Wrapper for controls */}
+          {/* Progress Bar Container */}
           <div
-            style={{ width: `${progress}%` }}
-            className="h-full bg-primary rounded-full group-hover/progress:bg-red-400 transition-all duration-100" // Example: change color on progress bar hover
+            ref={progressBarRef}
+            onClick={handleSeek}
+            className="flex-grow h-1.5 bg-white/30 rounded-full cursor-pointer group/progress" // Removed mb-2, using flex gap
           >
-            {/* Optional: Thumb/Scrubber element can be added here */}
-            {/* <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover/progress:opacity-100"></div> */}
+            <div
+              style={{ width: `${progress}%` }}
+              className="h-full bg-primary rounded-full group-hover/progress:bg-red-400 transition-all duration-100"
+            >
+              {/* Optional: Thumb/Scrubber element can be added here */}
+              {/* <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover/progress:opacity-100"></div> */}
+            </div>
           </div>
+
+          {/* Mute/Unmute Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={(e) => {
+                e.stopPropagation(); // Prevent interference if other click handlers are on parent
+                toggleMute();
+            }}
+            className="text-white hover:bg-white/10 w-8 h-8" // Adjusted size for control bar
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+          >
+            {isMuted ? (
+              <VolumeX className="w-5 h-5" />
+            ) : (
+              <Volume2 className="w-5 h-5" />
+            )}
+          </Button>
+          {/* You can add other controls here like time display, fullscreen, etc. */}
         </div>
-        {/* You can add other controls here like volume, time display, etc. */}
       </div>
     </div>
   );
