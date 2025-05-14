@@ -12,6 +12,8 @@ import AboutImage from "../../public/app-images/about.jpg";
 import AboutImage2 from "../../public/app-images/about2.jpeg";
 import AboutImage3 from "../../public/app-images/about3.jpeg";
 import CEO from "../../assets/team-images/CEO.jpg";
+import DM_LOGO from "../../assets/dm-logo-quality.png";
+import ONDE_LOGO from "../../assets/onde-logo.png";
 
 // Add this style block
 import "./team-animations.css";
@@ -129,7 +131,7 @@ export default function AboutPage() {
               <div className="mt-6 flex items-center justify-center">
                 <div className="w-14 h-14 relative rounded-full overflow-hidden mr-4">
                   <Image
-                    src={Ivan}
+                    src={CEO}
                     alt="CEO portrait"
                     fill
                     className="object-cover"
@@ -205,7 +207,23 @@ export default function AboutPage() {
               something greater than themselves.
             </p>
           </div>
-          <SectionHeader title="DM'S AI TEAM" className="mb-6" align="center" />
+          <SectionHeader
+            title="DM'S AI TEAM - CO-FOUNDERS"
+            className="mb-6"
+            align="center"
+          />
+
+          {/* Add DM's AI Logo */}
+          <div className="flex justify-center mb-8">
+            <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
+              <Image
+                src={DM_LOGO}
+                alt="DM's AI Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
 
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-muted-foreground mb-4">
@@ -213,7 +231,12 @@ export default function AboutPage() {
               move faster, serve better, and think bigger. It is an automation
               company focused on building AI-powered support bots, but also a
               company which builds modern websites - powered with their
-              innovative support bots.
+              innovative support bots. DM&apos;s AI&apos;s team of experts
+              shaped turned the vision of Gravion, into a functional and
+              beautifully designed website. DM&apos;s AI created and implemented
+              everything seen on the website, starting from simple designs, all
+              the way to Map demonstrations, animations, AI chatbot, maps and
+              functions and other complexities.
             </p>
           </div>
 
@@ -265,6 +288,18 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="ONDE TEAM" className="mb-6" align="center" />
+
+          {/* Add ONDE Logo */}
+          <div className="flex justify-center mb-8">
+            <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
+              <Image
+                src={ONDE_LOGO}
+                alt="DM's AI Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
 
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-muted-foreground mb-4">

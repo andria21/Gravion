@@ -104,7 +104,7 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium">Email</h3>
-                    <p className="text-muted-foreground">info@gravionspace.com</p>
+                    <p className="text-muted-foreground">ivanmolokoedov21@gmail.com</p>
                   </div>
                 </div>
                 
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">Coming Soon</p>
                   </div>
                 </div>
               </div>
