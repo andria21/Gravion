@@ -14,6 +14,7 @@ import {
   Globe,
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player/VideoPlayer";
+import GeologicalReports from "@/components/GeologicalReports";
 
 export default function Home() {
   return (
@@ -193,35 +194,7 @@ export default function Home() {
               comingSoon={true}
             />
             {/* Geological Reports - Custom Implementation */}
-            <div className="group relative p-6 border bg-card/80 rounded-md reticle transition-all duration-300 hover:bg-card overflow-hidden border-primary/20 lg:col-start-2 border-cyan-950">
-              {/* Coming Soon Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                <div className="text-3xl font-bold tracking-widest uppercase rotate-[-20deg] opacity-10 transition-opacity duration-300 group-hover:opacity-25 text-primary">
-                  Coming Soon
-                </div>
-              </div>
-              
-              {/* Icon */}
-              <div className="absolute top-4 right-4 opacity-70 group-hover:opacity-100 transition-opacity">
-                <Globe className="h-8 w-8 text-primary" />
-              </div>
-              
-              {/* Content */}
-              <h3 className="text-xl font-semibold tracking-wide mb-3 relative z-20">
-                Geological Reports
-              </h3>
-              <div className="text-muted-foreground group-hover:text-foreground transition-colors relative z-20">
-                <p>
-                  Select a location on Mars or choose from other planets in our solar system (availability may vary) and receive an AI-gener geological report with terrain elevation profiles,radiation exposure indices, andanomaly detectio using actual NASA/HiRISE data.
-                  Each report includes a commemorative&apos;Gravion Mars Geo Certificate&apos with your name and parcel coordinates, plus optional 3D terrain models and digital registry badges.
-                </p>
-              </div>
-              
-              {/* Disclaimer */}
-              <p className="mt-2 text-xs text-muted-foreground italic">
-                This report is symbolic and speculative. Gravion does not sell legally binding land ownership on Mars or any celestial body.
-              </p>
-            </div>
+            <GeologicalReports />
             {/* New Mars Geological Report Card - REMOVED */}
           </div>
         </div>
