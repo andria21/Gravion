@@ -838,6 +838,45 @@ export default function MapPage() {
                   <div>
                     <div className="flex justify-between mb-1">
                       <span className="text-sm">Forest</span>
+                      <span className="text-sm text-primary">78%</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div
+                        className="bg-primary h-2 rounded-full"
+                        style={{ width: "78%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm">Desert</span>
+                      <span className="text-sm text-primary">97%</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div
+                        className="bg-primary h-2 rounded-full"
+                        style={{ width: "97%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm">Mountain</span>
+                      <span className="text-sm text-primary">86%</span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-2">
+                      <div
+                        className="bg-primary h-2 rounded-full"
+                        style={{ width: "86%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm">Ocean Surface</span>
                       <span className="text-sm text-primary">94%</span>
                     </div>
                     <div className="w-full bg-muted rounded-full h-2">
@@ -850,52 +889,13 @@ export default function MapPage() {
 
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span className="text-sm">Desert</span>
-                      <span className="text-sm text-primary">98%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <div
-                        className="bg-primary h-2 rounded-full"
-                        style={{ width: "98%" }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm">Mountain</span>
-                      <span className="text-sm text-primary">89%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <div
-                        className="bg-primary h-2 rounded-full"
-                        style={{ width: "89%" }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm">Ocean Surface</span>
-                      <span className="text-sm text-primary">96%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                      <div
-                        className="bg-primary h-2 rounded-full"
-                        style={{ width: "96%" }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between mb-1">
                       <span className="text-sm">Submerged</span>
-                      <span className="text-sm text-primary">85%</span>
+                      <span className="text-sm text-primary">73%</span>
                     </div>
                     <div className="w-full bg-muted rounded-full h-2">
                       <div
                         className="bg-primary h-2 rounded-full"
-                        style={{ width: "85%" }}
+                        style={{ width: "73%" }}
                       ></div>
                     </div>
                   </div>
@@ -903,12 +903,12 @@ export default function MapPage() {
                   <div>
                     <div className="flex justify-between mb-1">
                       <span className="text-sm">Urban</span>
-                      <span className="text-sm text-primary">88%</span>
+                      <span className="text-sm text-primary">85%</span>
                     </div>
                     <div className="w-full bg-muted rounded-full h-2">
                       <div
                         className="bg-primary h-2 rounded-full"
-                        style={{ width: "88%" }}
+                        style={{ width: "85%" }}
                       ></div>
                     </div>
                   </div>
