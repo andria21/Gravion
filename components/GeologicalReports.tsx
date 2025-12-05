@@ -4,10 +4,10 @@ import React, { useState } from "react";
 
 function GeologicalReports() {
   const [showPlanets, setShowPlanets] = useState(false);
-
+  // lg:col-start-2
   return (
     <div
-      className="group relative p-6 border bg-card/80 rounded-md reticle transition-all duration-300 hover:bg-card overflow-hidden border-primary/20 lg:col-start-2 border-cyan-950"
+      className="group relative p-6 border bg-card/80 rounded-md reticle transition-all duration-300 hover:bg-card overflow-hidden border-primary/20 border-cyan-950 md:col-span-2"
       onClick={() => showPlanets && setShowPlanets(false)}
     >
       {/* Coming Soon Overlay */}
@@ -24,7 +24,7 @@ function GeologicalReports() {
 
       {/* Content */}
       <h3 className="text-xl font-semibold tracking-wide mb-3 relative z-20">
-        Geological Reports
+      Land Survey Certificate
       </h3>
       <div className="text-muted-foreground group-hover:text-foreground transition-colors relative z-20">
         <div className="relative">
@@ -67,19 +67,26 @@ function GeologicalReports() {
               </ul>
             </span>
           </span>{" "}
-          planets in our solar system (availability may vary) and receive an
+          {/* planets in our solar system (availability may vary) and receive an
           AI-generated geological report with terrain elevation profiles ,
           radiation exposure indices , and anomaly detection using actual
           NASA/HiRISE data. Each report includes a commemorative &apos;Gravion
           Mars Geo Certificate&apos; with your name and parcel coordinates, plus
-          optional 3D terrain models and digital registry badges.
+          optional 3D terrain models and digital registry badges. */}
+          Choose a location on various planets (availability may vary) and get
+          an AI-generated geological report with elevation profiles, radiation
+          indices, and anomaly detection using NASA/HiRISE data. Each report
+          includes a personalized Gravion Mars Geo Certificate, with optional 3D
+          terrain models and digital badges.
         </div>
       </div>
 
       {/* Disclaimer */}
       <p className="mt-2 text-xs text-muted-foreground italic">
-        This report is symbolic and speculative. Gravion does not sell legally
-        binding land ownership on Mars or any celestial body.
+        This report is symbolic and draws on Earth-based achievements and
+        comparable data. Due to current limitations, direct off-planet
+        verification is not possible. Gravion does not provide legally binding
+        land ownership on Mars or any celestial body.
       </p>
     </div>
   );
