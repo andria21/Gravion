@@ -114,7 +114,7 @@ export default function AboutPage() {
             <div className="md:w-2/5 w-full">
               <div className="relative rounded-lg overflow-hidden aspect-square max-w-[350px] mx-auto">
                 <Image
-                  src={CEO}
+                  src={"/ceo.png"}
                   alt="CEO working"
                   fill
                   className="object-cover"
@@ -131,9 +131,10 @@ export default function AboutPage() {
               <div className="mt-6 flex items-center justify-center">
                 <div className="w-14 h-14 relative rounded-full overflow-hidden mr-4">
                   <Image
-                    src={CEO}
+                    src={"/ceo.png"}
                     alt="CEO portrait"
-                    fill
+                    width={2000}
+                    height={2000}
                     className="object-cover"
                   />
                 </div>
@@ -282,6 +283,73 @@ export default function AboutPage() {
               </HudContainer>
             ))}
           </div>
+
+          {/* <SectionHeader
+            title="Convocore TEAM - CO-FOUNDERS"
+            className=" mt-12"
+            align="center"
+          /> */}
+
+          {/* <div className="flex justify-center mb-8">
+            <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
+              <Image
+                src={DM_LOGO}
+                alt="DM's AI Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div> */}
+
+          {/* <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-muted-foreground mb-4">
+              Convocore is a platform that lets businesses, agencies, and developers quickly build, customize, and deploy AI-driven chat and voice agents. It supports multi-channel deployment (web, WhatsApp, Discord, etc.), knowledge-base integration, live human handoff, real-time analytics, and full white-label branding — so you can deliver branded conversational experiences without deep technical effort.
+              company description here
+            </p>
+          </div> */}
+
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Youssef",
+                role: "Role",
+                bio: "role description",
+                image: "/YOUSUFF.jpg",
+              },
+              {
+                name: "Moe",
+                role: "Role",
+                bio: "role description",
+                image: "/MOE.png",
+              },
+              {
+                name: "Mohammad Zubi",
+                role: "Role",
+                bio: "role description",
+                image: "/zubi.jpg",
+              },
+            ].map((member, index) => (
+              <HudContainer key={index} className="h-full">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                    <div className="team-image-container">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover team-image"
+                      />
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-medium mb-1">{member.name}</h3>
+                  <p className="text-primary text-sm mb-4">{member.role}</p>
+                  <p className="text-muted-foreground text-sm">{member.bio}</p>
+                </div>
+              </HudContainer>
+            ))}
+          </div> */}
         </div>
       </section>
 
