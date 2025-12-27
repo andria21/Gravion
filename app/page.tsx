@@ -51,7 +51,7 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            For land, life, and what lies beneath
+            Eyes in the sky. Intelligence underground.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -153,7 +153,7 @@ export default function Home() {
             className="mb-10"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <UseCaseCard
               title="Mining"
               description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact — helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
@@ -173,13 +173,6 @@ export default function Home() {
               variant="primary"
             />
 
-            {/* <UseCaseCard
-              title="Law Enforcement"
-              description="Gravion cross-references multiple 911 calls and analyzes ambient audio to detect background cues that may be missed by human listeners. By comparing sound patterns, caller environments, and incident timing, it reconstructs a clearer operational picture — helping responders prioritize threats and deploy with greater precision."
-              icon={Shield}
-              variant="secondary"
-              comingSoon={true}
-            /> */}
             <UseCaseCard
               title="Security Systems"
               description="Gravion extends its AI-driven anomaly detection to private and commercial security environments, analyzing visual, spectral, and thermal feeds in real time. Designed to support evolving technologies — such as full-property overhead cameras and future autonomous patrol drones — it offers intelligent surveillance, threat recognition, and continuous situational awareness across secured perimeters."
@@ -187,8 +180,15 @@ export default function Home() {
               variant="accent"
               comingSoon={true}
             />
+            {/* <UseCaseCard
+              title="Law Enforcement"
+              description="Gravion cross-references multiple 911 calls and analyzes ambient audio to detect background cues that may be missed by human listeners. By comparing sound patterns, caller environments, and incident timing, it reconstructs a clearer operational picture — helping responders prioritize threats and deploy with greater precision."
+              icon={Shield}
+              variant="secondary"
+              comingSoon={true}
+            /> */}
             {/* Geological Reports - Custom Implementation */}
-            <GeologicalReports />
+
             {/* <UseCaseCard
               title="Discovery Mode"
               description="Gravion empowers everyday explorers with access to satellite-based terrain scanning, anomaly detection, and time-lapse environmental analysis. From uncovering buried structures and cave systems to identifying fault lines and early signs of natural disasters, Discovery Mode is built for those who seek the unseen — whether for treasure hunting, geological curiosity, or safer hiking through remote terrain"

@@ -9,7 +9,7 @@ import ChatBot from '@/components/chatbot/chatbot';
 
 export const metadata: Metadata = {
   title: 'Gravion | AI-powered reconnaissance system',
-  description: 'AI-powered anomaly detection from space — for land, life, and what lies beneath.',
+  description: 'AI-powered anomaly detection from space — Eyes in the sky. Intelligence underground.',
   manifest: "/manifest.json",
 };
 

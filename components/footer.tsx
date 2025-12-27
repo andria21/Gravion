@@ -10,7 +10,10 @@ export default function Footer() {
       <div className="container py-8 md:py-12 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-center max-w-6xl mx-auto">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2 font-orbitron justify-center">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 font-orbitron justify-center"
+            >
               {/* Added a container for the logo and its pulse effect */}
               <div className="relative flex items-center justify-center">
                 <div className="radar-pulse-background"></div>{" "}
@@ -33,7 +36,7 @@ export default function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground">
               AI-powered reconnaissance system <br />
-              For land, life, and what lies beneath.
+              Eyes in the sky. Intelligence underground.
             </p>
             <p className="text-xs text-muted-foreground">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}

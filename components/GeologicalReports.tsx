@@ -7,7 +7,7 @@ function GeologicalReports() {
   // lg:col-start-2
   return (
     <div
-      className="group relative p-6 border bg-card/80 rounded-md reticle transition-all duration-300 hover:bg-card overflow-hidden border-primary/20 border-cyan-950 md:col-span-2"
+      className="group relative p-6 border bg-card/50 rounded-md reticle transition-all duration-300 hover:bg-card overflow-hidden border-primary/20 border-cyan-950"
       onClick={() => showPlanets && setShowPlanets(false)}
     >
       {/* Coming Soon Overlay */}
@@ -24,7 +24,7 @@ function GeologicalReports() {
 
       {/* Content */}
       <h3 className="text-xl font-semibold tracking-wide mb-3 relative z-20">
-      Land Survey Certificate
+        Land Survey Certificate
       </h3>
       <div className="text-muted-foreground group-hover:text-foreground transition-colors relative z-20">
         <div className="relative">

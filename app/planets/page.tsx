@@ -15,8 +15,8 @@ import TitanMap from "../../components/PlanetsMaps/Titan";
 import SaturnMap from "../../components/PlanetsMaps/Saturn";
 import JupiterMap from "../../components/PlanetsMaps/Jupiter";
 
-import PlanetsImage from "../../public/app-images/planets.jpg"
-
+import PlanetsImage from "../../public/app-images/planets.jpg";
+import GeologicalReports from "@/components/GeologicalReports";
 
 interface PlanetData {
   id: string;
@@ -384,7 +384,10 @@ export default function PlanetsPage() {
                           Exclusive NFT Certificate
                         </div>
                         <div className="text-sm font-medium">
-                          All planetary scans come with a unique, verifiable NFT certificate, commemorating your contribution to Gravion&apos;s exploration efforts and granting access to exclusive holder benefits.
+                          All planetary scans come with a unique, verifiable NFT
+                          certificate, commemorating your contribution to
+                          Gravion&apos;s exploration efforts and granting access
+                          to exclusive holder benefits.
                         </div>
                       </div>
 
@@ -637,6 +640,34 @@ export default function PlanetsPage() {
                 Research Phase: Early Development
               </div>
             </HudContainer>
+            <div className="md:col-span-3">
+              <HudContainer className="h-full">
+                <h3 className="text-xl font-medium mb-4">
+                  Land Survey Certificate
+                </h3>
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                  <div className="text-3xl font-bold tracking-widest uppercase rotate-[-20deg] opacity-10 transition-opacity duration-300 group-hover:opacity-25 text-primary">
+                    Coming Soon
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Select a location on Mars or choose from other Available
+                  Celestial Bodies (availability may vary) and get an
+                  AI-generated geological report with elevation profiles,
+                  radiation indices, and anomaly detection using NASA/HiRISE
+                  data. Each report includes a personalized Gravion Mars Geo
+                  Certificate, with optional 3D terrain models and digital
+                  badges.
+                </p>
+                <div className="mt-auto pt-4 border-t border-primary/20 text-primary text-sm">
+                  This report is symbolic and draws on Earth-based achievements
+                  and comparable data. Due to current limitations, direct
+                  off-planet verification is not possible. Gravion does not
+                  provide legally binding land ownership on Mars or any
+                  celestial body.
+                </div>
+              </HudContainer>
+            </div>
           </div>
 
           <div className="relative h-[400px] rounded-lg overflow-hidden">
