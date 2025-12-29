@@ -17,6 +17,7 @@ import JupiterMap from "../../components/PlanetsMaps/Jupiter";
 
 import PlanetsImage from "../../public/app-images/planets.jpg";
 import GeologicalReports from "@/components/GeologicalReports";
+import LandSurveySearch from "@/components/LandSurveySearch";
 
 interface PlanetData {
   id: string;
@@ -601,7 +602,7 @@ export default function PlanetsPage() {
             align="center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <HudContainer className="h-full">
               <h3 className="text-xl font-medium mb-4">
                 Harsh Environment Adaptation
@@ -669,6 +670,8 @@ export default function PlanetsPage() {
               </HudContainer>
             </div>
           </div>
+
+          <LandSurveySearch />
 
           <div className="relative h-[400px] rounded-lg overflow-hidden">
             <Image

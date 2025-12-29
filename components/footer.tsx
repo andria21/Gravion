@@ -92,8 +92,10 @@ export default function Footer() {
 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-center">Reach Out</h3>
-            <p className="text-sm text-muted-foreground">
-              Interested in our technology or would like to discuss integration?
+            <p className="text-sm text-muted-foreground max-w-[200px] md:max-w-none mx-auto md:mx-0">
+              Interested in our technology
+              <br className="md:hidden" />
+              or would like to discuss integration?
             </p>
             <Link
               href="/contact"
