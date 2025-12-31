@@ -182,7 +182,7 @@ export default function AboutPage() {
 
       <section className="py-20 bg-card/30">
         <div className="container mx-auto px-4">
-          <SectionHeader title="OUR TEAM" className="mb-6" align="center" />
+          <SectionHeader title="DEPARTMENTS" className="mb-6" align="center" />
 
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-muted-foreground mb-4">
@@ -353,11 +353,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-4">
           <SectionHeader title="ONDE TEAM" className="mb-6" align="center" />
 
-          {/* Add ONDE Logo */}
           <div className="flex justify-center mb-8">
             <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
               <Image
@@ -415,7 +414,7 @@ export default function AboutPage() {
             </HudContainer>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -429,7 +428,6 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-primary/10"></div>
 
-              {/* Targeting overlay */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
               <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary"></div>
               <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary"></div>
