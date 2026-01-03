@@ -1,19 +1,16 @@
+import { Button } from "@/components/ui/button";
+import { HudContainer } from "@/components/ui/hud-container";
+import { SectionHeader } from "@/components/ui/section-header";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
-import { HudContainer } from "@/components/ui/hud-container";
+import DM_LOGO from "../../assets/dm-logo-quality.png";
+import Andria from "../../assets/team-images/Andria.png";
 import Irakli from "../../assets/team-images/Irakli.jpg";
 import Aleksandre from "../../assets/team-images/aleksandre.jpg";
-import Andria from "../../assets/team-images/Andria.png";
-import Ivan from "../../assets/team-images/Ivan.jpg";
-import Dmitri from "../../assets/team-images/dmitri.jpg";
 import AboutImage from "../../public/app-images/about.jpg";
 import AboutImage2 from "../../public/app-images/about2.jpeg";
 import AboutImage3 from "../../public/app-images/about3.jpeg";
-import CEO from "../../assets/team-images/CEO.jpg";
-import DM_LOGO from "../../assets/dm-logo-quality.png";
-import ONDE_LOGO from "../../assets/onde-logo.png";
+import Dmitri from "../../assets/team-images/dmitri.jpg";
 
 // Add this style block
 import "./team-animations.css";
@@ -102,85 +99,81 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-card/30">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4">
           <SectionHeader
             title="FROM THE CEO"
-            className="mb-10"
+            className="mb-12"
             align="center"
           />
 
-          <div className="flex flex-col md:flex-row gap-8 items-start max-w-5xl mx-auto">
-            <div className="md:w-2/5 w-full">
-              <div className="relative rounded-lg overflow-hidden aspect-square max-w-[350px] mx-auto">
-                <Image
-                  src={"/ceo.png"}
-                  alt="CEO working"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-primary/10"></div>
+          <div className="max-w-4xl mx-auto">
+            <div className="relative p-8 md:p-12 rounded-2xl bg-card/50 backdrop-blur-md border border-primary/10 shadow-2xl transition-all duration-500 hover:shadow-primary/20 hover:border-primary/30 group">
+              {/* Decorative elements */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-primary/30 rounded-tl-2xl transition-all duration-500 group-hover:w-24 group-hover:h-24 group-hover:border-primary"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-primary/30 rounded-br-2xl transition-all duration-500 group-hover:w-24 group-hover:h-24 group-hover:border-primary"></div>
 
-                {/* Targeting overlay */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary"></div>
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary"></div>
-              </div>
-
-              <div className="mt-6 flex items-center justify-center">
-                <div className="w-14 h-14 relative rounded-full overflow-hidden mr-4">
-                  <Image
-                    src={"/ceo.png"}
-                    alt="CEO portrait"
-                    width={2000}
-                    height={2000}
-                    className="object-cover"
-                  />
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div className="flex-shrink-0">
+                  <div className="w-48 h-48 relative rounded-full overflow-hidden shadow-2xl shadow-primary/20 border-4 border-background/50 transition-transform duration-500 group-hover:scale-105 group-hover:shadow-primary/40">
+                    <Image
+                      src={"/ceo.png"}
+                      alt="CEO portrait"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <div className="font-medium text-lg">Ivan Molokoedov</div>
-                  <div className="text-primary">Founder & CEO</div>
+
+                <div className="text-center md:text-left flex-grow">
+                  <h3 className="text-3xl font-bold mb-2 transition-colors duration-300 group-hover:text-primary">
+                    Ivan Molokoedov
+                  </h3>
+                  <p className="text-primary text-lg font-medium mb-6 uppercase tracking-wider">
+                    Founder & CEO
+                  </p>
+
+                  <div className="relative">
+                    <span className="absolute -top-4 -left-2 text-6xl text-primary/20 font-serif leading-none transition-transform duration-500 group-hover:-translate-y-2 group-hover:text-primary/40">
+                      &quot;
+                    </span>
+                    <p className="text-lg text-muted-foreground italic leading-relaxed relative z-10 pl-6 transition-colors duration-300 group-hover:text-foreground">
+                      Gravion isn’t just another ambitious idea — it’s a
+                      calculated move toward real-world impact. I identify
+                      opportunities where vision meets feasibility, and I build
+                      until results are delivered.
+                    </p>
+                    <span className="absolute -bottom-8 right-0 text-6xl text-primary/20 font-serif leading-none transition-transform duration-500 group-hover:translate-y-2 group-hover:text-primary/40">
+                      &quot;
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="md:w-3/5 md:pt-0 pt-4 text-center md:text-left">
-              <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  I come from running a home services business — real work,
-                  managing crews, solving problems in the field. Along the way,
-                  I learned how different business models operate, and I knew I
-                  eventually wanted to shift from service work to building
-                  something that could scale and have deeper impact.
-                </p>
-
-                <p className="text-muted-foreground">
-                  Gravion didn&apos;t come out of nowhere. It started with my
-                  interest in treasure hunting, trying to find what&apos;s
-                  hidden underground. That obsession grew into learning about
-                  terrain scanning, satellite imaging, and AI detection — and it
-                  became clear there was a bigger opportunity here. Not just for
-                  hobbyists, but for law enforcement, search and rescue teams,
-                  military operations, mining, and even planetary analysis.
-                </p>
-
-                <p className="text-muted-foreground">
-                  I don’t pursue projects for the sake of difficulty — I pursue
-                  them for their potential. With a background shaped by
-                  discipline and high-performance focus, I’m wired for
-                  execution. Gravion isn’t just another ambitious idea — it’s a
-                  calculated move toward real-world impact. I identify
-                  opportunities where vision meets feasibility, and I build
-                  until results are delivered.
-                </p>
-              </div>
+            <div className="mt-12 text-center max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-6">
+                I come from running a home services business — real work,
+                managing crews, solving problems in the field. Along the way, I
+                learned how different business models operate, and I knew I
+                eventually wanted to shift from service work to building
+                something that could scale and have deeper impact.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-card/30">
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-transparent">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl pointer-events-none">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[50px] rounded-full"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full"></div>
+        </div>
         <div className="container mx-auto px-4">
           <SectionHeader title="DEPARTMENTS" className="mb-6" align="center" />
 
@@ -208,213 +201,230 @@ export default function AboutPage() {
               something greater than themselves.
             </p>
           </div>
-          <SectionHeader
-            title="DM'S AI TEAM - CO-FOUNDERS"
-            className="mb-6"
-            align="center"
-          />
 
-          {/* Add DM's AI Logo */}
-          <div className="flex justify-center mb-8">
-            <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
-              <Image
-                src={DM_LOGO}
-                alt="DM's AI Logo"
-                fill
-                className="object-cover"
-              />
+          {/* Technical Department */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+              TECHNICAL DEPARTMENT
+            </h2>
+
+            {/* DM Team */}
+            <div className="mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    name: "Irakli Darsavelidze",
+                    role: "Chief Executive Officer - DM’s AI",
+                    bio: "Irakli is the driving force behind DM’s AI — Under his leadership, DM’s AI evolved from an ambitious concept into an operational force. Irakli is the mastermind behind Gravions system level execution. His goal is not only to build products, but to build the right team for the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.",
+                    image: Irakli,
+                  },
+                  {
+                    name: "Andria Marqarovi",
+                    role: "Chief Technology Officer",
+                    bio: "Andria leads the technical aspect of Gravion — a system-level innovation. He ensured to bring the excellence of DM’s AI with a passion for solving the “unsolvable”. Andria shares: Gravion isn’t theory — it’s a deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.",
+                    image: Andria,
+                  },
+                  {
+                    name: "Aleksandre Mirzashvili",
+                    role: "Chief Operating Officer",
+                    bio: "Aleksandre is Gravion’s and DM’s AI’s operational compass — the one ensuring that all parts, people, and processes are completed with precision. he bridges the gap between vision and practical execution. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. With DM’s AI and Gravion, we  kept every promise, hit every mark, and turned complexity into clarity.",
+                    image: Aleksandre,
+                  },
+                ].map((member, index) => (
+                  <HudContainer key={index} className="h-full">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group shadow-lg shadow-primary/20">
+                        <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                        <div className="team-image-container">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            className="object-cover team-image"
+                          />
+                        </div>
+                      </div>
+
+                      <h3 className="text-xl font-medium mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-primary text-sm mb-4">{member.role}</p>
+                      <p className="text-muted-foreground text-sm">
+                        {member.bio}
+                      </p>
+                    </div>
+                  </HudContainer>
+                ))}
+              </div>
+            </div>
+
+            {/* Convocore Team */}
+            <div className="mb-12 relative p-8 ">
+              <div className="relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {[
+                    {
+                      name: "Youssef",
+                      role: "Co-Founder - Convocore",
+                      bio: "Driving the vision of conversational AI integration within the Gravion ecosystem.",
+                      image: "/YOUSUFF.jpg",
+                    },
+                    {
+                      name: "Moe",
+                      role: "Co-Founder - Convocore",
+                      bio: "Leading the architectural design of intelligent agent systems.",
+                      image: "/MOE.png",
+                    },
+                    {
+                      name: "Mohammad Zubi",
+                      role: "Co-Founder - Convocore",
+                      bio: "Specializing in real-time analytics and seamless deployment strategies.",
+                      image: "/zubi.jpg",
+                    },
+                  ].map((member, index) => (
+                    <HudContainer
+                      key={index}
+                      className="h-full bg-background/50 backdrop-blur-sm"
+                    >
+                      <div className="flex flex-col items-center text-center h-full">
+                        <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group shadow-lg shadow-primary/20">
+                          <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                          <div className="team-image-container">
+                            <Image
+                              src={member.image}
+                              alt={member.name}
+                              fill
+                              className="object-cover team-image"
+                            />
+                          </div>
+                        </div>
+
+                        <h3 className="text-xl font-medium mb-1">
+                          {member.name}
+                        </h3>
+                        <p className="text-primary text-sm mb-4 font-semibold">
+                          {member.role}
+                        </p>
+                        <p className="text-muted-foreground text-sm flex-grow">
+                          {member.bio}
+                        </p>
+                      </div>
+                    </HudContainer>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-muted-foreground mb-4">
-              DM’s AI was built to simplify — to give companies the tools to
-              move faster, serve better, and think bigger. It is an automation
-              company focused on building AI-powered support bots, but also a
-              company which builds modern websites - powered with their
-              innovative support bots. DM&apos;s AI&apos;s team of experts
-              shaped turned the vision of Gravion, into a functional and
-              beautifully designed website. DM&apos;s AI created and implemented
-              everything seen on the website, starting from simple designs, all
-              the way to Map demonstrations, animations, AI chatbot, maps and
-              functions and other complexities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Irakli Darsavelidze",
-                role: "Chief Executive Officer - DM’s AI",
-                bio: "Irakli is the driving force behind DM’s AI — Under his leadership, DM’s AI evolved from an ambitious concept into an operational force. Irakli is the mastermind behind Gravions system level execution. His goal is not only to build products, but to build the right team for the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.",
-                image: Irakli,
-              },
-              {
-                name: "Andria Marqarovi",
-                role: "Chief Technology Officer",
-                bio: "Andria leads the technical aspect of Gravion — a system-level innovation. He ensured to bring the excellence of DM’s AI with a passion for solving the “unsolvable”. Andria shares: Gravion isn’t theory — it’s a deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.",
-                image: Andria,
-              },
-              {
-                name: "Aleksandre Mirzashvili",
-                role: "Chief Operating Officer",
-                bio: "Aleksandre is Gravion’s and DM’s AI’s operational compass — the one ensuring that all parts, people, and processes are completed with precision. he bridges the gap between vision and practical execution. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. With DM’s AI and Gravion, we  kept every promise, hit every mark, and turned complexity into clarity.",
-                image: Aleksandre,
-              },
-            ].map((member, index) => (
-              <HudContainer key={index} className="h-full">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                    <div className="team-image-container">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover team-image"
-                      />
+          {/* Analytics Department */}
+          <div className="mb-20">
+            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+              ANALYTICS DEPARTMENT
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {[
+                {
+                  name: "Slava",
+                  role: "Lead Analytics",
+                  bio: "Expert in data interpretation and pattern recognition algorithms.",
+                  image: null,
+                },
+                {
+                  name: "Kevin",
+                  role: "Senior Analyst",
+                  bio: "Specializing in predictive modeling and terrain data assessment.",
+                  image: null,
+                },
+              ].map((member, index) => (
+                <HudContainer key={index} className="h-full">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
+                      {member.image ? (
+                        <div className="team-image-container w-full h-full relative">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            className="object-cover team-image"
+                          />
+                        </div>
+                      ) : (
+                        <span className="text-3xl text-muted-foreground font-bold">
+                          {member.name[0]}
+                        </span>
+                      )}
                     </div>
+
+                    <h3 className="text-xl font-medium mb-1">{member.name}</h3>
+                    <p className="text-primary text-sm mb-4">{member.role}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {member.bio}
+                    </p>
                   </div>
-
-                  <h3 className="text-xl font-medium mb-1">{member.name}</h3>
-                  <p className="text-primary text-sm mb-4">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
-                </div>
-              </HudContainer>
-            ))}
-          </div>
-
-          {/* <SectionHeader
-            title="Convocore TEAM - CO-FOUNDERS"
-            className=" mt-12"
-            align="center"
-          /> */}
-
-          {/* <div className="flex justify-center mb-8">
-            <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
-              <Image
-                src={DM_LOGO}
-                alt="DM's AI Logo"
-                fill
-                className="object-cover"
-              />
+                </HudContainer>
+              ))}
             </div>
-          </div> */}
+          </div>
 
-          {/* <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-muted-foreground mb-4">
-              Convocore is a platform that lets businesses, agencies, and developers quickly build, customize, and deploy AI-driven chat and voice agents. It supports multi-channel deployment (web, WhatsApp, Discord, etc.), knowledge-base integration, live human handoff, real-time analytics, and full white-label branding — so you can deliver branded conversational experiences without deep technical effort.
-              company description here
-            </p>
-          </div> */}
+          {/* Chemical Department */}
+          <div className="mb-20">
+            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+              CHEMICAL DEPARTMENT
+            </h2>
+            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
+              <HudContainer className="h-full">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
+                    <span className="text-3xl text-muted-foreground font-bold">
+                      Y
+                    </span>
+                  </div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Youssef",
-                role: "Role",
-                bio: "role description",
-                image: "/YOUSUFF.jpg",
-              },
-              {
-                name: "Moe",
-                role: "Role",
-                bio: "role description",
-                image: "/MOE.png",
-              },
-              {
-                name: "Mohammad Zubi",
-                role: "Role",
-                bio: "role description",
-                image: "/zubi.jpg",
-              },
-            ].map((member, index) => (
-              <HudContainer key={index} className="h-full">
+                  <h3 className="text-xl font-medium mb-1">Yuri</h3>
+                  <p className="text-primary text-sm mb-4">
+                    Head of Chemical Analysis
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    Leading the spectral analysis and chemical composition
+                    identification initiatives.
+                  </p>
+                </div>
+              </HudContainer>
+            </div>
+          </div>
+
+          {/* Media Department */}
+          <div className="mb-20">
+            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+              MEDIA DEPARTMENT
+            </h2>
+            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
+              <HudContainer className="h-full">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
                     <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                    <div className="team-image-container">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover team-image"
-                      />
+                    <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
+                      <span className="text-3xl text-muted-foreground font-bold">
+                        D
+                      </span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-medium mb-1">{member.name}</h3>
-                  <p className="text-primary text-sm mb-4">{member.role}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
+                  <h3 className="text-xl font-medium mb-1">
+                    Novoseltsky Dmitry
+                  </h3>
+                  <p className="text-primary text-sm mb-4">Media Director</p>
+                  <p className="text-muted-foreground text-sm">
+                    Constructing the visual and auditory identity of Gravion,
+                    ensuring the mission is communicated with clarity and
+                    impact.
+                  </p>
                 </div>
               </HudContainer>
-            ))}
-          </div> */}
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader title="ONDE TEAM" className="mb-6" align="center" />
-
-          <div className="flex justify-center mb-8">
-            <div className="w-28 h-24 relative rounded-full overflow-hidden mr-4">
-              <Image
-                src={ONDE_LOGO}
-                alt="DM's AI Logo"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-muted-foreground mb-4">
-              Onde is a creative design studio specializing in high-impact
-              animation, cinematic effects, and sound design. Their team brought
-              Gravion’s vision to life through a precise blend of storytelling
-              and technical execution — not just building visuals, but
-              constructing a tone, a rhythm, and an identity that matched the
-              system’s depth and mission. With specialists covering everything
-              from motion design to sound atmospheres and dynamic transitions,
-              Onde helped shape the way Gravion is experienced, not just seen.
-            </p>
-
-            <p className="text-muted-foreground">
-              Let&apos;s make it together.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-md mx-auto">
-            <HudContainer className="h-full">
-              <div className="flex flex-col items-center text-center">
-                <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                  <div className="team-image-container">
-                    <Image
-                      src={Dmitri}
-                      alt="James Turner"
-                      fill
-                      className="object-cover team-image"
-                    />
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-medium mb-1">Dmitrii</h3>
-                <p className="text-primary text-sm mb-4">Creative Director</p>
-                <p className="text-muted-foreground text-sm">
-                  At first, I thought Gravion was just another sci-fi pitch —
-                  flashy, distant, maybe even exaggerated. I almost turned it
-                  down. But as I learned what it really was — a platform built
-                  to save lives, locate what others can’t, and turn chaos into
-                  clarity — something changed. It wasn’t fiction. It was
-                  necessary. And I knew we had to be the ones to tell that story
-                </p>
-              </div>
-            </HudContainer>
-          </div>
-        </div>
-      </section> */}
 
       <section className="py-20">
         <div className="container mx-auto px-4">
