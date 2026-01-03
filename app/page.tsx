@@ -157,28 +157,32 @@ export default function Home() {
             <UseCaseCard
               title="Mining"
               description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact — helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
-              icon={Mountain}
+              icon={<Mountain />}
               variant="secondary"
+              index={0}
             />
             <UseCaseCard
               title="Search & Rescue"
               description="Gravion identifies signs of life and terrain shifts across wide, difficult terrain using thermal and satellite-based anomaly detection. By comparing recent and historical environmental data, it helps rescue teams locate missing persons faster and respond more effectively in time-sensitive or hazardous conditions."
-              icon={Search}
+              icon={<Search />}
               variant="accent"
+              index={1}
             />
             <UseCaseCard
               title="Military"
               description="Gravion supports military operations of all scales by detecting thermal, spectral, and terrain-based anomalies through satellite comparisons over time. It delivers evolving battlefield insight across land, sea, and remote areas — helping teams identify threats, track changes, and adapt strategies with greater speed and precision."
-              icon={Shield}
+              icon={<Shield />}
               variant="primary"
+              index={2}
             />
 
             <UseCaseCard
               title="Security Systems"
               description="Gravion extends its AI-driven anomaly detection to private and commercial security environments, analyzing visual, spectral, and thermal feeds in real time. Designed to support evolving technologies — such as full-property overhead cameras and future autonomous patrol drones — it offers intelligent surveillance, threat recognition, and continuous situational awareness across secured perimeters."
-              icon={Lock}
+              icon={<Lock />}
               variant="accent"
               comingSoon={true}
+              index={3}
             />
             {/* <UseCaseCard
               title="Law Enforcement"
