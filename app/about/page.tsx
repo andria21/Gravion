@@ -214,19 +214,19 @@ export default function AboutPage() {
                 {[
                   {
                     name: "Irakli Darsavelidze",
-                    role: "Chief Executive Officer - DM’s AI",
+                    role: "Co-Founder / Chief Executive Officer - DM’s AI",
                     bio: "Irakli is the driving force behind DM’s AI — Under his leadership, DM’s AI evolved from an ambitious concept into an operational force. Irakli is the mastermind behind Gravions system level execution. His goal is not only to build products, but to build the right team for the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.",
                     image: Irakli,
                   },
                   {
                     name: "Andria Marqarovi",
-                    role: "Chief Technology Officer",
+                    role: "Co-Founder / Chief Technology Officer",
                     bio: "Andria leads the technical aspect of Gravion — a system-level innovation. He ensured to bring the excellence of DM’s AI with a passion for solving the “unsolvable”. Andria shares: Gravion isn’t theory — it’s a deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.",
                     image: Andria,
                   },
                   {
                     name: "Aleksandre Mirzashvili",
-                    role: "Chief Operating Officer",
+                    role: "Co-Founder / Chief Operating Officer",
                     bio: "Aleksandre is Gravion’s and DM’s AI’s operational compass — the one ensuring that all parts, people, and processes are completed with precision. he bridges the gap between vision and practical execution. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. With DM’s AI and Gravion, we  kept every promise, hit every mark, and turned complexity into clarity.",
                     image: Aleksandre,
                   },
@@ -321,20 +321,20 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
               ANALYTICS DEPARTMENT
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
               {[
                 {
-                  name: "Slava",
+                  name: "Vyacheslav Yuschenko",
                   role: "Lead Analytics",
                   bio: "Expert in data interpretation and pattern recognition algorithms.",
                   image: null,
                 },
-                {
-                  name: "Kevin",
-                  role: "Senior Analyst",
-                  bio: "Specializing in predictive modeling and terrain data assessment.",
-                  image: null,
-                },
+                // {
+                //   name: "Kevin",
+                //   role: "Senior Analyst",
+                //   bio: "Specializing in predictive modeling and terrain data assessment.",
+                //   image: null,
+                // },
               ].map((member, index) => (
                 <HudContainer key={index} className="h-full">
                   <div className="flex flex-col items-center text-center">
@@ -380,7 +380,7 @@ export default function AboutPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-medium mb-1">Yuri</h3>
+                  <h3 className="text-xl font-medium mb-1">Yuri Pustovoyt</h3>
                   <p className="text-primary text-sm mb-4">
                     Head of Chemical Analysis
                   </p>
