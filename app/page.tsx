@@ -89,6 +89,66 @@ export default function Home() {
         </div>
       </section>
 
+      {/* By the Numbers Section */}
+      <section className="py-20 bg-background/70">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="BY THE NUMBERS"
+            description="Key metrics that highlight the power of Gravion's AI-driven approach."
+            align="center"
+            className="mb-12"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+            <HudContainer
+              variant="secondary"
+              className="flex flex-col items-center justify-center p-6 h-full"
+            >
+              <h3 className="text-4xl font-bold text-primary mb-2">43</h3>
+              <p className="text-muted-foreground text-xs">
+                minerals detectable from orbit
+              </p>
+            </HudContainer>
+            <HudContainer
+              variant="secondary"
+              className="flex flex-col items-center justify-center p-6 h-full"
+            >
+              <h3 className="text-4xl font-bold text-primary mb-2">4</h3>
+              <p className="text-muted-foreground text-xs">
+                independent AI engines (spectral, structural, alteration,
+                anomaly)
+              </p>
+            </HudContainer>
+            <HudContainer
+              variant="secondary"
+              className="flex flex-col items-center justify-center p-6 h-full"
+            >
+              <h3 className="text-4xl font-bold text-primary mb-2">$300-800</h3>
+              <p className="text-muted-foreground text-xs">
+                per target vs. $50,000-500,000 traditional exploration
+              </p>
+            </HudContainer>
+            <HudContainer
+              variant="secondary"
+              className="flex flex-col items-center justify-center p-6 h-full"
+            >
+              <h3 className="text-4xl font-bold text-primary mb-2">10+</h3>
+              <p className="text-muted-foreground text-xs">
+                active exploration targets in Wyoming
+              </p>
+            </HudContainer>
+            <HudContainer
+              variant="secondary"
+              className="flex flex-col items-center justify-center p-6 h-full"
+            >
+              <Globe className="h-8 w-8 text-primary mb-3" />
+              <p className="text-muted-foreground text-xs">
+                Lithium model calibrated against known US deposits
+              </p>
+            </HudContainer>
+          </div>
+        </div>
+      </section>
+
       {/* Demo Section */}
       <section className="py-20 bg-gradient-to-b from-background to-card/20">
         <div className="container mx-auto px-4">
