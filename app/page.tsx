@@ -46,12 +46,13 @@ export default function Home() {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider mb-6 max-w-4xl mx-auto">
-            AI-powered reconnaissance system
+            AI-Powered Mineral Exploration
             <span className="text-primary">.</span>
           </h1>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            Eyes in the sky. Intelligence underground.
+            43 minerals detected from orbit. From satellite data to staked
+            claims.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
