@@ -204,75 +204,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Use Cases Section */}
+      {/* Primary Application Section - Mining */}
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader
-            title="APPLICATIONS"
-            description="Gravion's technology serves critical missions across multiple domains"
+            title="PRIMARY APPLICATION: MINING"
+            description="Revolutionizing mineral exploration with AI-driven spectral analysis and anomaly detection."
             align="center"
             className="mb-10"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-4xl mx-auto mb-20">
             <Link href="/applications#mining" className="block h-full">
               <UseCaseCard
-                title="Mining"
+                title="Mining & Mineral Exploration"
                 description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact — helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
                 icon={<Mountain />}
                 variant="secondary"
                 index={0}
-                className="h-full"
+                className="h-full border-primary/50 shadow-[0_0_30px_rgba(0,255,255,0.1)]"
               />
             </Link>
-            <Link href="/applications#search-rescue" className="block h-full">
-              <UseCaseCard
-                title="Search & Rescue"
-                description="Gravion identifies signs of life and terrain shifts across wide, difficult terrain using thermal and satellite-based anomaly detection. By comparing recent and historical environmental data, it helps rescue teams locate missing persons faster and respond more effectively in time-sensitive or hazardous conditions."
-                icon={<Search />}
-                variant="accent"
-                index={1}
-                className="h-full"
-              />
-            </Link>
-            <Link href="/applications#military" className="block h-full">
-              <UseCaseCard
-                title="Military"
-                description="Gravion supports military operations of all scales by detecting thermal, spectral, and terrain-based anomalies through satellite comparisons over time. It delivers evolving battlefield insight across land, sea, and remote areas — helping teams identify threats, track changes, and adapt strategies with greater speed and precision."
-                icon={<Shield />}
-                variant="primary"
-                index={2}
-                className="h-full"
-              />
-            </Link>
+          </div>
 
-            <Link href="/applications#security" className="block h-full">
-              <UseCaseCard
-                title="Security Systems"
-                description="Gravion extends its AI-driven anomaly detection to private and commercial security environments, analyzing visual, spectral, and thermal feeds in real time. Designed to support evolving technologies — such as full-property overhead cameras and future autonomous patrol drones — it offers intelligent surveillance, threat recognition, and continuous situational awareness across secured perimeters."
-                icon={<Lock />}
-                variant="accent"
-                comingSoon={true}
-                index={3}
-                className="h-full"
-              />
-            </Link>
-            {/* <UseCaseCard
-              title="Law Enforcement"
-              description="Gravion cross-references multiple 911 calls and analyzes ambient audio to detect background cues that may be missed by human listeners. By comparing sound patterns, caller environments, and incident timing, it reconstructs a clearer operational picture — helping responders prioritize threats and deploy with greater precision."
-              icon={Shield}
-              variant="secondary"
-              comingSoon={true}
-            /> */}
-            {/* Geological Reports - Custom Implementation */}
+          {/* Future Applications Compact Section */}
+          <div className="max-w-6xl mx-auto border-t border-border/40 pt-16">
+            <h3 className="text-xl font-semibold mb-8 text-muted-foreground uppercase tracking-widest">
+              Future Applications
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-80 hover:opacity-100 transition-opacity">
+              <Link href="/applications#search-rescue" className="block h-full">
+                <UseCaseCard
+                  title="Search & Rescue"
+                  description="Identifying signs of life and terrain shifts across difficult terrain using thermal and satellite-based anomaly detection."
+                  icon={<Search />}
+                  variant="accent"
+                  index={1}
+                  className="h-full text-sm"
+                />
+              </Link>
+              <Link href="/applications#military" className="block h-full">
+                <UseCaseCard
+                  title="Military"
+                  description="Supporting operations by detecting thermal, spectral, and terrain-based anomalies through satellite comparisons over time."
+                  icon={<Shield />}
+                  variant="primary"
+                  index={2}
+                  className="h-full text-sm"
+                />
+              </Link>
 
-            {/* <UseCaseCard
-              title="Discovery Mode"
-              description="Gravion empowers everyday explorers with access to satellite-based terrain scanning, anomaly detection, and time-lapse environmental analysis. From uncovering buried structures and cave systems to identifying fault lines and early signs of natural disasters, Discovery Mode is built for those who seek the unseen — whether for treasure hunting, geological curiosity, or safer hiking through remote terrain"
-              icon={Compass}
-              variant="primary"
-              comingSoon={true}
-            /> */}
+              <Link href="/applications#security" className="block h-full">
+                <UseCaseCard
+                  title="Security Systems"
+                  description="AI-driven anomaly detection for private and commercial security environments, analyzing visual, spectral, and thermal feeds."
+                  icon={<Lock />}
+                  variant="accent"
+                  comingSoon={true}
+                  index={3}
+                  className="h-full text-sm"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
