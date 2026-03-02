@@ -16,6 +16,10 @@ import {
   Cpu,
   Crosshair,
   ClipboardCheck,
+  Radio,
+  Activity,
+  FlaskConical,
+  Plane,
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player/VideoPlayer";
 import GeologicalReports from "@/components/GeologicalReports";
@@ -369,20 +373,16 @@ export default function Home() {
                 className="mb-6 text-center"
               />
 
-              <p className="mb-4">
-                Gravion AI Core combines satellite, thermal, and terrain data
-                for real-time intelligence.
+              <p className="mb-4 font-medium text-primary">
+                Multi-engine spectral and structural analysis of satellite
+                imagery.
               </p>
               <p className="text-muted-foreground text-sm mb-6">
-                Gravion’s core system fuses satellite imaging with inputs from
-                an array of advanced instruments — including ground-penetrating
-                radar, spectrometers, magnetometers, radiometers, gravimeters,
-                and thermal sensors. It leverages acoustic visualization,
-                chemical detection, and terrain vibration analysis to identify
-                voids, buried objects, mineral signatures, radiological
-                anomalies, and underground water sources. Designed for modular
-                deployment, Gravion adapts to diverse field conditions across
-                land, sea, and subterranean environments.
+                Gravion&apos;s core technology utilizes proprietary machine learning
+                models to analyze multi-spectral satellite data. Our system is
+                currently calibrated to detect, identify, and map 43 distinct
+                mineral signatures from orbit, delivering high-precision targets
+                without the need for initial ground crews.
               </p>
 
               {/* <div className="relative py-4">
@@ -421,6 +421,56 @@ export default function Home() {
                   deployment.
                 </div>
               </div> */}
+            </HudContainer>
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section className="py-20 bg-background/40">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="TECHNOLOGY ROADMAP"
+            description="Expanding our sensor fusion capabilities for comprehensive subterranean intelligence."
+            align="center"
+            className="mb-12"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+              <Radio className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Advanced Sensor Fusion</h3>
+              <p className="text-sm text-muted-foreground">
+                Integration of ground-penetrating radar (GPR), magnetometers,
+                and gravimeters for deeper subsurface validation.
+              </p>
+            </HudContainer>
+
+            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+              <Activity className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Subterranean Acoustics</h3>
+              <p className="text-sm text-muted-foreground">
+                Void detection and geological mapping via acoustic visualization
+                and terrain vibration analysis.
+              </p>
+            </HudContainer>
+
+            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+              <FlaskConical className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Chemical Sensing</h3>
+              <p className="text-sm text-muted-foreground">
+                Remote chemical detection for atmospheric and ground-level trace
+                elements indicating buried resources.
+              </p>
+            </HudContainer>
+
+            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
+              <Plane className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Autonomous Deployment</h3>
+              <p className="text-sm text-muted-foreground">
+                Drone-mounted sensor arrays for low-altitude, high-resolution
+                scanning of difficult terrain.
+              </p>
             </HudContainer>
           </div>
         </div>
