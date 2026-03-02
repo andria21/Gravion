@@ -310,7 +310,7 @@ export default function Home() {
             <h3 className="text-xl font-semibold mb-8 text-muted-foreground uppercase tracking-widest">
               Future Applications
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-80 hover:opacity-100 transition-opacity">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-80 hover:opacity-100 transition-opacity">
               <Link href="/applications#search-rescue" className="block h-full">
                 <UseCaseCard
                   title="Search & Rescue"
@@ -332,7 +332,7 @@ export default function Home() {
                 />
               </Link>
 
-              <Link href="/applications#security" className="block h-full">
+              {/* <Link href="/applications#security" className="block h-full">
                 <UseCaseCard
                   title="Security Systems"
                   description="AI-driven anomaly detection for private and commercial security environments, analyzing visual, spectral, and thermal feeds."
@@ -342,7 +342,7 @@ export default function Home() {
                   index={3}
                   className="h-full text-sm"
                 />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
