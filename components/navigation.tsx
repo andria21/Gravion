@@ -30,11 +30,11 @@ const routes = [
     path: '/about',
     icon: <Users className="h-5 w-5" />,
   },
-  {
-    name: 'Planets',
-    path: '/planets',
-    icon: <Globe2 className="h-5 w-5" />,
-  },
+  // {
+  //   name: 'Planets',
+  //   path: '/planets',
+  //   icon: <Globe2 className="h-5 w-5" />,
+  // },
   {
     name: 'Contact',
     path: '/contact',
