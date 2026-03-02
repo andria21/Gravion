@@ -373,7 +373,7 @@ export default function Home() {
 
             <HudContainer variant="secondary" className="h-full text-center">
               <SectionHeader
-                title="PATENT-PENDING SYSTEM"
+                title="AI & COMPUTE ARCHITECTURE"
                 className="mb-6 text-center"
               />
 
@@ -390,42 +390,26 @@ export default function Home() {
                 crews.
               </p>
 
-              {/* <div className="relative py-4">
-                <div className="flex items-center mb-4">
-                  <Database className="h-5 w-5 text-secondary mr-2" />
-                  <span className="font-medium">
-                    Satellite Data Integration
-                  </span>
+              <div className="grid grid-cols-2 gap-4 text-left mt-8">
+                <div className="bg-background/30 p-3 rounded border border-primary/20">
+                  <div className="text-xs text-primary font-bold mb-1">
+                    COMPUTE
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    High-performance GPU clusters for parallelized spectral
+                    inference.
+                  </div>
                 </div>
-                <div className="ml-7 pl-4 border-l border-secondary/30 text-muted-foreground text-sm">
-                  Our proprietary algorithms process multi-spectral satellite
-                  imagery in real-time, detecting subtle anomalies invisible to
-                  conventional systems.
-                </div>
-              </div>
-
-              <div className="relative py-4">
-                <div className="flex items-center mb-4">
-                  <Database className="h-5 w-5 text-secondary mr-2" />
-                  <span className="font-medium">Thermal Analysis</span>
-                </div>
-                <div className="ml-7 pl-4 border-l border-secondary/30 text-muted-foreground text-sm">
-                  Advanced thermal imaging capabilities allow detection through
-                  dense cover and adverse conditions, with exceptional accuracy.
+                <div className="bg-background/30 p-3 rounded border border-primary/20">
+                  <div className="text-xs text-primary font-bold mb-1">
+                    TRAINING DATA
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    Calibrated against confirmed deposits and US geological
+                    surveys.
+                  </div>
                 </div>
               </div>
-
-              <div className="relative py-4">
-                <div className="flex items-center mb-4">
-                  <Database className="h-5 w-5 text-secondary mr-2" />
-                  <span className="font-medium">AI Correlation Engine</span>
-                </div>
-                <div className="ml-7 pl-4 border-l border-secondary/30 text-muted-foreground text-sm">
-                  Machine learning models trained on millions of data points
-                  deliver intelligence that grows more accurate with each
-                  deployment.
-                </div>
-              </div> */}
             </HudContainer>
           </div>
         </div>
