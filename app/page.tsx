@@ -31,14 +31,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background to-background"></div>
-          <Image
-            src="https://images.pexels.com/photos/2159/flight-sky-earth-space.jpg"
-            alt="Earth from space"
-            fill
-            priority
-            className="object-cover opacity-30"
+          <video
+            src="https://res.cloudinary.com/djynatwlg/video/upload/f_auto:video,q_auto/gravionv9"
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
           />
+          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-32 text-center">
