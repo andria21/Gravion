@@ -20,6 +20,7 @@ import {
   Activity,
   FlaskConical,
   Plane,
+  ShieldCheck,
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player/VideoPlayer";
 import GeologicalReports from "@/components/GeologicalReports";
@@ -41,16 +42,19 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-32 text-center">
-          <div className="mb-8 flex flex-col items-center justify-center">
-            <span className="inline-block px-3 py-1 text-xs font-medium rounded-full border border-primary/30 text-primary mb-4">
-              PATENT PENDING - 63/791, 903
-            </span>
-            <span className="inline-block px-3 py-1 text-xs font-medium rounded-full border border-primary/30 text-primary mb-4">
-              CONFIRMATION - 4990
-            </span>
-            <span className="inline-block px-3 py-1 text-xs font-medium rounded-full border border-primary/30 text-primary mb-4">
-              PATENT CENTER - 70089816
-            </span>
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
+              <ShieldCheck className="w-3 h-3" />
+              <span>PATENT PENDING - 63/791, 903</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
+              <ClipboardCheck className="w-3 h-3" />
+              <span>CONFIRMATION - 4990</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
+              <Database className="w-3 h-3" />
+              <span>PATENT CENTER - 70089816</span>
+            </div>
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider mb-6 max-w-4xl mx-auto">
@@ -67,10 +71,10 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
+              className="w-auto group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
             >
               <Link href="/map" className="relative z-10">
-                <span className="relative z-10">GET STARTED</span>
+                <span className="relative z-10">SEE OUR TARGETS</span>
                 <span className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
               </Link>
             </Button>
@@ -78,7 +82,7 @@ export default function Home() {
               asChild
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-black"
+              className="w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-black"
             >
               <Link href="/about" className="relative z-10">
                 <span className="relative z-10">LEARN MORE</span>
@@ -378,11 +382,12 @@ export default function Home() {
                 imagery.
               </p>
               <p className="text-muted-foreground text-sm mb-6">
-                Gravion&apos;s core technology utilizes proprietary machine learning
-                models to analyze multi-spectral satellite data. Our system is
-                currently calibrated to detect, identify, and map 43 distinct
-                mineral signatures from orbit, delivering high-precision targets
-                without the need for initial ground crews.
+                Gravion&apos;s core technology utilizes proprietary machine
+                learning models to analyze multi-spectral satellite data. Our
+                system is currently calibrated to detect, identify, and map 43
+                distinct mineral signatures from orbit, delivering
+                high-precision targets without the need for initial ground
+                crews.
               </p>
 
               {/* <div className="relative py-4">
@@ -527,14 +532,14 @@ export default function Home() {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 text-center">
           <SectionHeader
-            title="JOIN THE BETA"
+            title="UNLOCK GRAVION"
             description="Be among the first to access Gravion's groundbreaking technology"
             align="center"
             className="mb-8"
           />
 
           <Button asChild size="lg">
-            <Link href="/contact">REQUEST BETA ACCESS</Link>
+            <Link href="/contact">Schedule a Call</Link>
           </Button>
         </div>
       </section>

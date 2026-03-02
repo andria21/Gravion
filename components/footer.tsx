@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Satellite } from "lucide-react";
+import { Satellite, ShieldCheck } from "lucide-react";
 import LOGO from "../assets/Logo_Emblem.png";
 import LOGO_TITLE from "../assets/Logo_Text.png";
 import Image from "next/image";
@@ -38,7 +38,13 @@ export default function Footer() {
               AI-powered reconnaissance system <br />
               Eyes in the sky. Intelligence underground.
             </p>
-            <p className="text-xs text-muted-foreground">
+            <div className="flex flex-col items-center gap-2 mt-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
+                <ShieldCheck className="w-3 h-3" />
+                <span>Patent Pending: 63/791,903</span>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}
               ©️ Cosmos products LLC
             </p>
