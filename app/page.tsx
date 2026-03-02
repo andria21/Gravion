@@ -84,7 +84,7 @@ export default function Home() {
               asChild
               variant="outline"
               size="lg"
-              className="w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-black"
+              className="w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-white"
             >
               <Link href="/about" className="relative z-10">
                 <span className="relative z-10">LEARN MORE</span>

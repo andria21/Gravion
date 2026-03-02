@@ -367,7 +367,7 @@ export default function AboutPage() {
           </div>
 
           {/* Chemical Department */}
-          <div className="mb-20">
+          {/* <div className="mb-20">
             <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
               CHEMICAL DEPARTMENT
             </h2>
@@ -391,7 +391,7 @@ export default function AboutPage() {
                 </div>
               </HudContainer>
             </div>
-          </div>
+          </div> */}
 
           {/* Media Department */}
           <div className="mb-20">
@@ -404,9 +404,12 @@ export default function AboutPage() {
                   <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
                     <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
                     <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
-                      <span className="text-3xl text-muted-foreground font-bold">
-                        D
-                      </span>
+                      <Image
+                        src={"/dmitrii.jpg"}
+                        alt={"Novoseltsky Dmitry"}
+                        fill
+                        className="object-cover team-image"
+                      />
                     </div>
                   </div>
 
