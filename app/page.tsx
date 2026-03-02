@@ -12,6 +12,10 @@ import {
   Lock,
   Compass,
   Globe,
+  Satellite,
+  Cpu,
+  Crosshair,
+  ClipboardCheck,
 } from "lucide-react";
 import VideoPlayer from "@/components/video-player/VideoPlayer";
 import GeologicalReports from "@/components/GeologicalReports";
@@ -143,6 +147,76 @@ export default function Home() {
               <Globe className="h-8 w-8 text-primary mb-3" />
               <p className="text-muted-foreground text-xs">
                 Lithium model calibrated against known US deposits
+              </p>
+            </HudContainer>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <SectionHeader
+            title="HOW IT WORKS"
+            description="From orbit to extraction: our streamlined exploration process."
+            align="center"
+            className="mb-16"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Step 1 */}
+            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+                <Satellite className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Step 1</h3>
+              <h4 className="font-semibold text-primary mb-3">
+                Satellite Acquisition
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Multi-spectral data ingested across target region
+              </p>
+            </HudContainer>
+
+            {/* Step 2 */}
+            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+                <Cpu className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Step 2</h3>
+              <h4 className="font-semibold text-primary mb-3">AI Analysis</h4>
+              <p className="text-sm text-muted-foreground">
+                4 engines analyze spectral, structural, alteration, anomaly
+                signals
+              </p>
+            </HudContainer>
+
+            {/* Step 3 */}
+            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+                <Crosshair className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Step 3</h3>
+              <h4 className="font-semibold text-primary mb-3">
+                Target Generation
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Convergent signals identify high-priority targets with GPS
+                coordinates
+              </p>
+            </HudContainer>
+
+            {/* Step 4 */}
+            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+                <ClipboardCheck className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Step 4</h3>
+              <h4 className="font-semibold text-primary mb-3">
+                Validation & Claims
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Field sampling, lab analysis, BLM claims filing
               </p>
             </HudContainer>
           </div>
