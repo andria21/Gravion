@@ -327,7 +327,7 @@ export default function AboutPage() {
                   name: "Vyacheslav Yuschenko",
                   role: "Lead Analytics",
                   bio: "Expert in data interpretation and pattern recognition algorithms.",
-                  image: null,
+                  image: "/slava.jpg",
                 },
                 // {
                 //   name: "Kevin",
