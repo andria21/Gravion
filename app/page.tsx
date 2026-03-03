@@ -226,7 +226,7 @@ export default function Home() {
                 Validation & Claims
               </h4>
               <p className="text-sm text-muted-foreground">
-                Field sampling, lab analysis, BLM claims filing
+                Field sampling, lab analysis
               </p>
             </HudContainer>
           </div>
