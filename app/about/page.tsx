@@ -316,114 +316,80 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Analytics Department */}
+          {/* Strategic & Media Departments */}
           <div className="mb-20">
-            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-              ANALYTICS DEPARTMENT
-            </h2>
-            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-              {[
-                {
-                  name: "Vyacheslav Yuschenko",
-                  role: "Lead Analytics",
-                  bio: "Expert in data interpretation and pattern recognition algorithms.",
-                  image: "/slava.jpg",
-                },
-                // {
-                //   name: "Kevin",
-                //   role: "Senior Analyst",
-                //   bio: "Specializing in predictive modeling and terrain data assessment.",
-                //   image: null,
-                // },
-              ].map((member, index) => (
-                <HudContainer key={index} className="h-full">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
-                      {member.image ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+              {/* Strategic Advisor */}
+              <div>
+                <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+                  STRATEGIC ADVISOR
+                </h2>
+                <div className="max-w-md mx-auto">
+                  <HudContainer>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
                         <div className="team-image-container w-full h-full relative">
                           <Image
-                            src={member.image}
-                            alt={member.name}
+                            src={"/slava.jpg"}
+                            alt={"Vyacheslav Yuschenko"}
                             fill
                             className="object-cover team-image"
                           />
                         </div>
-                      ) : (
-                        <span className="text-3xl text-muted-foreground font-bold">
-                          {member.name[0]}
-                        </span>
-                      )}
+                      </div>
+
+                      <h3 className="text-xl font-medium mb-1">
+                        Vyacheslav Yuschenko
+                      </h3>
+                      <p className="text-primary text-sm mb-4">
+                        Strategic Advisor
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        Expert in data interpretation and pattern recognition
+                        algorithms.
+                        <br/>
+                        &nbsp;
+                      </p>
                     </div>
-
-                    <h3 className="text-xl font-medium mb-1">{member.name}</h3>
-                    <p className="text-primary text-sm mb-4">{member.role}</p>
-                    <p className="text-muted-foreground text-sm">
-                      {member.bio}
-                    </p>
-                  </div>
-                </HudContainer>
-              ))}
-            </div>
-          </div>
-
-          {/* Chemical Department */}
-          {/* <div className="mb-20">
-            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-              CHEMICAL DEPARTMENT
-            </h2>
-            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-              <HudContainer className="h-full">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
-                    <span className="text-3xl text-muted-foreground font-bold">
-                      Y
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-medium mb-1">Yuri Pustovoyt</h3>
-                  <p className="text-primary text-sm mb-4">
-                    Head of Chemical Analysis
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    Leading the spectral analysis and chemical composition
-                    identification initiatives.
-                  </p>
+                  </HudContainer>
                 </div>
-              </HudContainer>
-            </div>
-          </div> */}
+              </div>
 
-          {/* Media Department */}
-          <div className="mb-20">
-            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-              MEDIA DEPARTMENT
-            </h2>
-            <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
-              <HudContainer className="h-full">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                    <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
-                      <Image
-                        src={"/dmitrii.jpg"}
-                        alt={"Novoseltsky Dmitry"}
-                        fill
-                        className="object-cover team-image"
-                      />
+              {/* Media Department */}
+              <div>
+                <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+                  MEDIA DEPARTMENT
+                </h2>
+                <div className="max-w-md mx-auto">
+                  <HudContainer>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
+                        <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                        <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
+                          <Image
+                            src={"/dmitrii.jpg"}
+                            alt={"Novoseltsky Dmitry"}
+                            fill
+                            className="object-cover team-image"
+                          />
+                        </div>
+                      </div>
+
+                      <h3 className="text-xl font-medium mb-1">
+                        Novoseltsky Dmitry
+                      </h3>
+                      <p className="text-primary text-sm mb-4">
+                        Media Director
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        Constructing the visual and auditory identity of
+                        Gravion, ensuring the mission is communicated with
+                        clarity and impact.
+                      </p>
                     </div>
-                  </div>
-
-                  <h3 className="text-xl font-medium mb-1">
-                    Novoseltsky Dmitry
-                  </h3>
-                  <p className="text-primary text-sm mb-4">Media Director</p>
-                  <p className="text-muted-foreground text-sm">
-                    Constructing the visual and auditory identity of Gravion,
-                    ensuring the mission is communicated with clarity and
-                    impact.
-                  </p>
+                  </HudContainer>
                 </div>
-              </HudContainer>
+              </div>
             </div>
           </div>
         </div>
