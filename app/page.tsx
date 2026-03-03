@@ -422,45 +422,46 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <SectionHeader
             title="TECHNOLOGY ROADMAP"
-            description="Expanding our sensor fusion capabilities for comprehensive subterranean intelligence."
+            description="Our proprietary deep learning models driving discovery."
             align="center"
             className="mb-12"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <Radio className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Advanced Sensor Fusion</h3>
+              <Activity className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Spectral Analysis</h3>
               <p className="text-sm text-muted-foreground">
-                Integration of ground-penetrating radar (GPR), magnetometers,
-                and gravimeters for deeper subsurface validation.
+                Convolutional networks trained to identify specific mineral
+                reflectance signatures across hundreds of spectral bands.
               </p>
             </HudContainer>
 
             <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <Activity className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Subterranean Acoustics</h3>
+              <Compass className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Structural Geology</h3>
               <p className="text-sm text-muted-foreground">
-                Void detection and geological mapping via acoustic visualization
-                and terrain vibration analysis.
+                Computer vision models that map faults, fractures, and
+                lineaments to understand trap dynamics and geological context.
               </p>
             </HudContainer>
 
             <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
               <FlaskConical className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Chemical Sensing</h3>
+              <h3 className="font-bold mb-2">Alteration Mapping</h3>
               <p className="text-sm text-muted-foreground">
-                Remote chemical detection for atmospheric and ground-level trace
-                elements indicating buried resources.
+                Detects subtle hydrothermal alteration zones indicative of
+                mineral deposits using chemical ratios and thermal data.
               </p>
             </HudContainer>
 
             <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <Plane className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Autonomous Deployment</h3>
+              <Radio className="h-10 w-10 text-primary mb-4 opacity-80" />
+              <h3 className="font-bold mb-2">Anomaly Detection</h3>
               <p className="text-sm text-muted-foreground">
-                Drone-mounted sensor arrays for low-altitude, high-resolution
-                scanning of difficult terrain.
+                Unsupervised learning algorithms that flag statistical
+                deviations and unique geological signatures from background
+                noise.
               </p>
             </HudContainer>
           </div>

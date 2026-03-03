@@ -120,7 +120,7 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium">Phone</h3>
-                    <p className="text-muted-foreground">Coming Soon</p>
+                    <p className="text-muted-foreground">Schedule a call with our team to discuss your needs.</p>
                   </div>
                 </div>
               </div>
