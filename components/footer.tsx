@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
             <p className="text-xs text-muted-foreground mt-4">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}
-              ©️ Cosmos products LLC
+              ©️ Gravion Inc. All rights reserved.
             </p>
           </div>
 
