@@ -77,14 +77,14 @@ export default function Footer() {
                   About Us
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/planets"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Planets
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/contact"
