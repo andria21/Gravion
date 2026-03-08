@@ -365,11 +365,13 @@ export default function Home() {
                 className="mb-6"
               />
               <p className="text-lg text-muted-foreground mb-8">
-                Gravion is in advanced development with early access granted to
-                professionals in search and rescue, exploration, and technical
-                operations. We’re collaborating with SAR personnel, geotech
-                operators, and drone experts to prepare for live mission trials,
-                simulator rollouts, and deployment-ready integration.
+                Gravion has completed its first field validation campaign in
+                southern Wyoming. AI-predicted targets were visited, sampled,
+                and assessed. Hydrothermal alteration signatures and geophysical
+                anomalies were confirmed at multiple locations. Multi-element
+                laboratory geochemistry is currently in progress at ALS
+                Geochemistry (Reno, NV). Ground magnetic survey planned for Q2
+                2026.
               </p>
             </div>
 
@@ -501,9 +503,8 @@ export default function Home() {
                     Technical Expertise
                   </h3>
                   <p className="text-muted-foreground group-hover:text-foreground transition-colors mb-6">
-                    World-class AI researchers and satellite data specialists
-                    with publications in leading journals and patents in remote
-                    sensing technology.
+                    AI and satellite data specialists building proprietary
+                    detection models for mineral exploration.
                   </p>
                   <div className="text-primary mt-auto group-hover:translate-x-2 transition-transform">
                     Meet the team →
