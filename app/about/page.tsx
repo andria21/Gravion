@@ -179,15 +179,10 @@ export default function AboutPage() {
 
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-muted-foreground mb-4">
-              Curiosity may have killed the cat—but it also sparked the future.
-              Gravion was born from a random thought, a moment of clarity, and a
-              team driven by a shared vision. What started as a single idea
-              quickly evolved through late-night discussions and
-              cross-discipline collaboration into something much larger: a new
-              perception of what technology can be.
+            Gravion was founded to solve one of the oldest problems in mineral exploration: finding what&apos;s underground without digging first. Our team combines experience in defense operations, AI development, and field geology to build satellite-based detection technology that identifies mineral targets from orbit.
             </p>
 
-            <p className="text-muted-foreground mb-4">
+            {/* <p className="text-muted-foreground mb-4">
               Gravion is the Earth&apos;s X-ray—capable of revealing natural
               resources, hidden terrains, and, most importantly, human lives in
               danger. From marine drones scanning the ocean floor to cave-rescue
@@ -199,7 +194,7 @@ export default function AboutPage() {
             <p className="text-muted-foreground">
               Meet the dedicated team members below who are building Gravion for
               something greater than themselves.
-            </p>
+            </p> */}
           </div>
 
           {/* Technical Department */}
@@ -215,19 +210,19 @@ export default function AboutPage() {
                   {
                     name: "Irakli Darsavelidze",
                     role: "Co-Founder / Chief Executive Officer - DM’s AI",
-                    bio: "Irakli is the driving force behind DM’s AI — Under his leadership, DM’s AI evolved from an ambitious concept into an operational force. Irakli is the mastermind behind Gravions system level execution. His goal is not only to build products, but to build the right team for the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.",
+                    bio: "Irakli is the driving force behind the team’s vision and execution. Under his leadership, ambitious ideas turned into real, working systems. He focuses not only on building products but on bringing together the right people to solve the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.”",
                     image: Irakli,
                   },
                   {
                     name: "Andria Marqarovi",
                     role: "Co-Founder / Chief Technology Officer",
-                    bio: "Andria leads the technical aspect of Gravion — a system-level innovation. He ensured to bring the excellence of DM’s AI with a passion for solving the “unsolvable”. Andria shares: Gravion isn’t theory — it’s a deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.",
+                    bio: "Andria leads the technical development of Gravion — a system-level innovation. He focuses on solving complex problems and turning ideas into reliable systems. Andria shares: “Gravion isn’t theory — it’s deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.”",
                     image: Andria,
                   },
                   {
                     name: "Aleksandre Mirzashvili",
                     role: "Co-Founder / Chief Operating Officer",
-                    bio: "Aleksandre is Gravion’s and DM’s AI’s operational compass — the one ensuring that all parts, people, and processes are completed with precision. he bridges the gap between vision and practical execution. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. With DM’s AI and Gravion, we  kept every promise, hit every mark, and turned complexity into clarity.",
+                    bio: "Aleksandre is Gravion’s operational compass — ensuring that people, processes, and execution stay aligned with precision. He bridges the gap between vision and practical results. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. We kept every promise, hit every mark, and turned complexity into clarity.”",
                     image: Aleksandre,
                   },
                 ].map((member, index) => (
@@ -265,19 +260,19 @@ export default function AboutPage() {
                   {[
                     {
                       name: "Youssef",
-                      role: "Co-Founder - Convocore",
+                      role: "Co-Founder / AI Engineer",
                       bio: "Driving the vision of conversational AI integration within the Gravion ecosystem.",
                       image: "/YOUSUFF.jpg",
                     },
                     {
                       name: "Moe",
-                      role: "Co-Founder - Convocore",
+                      role: "Co-Founder / AI Engineer",
                       bio: "Leading the architectural design of intelligent agent systems.",
                       image: "/MOE.png",
                     },
                     {
                       name: "Mohammad Zubi",
-                      role: "Co-Founder - Convocore",
+                      role: "Co-Founder / AI Engineer",
                       bio: "Specializing in real-time analytics and seamless deployment strategies.",
                       image: "/zubi.jpg",
                     },
@@ -347,7 +342,7 @@ export default function AboutPage() {
                       <p className="text-muted-foreground text-sm">
                         Expert in data interpretation and pattern recognition
                         algorithms.
-                        <br/>
+                        <br />
                         &nbsp;
                       </p>
                     </div>
