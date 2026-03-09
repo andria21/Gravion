@@ -373,6 +373,23 @@ export default function Home() {
                 Geochemistry (Reno, NV). Ground magnetic survey planned for Q2
                 2026.
               </p>
+
+              <div className="grid grid-cols-3 gap-3 mt-8">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="relative aspect-square rounded-md overflow-hidden border border-primary/20 shadow-[0_0_10px_rgba(0,255,255,0.1)] group"
+                  >
+                    <Image
+                      src={`/field-photos/field${i}.jpg`}
+                      alt={`Field validation photo ${i}`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <HudContainer variant="secondary" className="h-full text-center">
@@ -527,7 +544,7 @@ export default function Home() {
           />
 
           <Button asChild size="lg">
-            <Link href="/contact">Schedule a Call</Link>
+            <Link href="/contact">SCHEDULE A CALL</Link>
           </Button>
         </div>
       </section>
