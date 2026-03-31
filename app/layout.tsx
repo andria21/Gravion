@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
     url: "https://gravion.space",
     siteName: "Gravion",
-    type: "article",
+    type: "website",
     images: [
       {
         url: "https://gravion.space/Logo_Emblem4.png",
