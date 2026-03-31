@@ -8,9 +8,11 @@ import { Toaster } from "@/components/ui/toaster";
 import ChatBot from "@/components/chatbot/chatbot";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gravion.space"),
   title: "Gravion | AI-Powered Mineral Exploration",
   description:
     "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
+  applicationName: "Gravion",
   keywords: [
     // Brand
     "Gravion",
@@ -54,11 +56,33 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Gravion | AI-Powered Mineral Exploration",
-    description: "Detect minerals from orbit using AI.",
+    description:
+      "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
     url: "https://gravion.space",
     siteName: "Gravion",
     type: "website",
+    images: [
+      {
+        url: "/Logo_Emblem4.png",
+        width: 1200,
+        height: 630,
+        alt: "Gravion AI Mineral Exploration",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gravion | AI-Powered Mineral Exploration",
+    description:
+      "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
+    images: ["/Logo_Emblem4.png"],
+  },
+  authors: [
+    {
+      name: "Gravion",
+      url: "https://gravion.space",
+    },
+  ],
   manifest: "/manifest.json",
 };
 
