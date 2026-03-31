@@ -415,7 +415,7 @@ export default function Home() {
                   >
                     <Image
                       src={`/field-photos/field${i}.jpg`}
-                      alt={`Field validation photo ${i}`}
+                      alt={`Gravion field sampling at Target 11, Sierra Madre, Wyoming 2026 ${i}`}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
