@@ -364,15 +364,32 @@ export default function Home() {
                 description="Our technology is gaining momentum and proving its capabilities in real-world scenarios."
                 className="mb-6"
               />
-              <p className="text-lg text-muted-foreground mb-8">
-                Gravion has completed its first field validation campaign in
-                southern Wyoming. AI-predicted targets were visited, sampled,
-                and assessed. Hydrothermal alteration signatures and geophysical
-                anomalies were confirmed at multiple locations. Multi-element
-                laboratory geochemistry is currently in progress at ALS
-                Geochemistry (Reno, NV). Ground magnetic survey planned for Q2
-                2026.
-              </p>
+              <div className="space-y-6">
+                <p className="text-lg text-muted-foreground">
+                  Gravion has completed its first field validation campaign in
+                  southern Wyoming. AI-predicted targets were visited, sampled,
+                  and assessed. Hydrothermal alteration signatures and
+                  geophysical anomalies were confirmed at multiple locations.
+                  Multi-element laboratory geochemistry is currently in progress
+                  at ALS Geochemistry (Reno, NV). Ground magnetic survey planned
+                  for Q2 2026.
+                </p>
+
+                <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 shadow-[0_0_15px_rgba(0,255,255,0.05)]">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <div>
+                      <h4 className="font-bold text-primary mb-1">
+                        NVIDIA Inception Program — Accepted March 2026
+                      </h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Access to GPU compute infrastructure, AI training
+                        resources, and the NVIDIA partner and investor network.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className="grid grid-cols-3 gap-3 mt-8">
                 {[1, 2, 3].map((i) => (
