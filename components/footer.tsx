@@ -38,11 +38,18 @@ export default function Footer() {
               AI-powered reconnaissance system <br />
               Eyes in the sky. Intelligence underground.
             </p>
-            <div className="flex flex-col items-center gap-2 mt-4">
+            <div className="flex flex-col items-center justify-center gap-4 mt-4">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
                 <ShieldCheck className="w-3 h-3" />
                 <span>Patent Pending: 63/791,903</span>
               </div>
+              <Image
+                src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
+                alt="NVIDIA Inception Program Member"
+                width={140}
+                height={40}
+                className="hover:grayscale-0 transition-all duration-300"
+              />
             </div>
             <p className="text-xs text-muted-foreground mt-4">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}
