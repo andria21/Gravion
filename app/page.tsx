@@ -156,7 +156,7 @@ export default function Home() {
             >
               <Globe className="h-8 w-8 text-primary mb-3" />
               <p className="text-muted-foreground text-xs">
-                Lithium model calibrated against known US deposits
+                Multi-commodity detection calibrated against known deposits of gold, copper, lithium, and other minerals
               </p>
             </HudContainer>
           </div>
