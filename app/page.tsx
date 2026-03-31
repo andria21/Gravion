@@ -431,6 +431,31 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
+              {/* NVIDIA Recognition Block */}
+              <div className="mt-8 pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center gap-6 text-left">
+                <div className="flex-1">
+                  <h4 className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">
+                    Recognized by NVIDIA
+                  </h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Gravion is an accepted member of the NVIDIA Inception
+                    Program — a global initiative supporting the most promising
+                    AI startups. Our compute infrastructure leverages
+                    GPU-accelerated inference for parallelized spectral analysis
+                    of satellite imagery.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
+                    alt="NVIDIA Inception Program Member"
+                    width={140}
+                    height={50}
+                    className="hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              </div>
             </HudContainer>
           </div>
         </div>
