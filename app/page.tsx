@@ -156,7 +156,8 @@ export default function Home() {
             >
               <Globe className="h-8 w-8 text-primary mb-3" />
               <p className="text-muted-foreground text-xs">
-                Multi-commodity detection calibrated against known deposits of gold, copper, lithium, and other minerals
+                Multi-commodity detection calibrated against known deposits of
+                gold, copper, lithium, and other minerals
               </p>
             </HudContainer>
           </div>
@@ -173,7 +174,7 @@ export default function Home() {
             className="mb-16"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {/* Step 1 */}
             <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
@@ -227,6 +228,21 @@ export default function Home() {
               </h4>
               <p className="text-sm text-muted-foreground">
                 Field sampling, lab analysis
+              </p>
+            </HudContainer>
+
+            {/* Step 5 */}
+            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
+                <Globe className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Step 5</h3>
+              <h4 className="font-semibold text-primary mb-3">
+                Partner & Scale
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Joint venture structuring and claim development with industry
+                partners.
               </p>
             </HudContainer>
           </div>
