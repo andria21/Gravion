@@ -5,7 +5,7 @@ const ChatBot = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.VG_CONFIG = {
-        ID: "b8lo6mqqqyo2irwd", 
+        ID: "k9mwAUvangP3KfFXdeoo", 
         region: "eu", 
         render: "bottom-right",
         stylesheets: [
