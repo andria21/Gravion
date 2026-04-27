@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Satellite, ShieldCheck } from "lucide-react";
-import LOGO from "../assets/Logo_Emblem.png";
-import LOGO_TITLE from "../assets/Logo_Text.png";
 import Image from "next/image";
 
 export default function Footer() {
@@ -14,24 +12,12 @@ export default function Footer() {
               href="/"
               className="flex items-center space-x-2 font-orbitron justify-center"
             >
-              {/* Added a container for the logo and its pulse effect */}
-              <div className="relative flex items-center justify-center">
-                <div className="radar-pulse-background"></div>{" "}
-                {/* This div creates the pulse */}
-                <Image
-                  src={LOGO}
-                  alt="Gravion Logo"
-                  width={40}
-                  height={100}
-                  className="text-primary relative z-10 opacity-80" // Ensures logo is above pulse
-                />
-              </div>
               <Image
-                src={LOGO_TITLE}
+                src="/logos/Logo.png"
                 alt="Gravion Logo"
-                width={120}
-                height={300} // Note: If your emblem is more square, you might want to adjust width/height
-                className="[filter:grayscale(1)_brightness(0)_invert(1)] relative z-10" // Ensure logo is above pulse, removed old pulsing-logo [filter:invert(0%)_sepia(0%)_saturate(0%)_hue-rotate(308deg)_brightness(98%)_contrast(101%)]
+                width={160}
+                height={40}
+                className="relative z-10"
               />
             </Link>
             <p className="text-sm text-muted-foreground">

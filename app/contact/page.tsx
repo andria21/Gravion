@@ -17,7 +17,6 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { HudContainer } from "@/components/ui/hud-container";
 import { Satellite, Mail, MapPin, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import LOGO from "../../assets/Logo_Emblem.png";
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -31,7 +30,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -120,7 +119,9 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium">Phone</h3>
-                    <p className="text-muted-foreground">Schedule a call with our team to discuss your needs.</p>
+                    <p className="text-muted-foreground">
+                      Schedule a call with our team to discuss your needs.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -155,11 +156,11 @@ export default function ContactPage() {
               <HudContainer className="h-full">
                 <div className="flex items-center mb-6">
                   <Image
-                    src={LOGO}
+                    src="/logos/Logo 88.png"
                     alt="Gravion Logo"
-                    width={40}
-                    height={100}
-                    className="h-7 w-7 text-primary mr-2"
+                    width={160}
+                    height={40}
+                    className="h-12 w-auto text-primary mr-2"
                   />
                   <h2 className="text-xl font-bold tracking-wider">
                     GET IN TOUCH
