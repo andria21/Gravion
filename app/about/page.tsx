@@ -354,7 +354,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
                 {
-                  name: "Michael",
+                  name: "Michael Hamilton",
                   role: "Media Director",
                   bio: "Overseeing all media production and creative strategy, Michael ensures that Gravion's message resonates through high-quality visual storytelling and brand consistency.",
                   image: "/michael.jpg",
