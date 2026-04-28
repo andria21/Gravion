@@ -400,7 +400,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-lg overflow-hidden h-[400px]">
               <Image
-                src={AboutImage3}
+                src={"/app-images/nasamoon.jpg"}
                 alt="Tech innovation"
                 fill
                 className="object-cover"
