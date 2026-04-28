@@ -254,7 +254,7 @@ export default function AboutPage() {
             </div>
 
             {/* Convocore Team */}
-            <div className="mb-12 relative p-8 ">
+            <div className="mb-12 relative">
               <div className="relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {[
@@ -311,80 +311,85 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Strategic & Media Departments */}
+          {/* Strategic Advisor */}
           <div className="mb-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-              {/* Strategic Advisor */}
-              <div>
-                <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-                  STRATEGIC ADVISOR
-                </h2>
-                <div className="max-w-md mx-auto">
-                  <HudContainer>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
-                        <div className="team-image-container w-full h-full relative">
-                          <Image
-                            src={"/slava.jpg"}
-                            alt={"Vyacheslav Yuschenko"}
-                            fill
-                            className="object-cover team-image"
-                          />
-                        </div>
-                      </div>
-
-                      <h3 className="text-xl font-medium mb-1">
-                        Vyacheslav Yuschenko
-                      </h3>
-                      <p className="text-primary text-sm mb-4">
-                        Strategic Advisor
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        Expert in data interpretation and pattern recognition
-                        algorithms.
-                        <br />
-                        &nbsp;
-                      </p>
+            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+              STRATEGIC ADVISOR
+            </h2>
+            <div className="max-w-md mx-auto">
+              <HudContainer>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group shadow-lg shadow-primary/20">
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                    <div className="team-image-container">
+                      <Image
+                        src={"/slava.jpg"}
+                        alt={"Vyacheslav Yuschenko"}
+                        fill
+                        className="object-cover team-image"
+                      />
                     </div>
-                  </HudContainer>
-                </div>
-              </div>
+                  </div>
 
-              {/* Media Department */}
-              <div>
-                <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-                  MEDIA DEPARTMENT
-                </h2>
-                <div className="max-w-md mx-auto">
-                  <HudContainer>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group">
-                        <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                        <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group bg-muted flex items-center justify-center">
-                          <Image
-                            src={"/dmitrii.jpg"}
-                            alt={"Novoseltsky Dmitry"}
-                            fill
-                            className="object-cover team-image"
-                          />
-                        </div>
+                  <h3 className="text-xl font-medium mb-1">
+                    Vyacheslav Yuschenko
+                  </h3>
+                  <p className="text-primary text-sm mb-4 tracking-wider font-semibold">
+                    Strategic Advisor
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    Expert in data interpretation and pattern recognition
+                    algorithms.
+                  </p>
+                </div>
+              </HudContainer>
+            </div>
+          </div>
+
+          {/* Media Department */}
+          <div className="mb-20">
+            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
+              MEDIA DEPARTMENT
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {[
+                {
+                  name: "Michael",
+                  role: "Media Director",
+                  bio: "Overseeing all media production and creative strategy, Michael ensures that Gravion's message resonates through high-quality visual storytelling and brand consistency.",
+                  image: "/michael.jpg",
+                },
+                {
+                  name: "Novoseltsky Dmitry",
+                  role: "Creative Lead",
+                  bio: "Constructing the visual and auditory identity of Gravion, ensuring the mission is communicated with clarity and impact.",
+                  image: "/dmitrii.jpg",
+                },
+              ].map((member, index) => (
+                <HudContainer key={index} className="h-full">
+                  <div className="flex flex-col items-center text-center h-full">
+                    <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group shadow-lg shadow-primary/20">
+                      <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+                      <div className="team-image-container">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover team-image"
+                        />
                       </div>
-
-                      <h3 className="text-xl font-medium mb-1">
-                        Novoseltsky Dmitry
-                      </h3>
-                      <p className="text-primary text-sm mb-4">
-                        Media Director
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        Constructing the visual and auditory identity of
-                        Gravion, ensuring the mission is communicated with
-                        clarity and impact.
-                      </p>
                     </div>
-                  </HudContainer>
-                </div>
-              </div>
+
+                    <h3 className="text-xl font-medium mb-1">{member.name}</h3>
+                    <p className="text-primary text-sm mb-4 tracking-wider font-semibold">
+                      {member.role}
+                    </p>
+                    <p className="text-muted-foreground text-sm flex-grow">
+                      {member.bio}
+                    </p>
+                  </div>
+                </HudContainer>
+              ))}
             </div>
           </div>
         </div>
