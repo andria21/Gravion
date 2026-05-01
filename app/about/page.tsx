@@ -179,7 +179,11 @@ export default function AboutPage() {
 
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-muted-foreground mb-4">
-            Gravion was founded to solve one of the oldest problems in mineral exploration: finding what&apos;s underground without digging first. Our team combines experience in defense operations, AI development, and field geology to build satellite-based detection technology that identifies mineral targets from orbit.
+              Gravion was founded to solve one of the oldest problems in mineral
+              exploration: finding what&apos;s underground without digging
+              first. Our team combines experience in defense operations, AI
+              development, and field geology to build satellite-based detection
+              technology that identifies mineral targets from orbit.
             </p>
 
             {/* <p className="text-muted-foreground mb-4">
@@ -288,7 +292,8 @@ export default function AboutPage() {
                             <Image
                               src={member.image}
                               alt={member.name}
-                              fill
+                              width={96}
+                              height={96}
                               className="object-cover team-image"
                             />
                           </div>
@@ -325,7 +330,8 @@ export default function AboutPage() {
                       <Image
                         src={"/slavanew.jpeg"}
                         alt={"Vyacheslav Yuschenko"}
-                        fill
+                        width={96}
+                        height={96}
                         className="object-cover team-image"
                       />
                     </div>
@@ -357,7 +363,7 @@ export default function AboutPage() {
                   name: "Michael Hamilton",
                   role: "Media Director",
                   bio: "Overseeing all media production and creative strategy, Michael ensures that Gravion's message resonates through high-quality visual storytelling and brand consistency.",
-                  image: "/michael.jpg",
+                  image: "/hamilton.jpeg",
                 },
                 {
                   name: "Novoseltsky Dmitry",
@@ -374,7 +380,8 @@ export default function AboutPage() {
                         <Image
                           src={member.image}
                           alt={member.name}
-                          fill
+                          width={96}
+                          height={96}
                           className="object-cover team-image"
                         />
                       </div>
