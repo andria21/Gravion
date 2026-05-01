@@ -323,7 +323,7 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
                     <div className="team-image-container">
                       <Image
-                        src={"/slava.jpg"}
+                        src={"/slavanew.jpeg"}
                         alt={"Vyacheslav Yuschenko"}
                         fill
                         className="object-cover team-image"
