@@ -215,7 +215,7 @@ export default function AboutPage() {
                     name: "Irakli Darsavelidze",
                     role: "Co-Founder / Chief Executive Officer",
                     bio: "Irakli is the driving force behind the team’s vision and execution. Under his leadership, ambitious ideas turned into real, working systems. He focuses not only on building products but on bringing together the right people to solve the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.”",
-                    image: Irakli,
+                    image: "/darsa.png",
                   },
                   {
                     name: "Andria Marqarovi",
