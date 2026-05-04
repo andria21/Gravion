@@ -272,7 +272,7 @@ export default function AboutPage() {
                       name: "Moe",
                       role: "Co-Founder / AI Engineer",
                       bio: "Leading the architectural design of intelligent agent systems.",
-                      image: "/MOE.png",
+                      image: "/moe.jpeg",
                     },
                     {
                       name: "Mohammad Zubi",
