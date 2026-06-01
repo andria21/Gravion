@@ -122,7 +122,7 @@ export default function RootLayout({
           </div>
           <Toaster />
         </ThemeProvider>
-        <ChatBot />
+        {/* <ChatBot /> */}
       </body>
     </html>
   );
