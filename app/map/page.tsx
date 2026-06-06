@@ -141,6 +141,7 @@ export default function MapPage() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
     libraries: libraries as any,
+    version: "3.64"
   });
 
   const handleZoomIn = useCallback(() => {
