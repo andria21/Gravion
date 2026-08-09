@@ -29,13 +29,22 @@ export default function Footer() {
                 <ShieldCheck className="w-3 h-3" />
                 <span>Patent Pending: 63/791,903</span>
               </div>
-              <Image
-                src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
-                alt="NVIDIA Inception Program Member"
-                width={140}
-                height={40}
-                className="hover:grayscale-0 transition-all duration-300"
-              />
+              <div className="flex flex-col items-center justify-center gap-3">
+                <Image
+                  src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
+                  alt="NVIDIA Inception Program Member"
+                  width={140}
+                  height={40}
+                  className="hover:grayscale-0 transition-all duration-300"
+                />
+                <Image
+                  src="/lambda-logos/lambda_logo_horizontal_white-2000px.png"
+                  alt="Lambda GPU Cloud Partner"
+                  width={140}
+                  height={40}
+                  className="hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
             </div>
             <p className="text-xs text-muted-foreground mt-4">
               {/* © {new Date().getFullYear()} Gravion Space. All rights reserved. */}

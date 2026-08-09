@@ -405,6 +405,22 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
+                <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 shadow-[0_0_15px_rgba(0,255,255,0.05)]">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <div>
+                      <h4 className="font-bold text-primary mb-1">
+                        Lambda GPU Cloud — Active Infrastructure Partner
+                      </h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        High-performance GPU compute access for training and
+                        inference of Gravion&apos;s multi-engine spectral
+                        analysis models.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3 mt-8">
@@ -479,12 +495,37 @@ export default function Home() {
                     of satellite imagery.
                   </p>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 self-start md:self-center">
                   <Image
                     src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
                     alt="NVIDIA Inception Program Member"
                     width={140}
                     height={50}
+                    className="hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              </div>
+
+              {/* Lambda Recognition Block */}
+              <div className="mt-6 pt-6 border-t border-primary/10 flex flex-col md:flex-row items-center gap-6 text-left">
+                <div className="flex-1">
+                  <h4 className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">
+                    Lambda GPU Cloud Partner
+                  </h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Gravion leverages Lambda GPU Cloud infrastructure to
+                    accelerate training and inference of our proprietary
+                    multi-engine AI pipeline. Our compute backend uses Lambda
+                    GPU clusters for parallelized spectral processing of
+                    satellite imagery.
+                  </p>
+                </div>
+                <div className="flex-shrink-0 self-start md:self-center mr-2">
+                  <Image
+                    src="/lambda-logos/lambda_logo_horizontal_white-2000px.png"
+                    alt="Lambda GPU Cloud Partner"
+                    width={140}
+                    height={60}
                     className="hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
