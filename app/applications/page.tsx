@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { HudContainer } from "@/components/ui/hud-container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 import {
   Shield,
   Mountain,
@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 export default function ApplicationsPage() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -28,7 +28,7 @@ export default function ApplicationsPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -130,7 +130,7 @@ export default function ApplicationsPage() {
               </div>
               <div className="order-1 lg:order-2 relative aspect-video rounded-lg overflow-hidden border border-secondary/20 shadow-[0_0_30px_-10px_rgba(var(--secondary),0.3)] group">
                 {/* Placeholder for image/video */}
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-black/80 flex items-center justify-center">
+                <div className="absolute inset-0 bg-linear-to-br from-secondary/5 to-black/80 flex items-center justify-center">
                   <Mountain className="h-20 w-20 text-secondary/20 transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
@@ -150,7 +150,7 @@ export default function ApplicationsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative aspect-video rounded-lg overflow-hidden border border-accent/20 shadow-[0_0_30px_-10px_rgba(var(--accent),0.3)] group">
                 {/* Placeholder for image/video */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-black/80 flex items-center justify-center">
+                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-black/80 flex items-center justify-center">
                   <Search className="h-20 w-20 text-accent/20 transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
@@ -281,7 +281,7 @@ export default function ApplicationsPage() {
               </div>
               <div className="order-1 lg:order-2 relative aspect-video rounded-lg overflow-hidden border border-primary/20 shadow-[0_0_30px_-10px_rgba(var(--primary),0.3)] group">
                 {/* Placeholder for image/video */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-black/80 flex items-center justify-center">
+                <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-black/80 flex items-center justify-center">
                   <Shield className="h-20 w-20 text-primary/20 transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1595183842183-a75727376c8c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
@@ -301,7 +301,7 @@ export default function ApplicationsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative aspect-video rounded-lg overflow-hidden border border-accent/20 shadow-[0_0_30px_-10px_rgba(var(--accent),0.3)] group">
                 {/* Placeholder for image/video */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-black/80 flex items-center justify-center">
+                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-black/80 flex items-center justify-center">
                   <Lock className="h-20 w-20 text-accent/20 transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>

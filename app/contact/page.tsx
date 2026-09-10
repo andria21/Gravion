@@ -1,72 +1,36 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { SectionHeader } from "@/components/ui/section-header";
+import { ContactForm } from "@/components/contact-form";
 import { HudContainer } from "@/components/ui/hud-container";
-import { Satellite, Mail, MapPin, Phone } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Mail, Phone } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact Gravion to request beta access, discuss pilot programs, or explore AI-powered satellite mineral detection for your operations.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Gravion",
+    description:
+      "Request beta access or speak with Gravion about AI-powered mineral exploration and satellite detection workflows.",
+    url: "/contact",
+  },
+  twitter: {
+    title: "Contact Gravion",
+    description:
+      "Request beta access or speak with Gravion's team about satellite mineral detection.",
+  },
+};
 
 export default function ContactPage() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    organization: "",
-    interest: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, interest: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Request Submitted",
-        description:
-          "We've received your beta request. Our team will be in touch shortly.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        organization: "",
-        interest: "",
-        message: "",
-      });
-    }, 1500);
-  };
-
   return (
     <div className="pt-16 pb-20">
       <section className="pt-16 pb-20 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background to-background"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background to-background"></div>
           <Image
             src="https://images.pexels.com/photos/355935/pexels-photo-355935.jpeg"
             alt="Communications satellite"
@@ -100,7 +64,7 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
+                  <div className="shrink-0 mt-1">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
@@ -112,7 +76,7 @@ export default function ContactPage() {
                 </div>
                 {/* ivanmolokoedov21@gmail.com */}
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
+                  <div className="shrink-0 mt-1">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
@@ -135,7 +99,7 @@ export default function ContactPage() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end">
                       <div className="p-6">
                         <h3 className="text-xl font-medium mb-2">
                           Mission Control
@@ -153,109 +117,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <HudContainer className="h-full">
-                <div className="flex items-center mb-6">
-                  <Image
-                    src="/logos/Logo 88.png"
-                    alt="Gravion Logo"
-                    width={160}
-                    height={40}
-                    className="h-12 w-auto text-primary mr-2"
-                  />
-                  <h2 className="text-xl font-bold tracking-wider">
-                    GET IN TOUCH
-                  </h2>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="bg-card/50"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="bg-card/50"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="organization">Organization</Label>
-                    <Input
-                      id="organization"
-                      name="organization"
-                      placeholder="Your company or organization"
-                      value={formData.organization}
-                      onChange={handleChange}
-                      required
-                      className="bg-card/50"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="interest">Area of Interest</Label>
-                    <Select
-                      value={formData.interest}
-                      onValueChange={handleSelectChange}
-                      required
-                    >
-                      <SelectTrigger id="interest" className="bg-card/50">
-                        <SelectValue placeholder="Select your primary interest" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="defense">
-                          Defense & Intelligence
-                        </SelectItem>
-                        <SelectItem value="search">Search & Rescue</SelectItem>
-                        <SelectItem value="mining">
-                          Mining & Resource Exploration
-                        </SelectItem>
-                        <SelectItem value="research">
-                          Research & Development
-                        </SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your specific needs or applications"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="bg-card/50"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Submitting..." : "SUBMIT"}
-                  </Button>
-                </form>
-              </HudContainer>
+              <ContactForm />
             </div>
           </div>
         </div>

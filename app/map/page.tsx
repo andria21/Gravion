@@ -1,26 +1,31 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
 import { HudContainer } from "@/components/ui/hud-container";
 import { ResourceSelect } from "@/components/ui/resource-select";
+import { SectionHeader } from "@/components/ui/section-header";
 import {
+  GoogleMap,
+  Marker,
+  type Libraries,
+  useLoadScript,
+} from "@react-google-maps/api";
+import { motion } from "motion/react";
+import {
+  Circle as CircleIcon,
   Crosshair,
+  Layers,
+  Map,
+  Pencil,
   Radar,
   Search,
-  Thermometer,
   Target,
-  Pencil,
-  Circle as CircleIcon,
-  Map,
-  Layers,
+  Thermometer,
 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion"; // Import motion
+import { useCallback, useRef, useState } from "react";
+import { toast } from "sonner";
 
-const libraries = ["places", "drawing", "geometry"];
+const libraries: Libraries = ["places", "drawing", "geometry"];
 
 const mapContainerStyle = {
   width: "100%",
@@ -117,7 +122,6 @@ const MapTypeControl = ({ map }: { map: google.maps.Map | null }) => {
 };
 
 export default function MapPage() {
-  const { toast } = useToast();
   const [activeMode, setActiveMode] = useState<string>("thermal");
   const [selectedResources, setSelectedResources] = useState<string[]>([]);
   const [isResourceSelectOpen, setIsResourceSelectOpen] = useState(false);
@@ -140,8 +144,8 @@ export default function MapPage() {
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
-    libraries: libraries as any,
-    version: "3.64"
+    libraries,
+    version: "3.64",
   });
 
   const handleZoomIn = useCallback(() => {
@@ -165,117 +169,111 @@ export default function MapPage() {
 
   const [mapT, setMapT] = useState<google.maps.Map | null>(null);
 
-  const onMapLoad = useCallback(
-    (map: google.maps.Map) => {
-      mapRef.current = map;
-      setMapT(map);
+  const onMapLoad = useCallback((map: google.maps.Map) => {
+    mapRef.current = map;
+    setMapT(map);
 
-      // If the searchBox is already initialized, prevent re-initialization.
-      // This stops duplicate search inputs if onMapLoad is called multiple times.
-      if (searchBoxRef.current) {
-        // Ensure the drawing manager (if it exists) is associated with the current map instance.
-        if (drawingManagerRef.current) {
-          drawingManagerRef.current.setMap(map);
-        }
-        return;
+    // If the searchBox is already initialized, prevent re-initialization.
+    // This stops duplicate search inputs if onMapLoad is called multiple times.
+    if (searchBoxRef.current) {
+      // Ensure the drawing manager (if it exists) is associated with the current map instance.
+      if (drawingManagerRef.current) {
+        drawingManagerRef.current.setMap(map);
       }
+      return;
+    }
 
-      // Original initialization logic (runs only if searchBoxRef.current is null):
-      const input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = "Search location...";
-      input.className =
-        "w-54 md:w-64 mx-auto px-4 py-2 rounded bg-card/90 border border-primary/20 text-sm font-mono text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50";
+    // Original initialization logic (runs only if searchBoxRef.current is null):
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Search location...";
+    input.className =
+      "w-54 md:w-64 mx-auto px-4 py-2 rounded bg-card/90 border border-primary/20 text-sm font-mono text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50";
 
-      map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
-      const searchBox = new google.maps.places.SearchBox(input);
-      searchBoxRef.current = searchBox;
+    const searchBox = new google.maps.places.SearchBox(input);
+    searchBoxRef.current = searchBox;
 
-      // Initialize drawing manager
-      const drawingManager = new google.maps.drawing.DrawingManager({
-        drawingMode: null,
-        drawingControl: false,
-        polygonOptions: {
-          fillColor: "#00FFFF",
-          fillOpacity: 0.2,
-          strokeColor: "#00FFFF",
-          strokeWeight: 2,
-          editable: true,
-          zIndex: 1,
-        },
-        circleOptions: {
-          fillColor: "#00FFFF",
-          fillOpacity: 0.2,
-          strokeColor: "#00FFFF",
-          strokeWeight: 2,
-          editable: true,
-          zIndex: 1,
-        },
-      });
+    // Initialize drawing manager
+    const drawingManager = new google.maps.drawing.DrawingManager({
+      drawingMode: null,
+      drawingControl: false,
+      polygonOptions: {
+        fillColor: "#00FFFF",
+        fillOpacity: 0.2,
+        strokeColor: "#00FFFF",
+        strokeWeight: 2,
+        editable: true,
+        zIndex: 1,
+      },
+      circleOptions: {
+        fillColor: "#00FFFF",
+        fillOpacity: 0.2,
+        strokeColor: "#00FFFF",
+        strokeWeight: 2,
+        editable: true,
+        zIndex: 1,
+      },
+    });
 
-      drawingManager.setMap(map);
-      drawingManagerRef.current = drawingManager;
+    drawingManager.setMap(map);
+    drawingManagerRef.current = drawingManager;
 
-      // Add listener for when a polygon is completed
-      google.maps.event.addListener(
-        drawingManager,
-        "polygoncomplete",
-        (polygon: google.maps.Polygon) => {
-          setDrawnAreas((prev) => [...prev, polygon]);
-          drawingManager.setDrawingMode(null);
-          setIsDrawingMode(false);
+    // Add listener for when a polygon is completed
+    google.maps.event.addListener(
+      drawingManager,
+      "polygoncomplete",
+      (polygon: google.maps.Polygon) => {
+        setDrawnAreas((prev) => [...prev, polygon]);
+        drawingManager.setDrawingMode(null);
+        setIsDrawingMode(false);
 
-          toast({
-            title: "Area defined",
-            description: "Custom polygon area has been drawn for scanning.",
-          });
-        }
-      );
-
-      // Add listener for when a circle is completed
-      google.maps.event.addListener(
-        drawingManager,
-        "circlecomplete",
-        (circle: google.maps.Circle) => {
-          setDrawnCircles((prev) => [...prev, circle]);
-          drawingManager.setDrawingMode(null);
-          setIsDrawingMode(false);
-
-          toast({
-            title: "Area defined",
-            description: `Circular area with radius ${Math.round(
-              circle.getRadius()
-            )}m has been drawn for scanning.`,
-          });
-        }
-      );
-
-      searchBox.addListener("places_changed", () => {
-        const places = searchBox.getPlaces();
-
-        if (places?.length === 0) return;
-
-        const place = places?.[0];
-        if (!place?.geometry?.location) return;
-
-        const newLocation = {
-          lat: place.geometry.location.lat(),
-          lng: place.geometry.location.lng(),
-        };
-
-        setSelectedLocation(newLocation);
-        map.setCenter(newLocation);
-        map.setZoom(15);
-
-        toast({
-          title: "Location found",
-          description: `Selected: ${place.formatted_address}`,
+        toast("Area defined", {
+          description: "Custom polygon area has been drawn for scanning.",
         });
+      }
+    );
+
+    // Add listener for when a circle is completed
+    google.maps.event.addListener(
+      drawingManager,
+      "circlecomplete",
+      (circle: google.maps.Circle) => {
+        setDrawnCircles((prev) => [...prev, circle]);
+        drawingManager.setDrawingMode(null);
+        setIsDrawingMode(false);
+
+        toast("Area defined", {
+          description: `Circular area with radius ${Math.round(
+            circle.getRadius()
+          )}m has been drawn for scanning.`,
+        });
+      }
+    );
+
+    searchBox.addListener("places_changed", () => {
+      const places = searchBox.getPlaces();
+
+      if (places?.length === 0) return;
+
+      const place = places?.[0];
+      if (!place?.geometry?.location) return;
+
+      const newLocation = {
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng(),
+      };
+
+      setSelectedLocation(newLocation);
+      map.setCenter(newLocation);
+      map.setZoom(15);
+
+      toast("Location found", {
+        description: `Selected: ${place.formatted_address}`,
       });
-    },
-    [toast]
-  );
+    });
+  }, []);
 
   const onMapUnmount = useCallback(() => {
     // Clear listeners and refs to prevent memory leaks and ensure clean re-initialization on remount
@@ -315,31 +313,26 @@ export default function MapPage() {
     drawnCircles.forEach((circle) => circle.setMap(null));
     setDrawnAreas([]);
     setDrawnCircles([]);
-    toast({
-      title: "Areas cleared",
+    toast("Areas cleared", {
       description: "All drawn areas have been removed.",
     });
-  }, [drawnAreas, drawnCircles, toast]);
+  }, [drawnAreas, drawnCircles]);
 
   // Update the scan function to handle circles too and adjust scan time based on area size
   const handleScan = () => {
     const totalDrawnShapes = drawnAreas.length + drawnCircles.length;
 
     if (!selectedLocation && totalDrawnShapes === 0) {
-      toast({
-        title: "No area selected",
+      toast.error("No area selected", {
         description:
           "Please select a location or draw an area on the map first.",
-        variant: "destructive",
       });
       return;
     }
 
     if (selectedResources.length === 0) {
-      toast({
-        title: "No resources selected",
+      toast.error("No resources selected", {
         description: "Please select at least one resource to scan for.",
-        variant: "destructive",
       });
       return;
     }
@@ -376,8 +369,7 @@ export default function MapPage() {
       const areaInSquareKm = totalArea / 1000000;
       scanDuration = Math.min(3000 + areaInSquareKm * 1200, 15000);
 
-      toast({
-        title: "Scan initiated",
+      toast("Scan initiated", {
         description: `Scanning ${totalDrawnShapes} custom area(s) for ${
           selectedResources.length
         } resources. Estimated time: ${Math.round(
@@ -385,8 +377,7 @@ export default function MapPage() {
         )} seconds.`,
       });
     } else {
-      toast({
-        title: "Scan initiated",
+      toast("Scan initiated", {
         description: `Scanning for ${
           selectedResources.length
         } resources at lat: ${selectedLocation?.lat.toFixed(
@@ -397,8 +388,7 @@ export default function MapPage() {
 
     setTimeout(() => {
       setIsScanning(false);
-      toast({
-        title: "Scan complete",
+      toast("Scan complete", {
         description: `Analysis complete for ${selectedResources.join(
           ", "
         )}. No significant deposits detected.`,
@@ -406,24 +396,20 @@ export default function MapPage() {
     }, scanDuration);
   };
 
-  const onMapClick = useCallback(
-    (event: google.maps.MapMouseEvent) => {
-      if (event.latLng) {
-        const lat = event.latLng.lat();
-        const lng = event.latLng.lng();
-        setSelectedLocation({ lat, lng });
-        setIsResourceSelectOpen(true);
+  const onMapClick = useCallback((event: google.maps.MapMouseEvent) => {
+    if (event.latLng) {
+      const lat = event.latLng.lat();
+      const lng = event.latLng.lng();
+      setSelectedLocation({ lat, lng });
+      setIsResourceSelectOpen(true);
 
-        toast({
-          title: "Location selected",
-          description: `Selected coordinates: ${lat.toFixed(4)}, ${lng.toFixed(
-            4
-          )}`,
-        });
-      }
-    },
-    [toast]
-  );
+      toast("Location selected", {
+        description: `Selected coordinates: ${lat.toFixed(4)}, ${lng.toFixed(
+          4
+        )}`,
+      });
+    }
+  }, []);
 
   if (loadError) {
     return (
@@ -444,7 +430,7 @@ export default function MapPage() {
     <div className="pt-16 pb-20">
       <section className="pt-16 pb-20 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background to-background"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background to-background"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-12">
@@ -685,7 +671,7 @@ export default function MapPage() {
                   </div>
                 </div>
 
-                <div className="relative w-full aspect-video bg-black rounded overflow-hidden cursor-crosshair h-[500px] md:h-[602px]">
+                <div className="relative w-full aspect-video bg-black rounded overflow-hidden cursor-crosshair h-125 md:h-150.5">
                   {!isLoaded ? (
                     <div className="absolute inset-0 flex items-center justify-center bg-card">
                       <div className="animate-spin mr-2">

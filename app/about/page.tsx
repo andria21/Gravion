@@ -1,28 +1,40 @@
 import { Button } from "@/components/ui/button";
 import { HudContainer } from "@/components/ui/hud-container";
 import { SectionHeader } from "@/components/ui/section-header";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DM_LOGO from "../../assets/dm-logo-quality.png";
-import Andria from "../../assets/team-images/Andria.png";
-import Irakli from "../../assets/team-images/Irakli.jpg";
-import Aleksandre from "../../assets/team-images/aleksandre.jpg";
-import AboutImage from "../../public/app-images/about.jpg";
-import AboutImage2 from "../../public/app-images/about2.jpeg";
-import AboutImage3 from "../../public/app-images/about3.jpeg";
-import Dmitri from "../../assets/team-images/dmitri.jpg";
 
-// Add this style block
 import "./team-animations.css";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Gravion's mission to build planetary awareness with satellite imagery, terrain intelligence, and AI-powered detection technology.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Gravion",
+    description:
+      "Meet the team building Gravion's space-based detection technology for mineral exploration, risk awareness, and critical missions.",
+    url: "/about",
+  },
+  twitter: {
+    title: "About Gravion",
+    description:
+      "The mission, team, and technology behind Gravion's AI-powered satellite detection platform.",
+  },
+};
 
 export default function AboutPage() {
   return (
     <div className="pt-16 pb-20">
       <section className="pt-16 pb-20 relative">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background to-background"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background to-background"></div>
           <Image
-            src={AboutImage}
+            src={"/app-images/about.jpg"}
             alt="Satellite in orbit"
             fill
             className="object-cover opacity-30"
@@ -80,9 +92,9 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="relative rounded-lg overflow-hidden h-[400px]">
+            <div className="relative rounded-lg overflow-hidden h-100">
               <Image
-                src={AboutImage2}
+                src={"/app-images/about2.jpeg"}
                 alt="Satellite control room"
                 fill
                 className="object-cover"
@@ -101,8 +113,8 @@ export default function AboutPage() {
 
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-background via-background to-primary/5"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
@@ -119,10 +131,10 @@ export default function AboutPage() {
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-primary/30 rounded-br-2xl transition-all duration-500 group-hover:w-24 group-hover:h-24 group-hover:border-primary"></div>
 
               <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-48 h-48 relative rounded-full overflow-hidden shadow-2xl shadow-primary/20 border-4 border-background/50 transition-transform duration-500 group-hover:scale-105 group-hover:shadow-primary/40">
                     <Image
-                      src={"/ceo.png"}
+                      src={"/team-images/ceo.png"}
                       alt="CEO portrait"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -130,7 +142,7 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="text-center md:text-left flex-grow">
+                <div className="text-center md:text-left grow">
                   <h3 className="text-3xl font-bold mb-2 transition-colors duration-300 group-hover:text-primary">
                     Ivan Molokoedov
                   </h3>
@@ -169,7 +181,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-transparent">
+      <section className="py-20 bg-linear-to-br from-primary/5 to-transparent">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl pointer-events-none">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[50px] rounded-full"></div>
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full"></div>
@@ -215,19 +227,19 @@ export default function AboutPage() {
                     name: "Irakli Darsavelidze",
                     role: "Co-Founder / Chief Executive Officer",
                     bio: "Irakli is the driving force behind the team’s vision and execution. Under his leadership, ambitious ideas turned into real, working systems. He focuses not only on building products but on bringing together the right people to solve the right problems. He states: “I found the right people, we built the right system, and now we’re showing what’s possible when tech actually understands purpose.”",
-                    image: "/darsa.png",
+                    image: "/team-images/darsa.png",
                   },
                   {
                     name: "Andria Marqarovi",
                     role: "Co-Founder / Chief Technology Officer",
                     bio: "Andria leads the technical development of Gravion — a system-level innovation. He focuses on solving complex problems and turning ideas into reliable systems. Andria shares: “Gravion isn’t theory — it’s deployed logic. Everything we built had to respond fast, endure pressure, and keep people safe. That’s not just engineering — that’s responsibility. And that’s why I’m here.”",
-                    image: Andria,
+                    image: "/team-images/Andria.png",
                   },
                   {
                     name: "Aleksandre Mirzashvili",
                     role: "Co-Founder / Chief Operating Officer",
                     bio: "Aleksandre is Gravion’s operational compass — ensuring that people, processes, and execution stay aligned with precision. He bridges the gap between vision and practical results. Aleksandre stated: “If you want to build something real, you need more than good ideas — you need follow-through. Gravion was the vision. My job was to make sure it never drifted. We kept every promise, hit every mark, and turned complexity into clarity.”",
-                    image: Aleksandre,
+                    image: "/team-images/aleksandre.jpg",
                   },
                 ].map((member, index) => (
                   <HudContainer key={index} className="h-full">
@@ -260,25 +272,19 @@ export default function AboutPage() {
             {/* Convocore Team */}
             <div className="mb-12 relative">
               <div className="relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {[
                     {
                       name: "Youssef",
                       role: "Co-Founder / AI Engineer",
                       bio: "Driving the vision of conversational AI integration within the Gravion ecosystem.",
-                      image: "/YOUSUFF.jpg",
+                      image: "/team-images/YOUSUFF.jpg",
                     },
                     {
                       name: "Moe",
                       role: "Co-Founder / AI Engineer",
                       bio: "Leading the architectural design of intelligent agent systems.",
-                      image: "/moe.jpeg",
-                    },
-                    {
-                      name: "Mohammad Zubi",
-                      role: "Co-Founder / AI Engineer",
-                      bio: "Specializing in real-time analytics and seamless deployment strategies.",
-                      image: "/zubi.jpg",
+                      image: "/team-images/moe.jpeg",
                     },
                   ].map((member, index) => (
                     <HudContainer
@@ -305,7 +311,7 @@ export default function AboutPage() {
                         <p className="text-primary text-sm mb-4 font-semibold">
                           {member.role}
                         </p>
-                        <p className="text-muted-foreground text-sm flex-grow">
+                        <p className="text-muted-foreground text-sm grow">
                           {member.bio}
                         </p>
                       </div>
@@ -316,19 +322,19 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Strategic Advisor */}
-          <div className="mb-20">
-            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-              STRATEGIC ADVISOR
-            </h2>
-            <div className="max-w-md mx-auto">
-              <HudContainer>
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group shadow-lg shadow-primary/20">
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
+          {/* Advisory & Media */}
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="flex flex-col">
+              <h2 className="mb-8 text-center text-2xl font-bold tracking-wider text-primary">
+                STRATEGIC ADVISOR
+              </h2>
+              <HudContainer className="h-full bg-background/50 backdrop-blur-sm">
+                <div className="flex h-full flex-col items-center text-center">
+                  <div className="targeting-circle group relative mb-4 h-24 w-24 overflow-hidden rounded-full shadow-lg shadow-primary/20">
+                    <div className="absolute inset-0 z-10 bg-primary/20 opacity-0 transition-opacity duration-300"></div>
                     <div className="team-image-container">
                       <Image
-                        src={"/slavanew.jpeg"}
+                        src={"/team-images/slavanew.jpeg"}
                         alt={"Vyacheslav Yuschenko"}
                         width={96}
                         height={96}
@@ -337,66 +343,52 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-medium mb-1">
+                  <h3 className="mb-1 text-xl font-medium">
                     Vyacheslav Yuschenko
                   </h3>
-                  <p className="text-primary text-sm mb-4 tracking-wider font-semibold">
+                  <p className="mb-4 text-sm font-semibold tracking-wider text-primary">
                     Strategic Advisor
                   </p>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="grow text-sm text-muted-foreground">
                     Expert in data interpretation and pattern recognition
                     algorithms.
                   </p>
                 </div>
               </HudContainer>
             </div>
-          </div>
 
-          {/* Media Department */}
-          <div className="mb-20">
-            <h2 className="text-2xl font-bold text-center mb-12 text-primary tracking-wider">
-              MEDIA DEPARTMENT
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  name: "Michael Hamilton",
-                  role: "Media Director",
-                  bio: "Overseeing all media production and creative strategy, Michael ensures that Gravion's message resonates through high-quality visual storytelling and brand consistency.",
-                  image: "/hamilton.jpeg",
-                },
-                {
-                  name: "Novoseltsky Dmitry",
-                  role: "Creative Lead",
-                  bio: "Constructing the visual and auditory identity of Gravion, ensuring the mission is communicated with clarity and impact.",
-                  image: "/dmitrii.jpg",
-                },
-              ].map((member, index) => (
-                <HudContainer key={index} className="h-full">
-                  <div className="flex flex-col items-center text-center h-full">
-                    <div className="w-24 h-24 relative rounded-full overflow-hidden mb-4 targeting-circle group shadow-lg shadow-primary/20">
-                      <div className="absolute inset-0 bg-primary/20 opacity-0 transition-opacity duration-300 z-10"></div>
-                      <div className="team-image-container">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          width={96}
-                          height={96}
-                          className="object-cover team-image"
-                        />
-                      </div>
+            <div className="flex flex-col">
+              <h2 className="mb-8 text-center text-2xl font-bold tracking-wider text-primary">
+                MEDIA DEPARTMENT
+              </h2>
+              <HudContainer className="h-full bg-background/50 backdrop-blur-sm">
+                <div className="flex h-full flex-col items-center text-center">
+                  <div className="targeting-circle group relative mb-4 h-24 w-24 overflow-hidden rounded-full shadow-lg shadow-primary/20">
+                    <div className="absolute inset-0 z-10 bg-primary/20 opacity-0 transition-opacity duration-300"></div>
+                    <div className="team-image-container">
+                      <Image
+                        src={"/team-images/dmitrii.jpg"}
+                        alt={"Novoseltsky Dmitry"}
+                        width={96}
+                        height={96}
+                        className="object-cover team-image"
+                      />
                     </div>
-
-                    <h3 className="text-xl font-medium mb-1">{member.name}</h3>
-                    <p className="text-primary text-sm mb-4 tracking-wider font-semibold">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground text-sm flex-grow">
-                      {member.bio}
-                    </p>
                   </div>
-                </HudContainer>
-              ))}
+
+                  <h3 className="mb-1 text-xl font-medium">
+                    Novoseltsky Dmitry
+                  </h3>
+                  <p className="mb-4 text-sm font-semibold tracking-wider text-primary">
+                    Creative Lead
+                  </p>
+                  <p className="grow text-sm text-muted-foreground">
+                    Constructing the visual and auditory identity of Gravion,
+                    ensuring the mission is communicated with clarity and
+                    impact.
+                  </p>
+                </div>
+              </HudContainer>
             </div>
           </div>
         </div>
@@ -405,7 +397,7 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative rounded-lg overflow-hidden h-[400px]">
+            <div className="relative rounded-lg overflow-hidden h-100">
               <Image
                 src={"/app-images/nasamoon.jpg"}
                 alt="Tech innovation"

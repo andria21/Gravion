@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Satellite, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -100,7 +100,7 @@ export default function Footer() {
 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold text-center">Reach Out</h3>
-            <p className="text-sm text-muted-foreground max-w-[200px] md:max-w-none mx-auto md:mx-0">
+            <p className="text-sm text-muted-foreground max-w-50 md:max-w-none mx-auto md:mx-0">
               Interested in our technology
               <br className="md:hidden" />
               or would like to discuss integration?

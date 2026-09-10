@@ -1,23 +1,58 @@
-import "./globals.css";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
-import { Toaster } from "@/components/ui/toaster";
+import { Orbitron, Titillium_Web } from "next/font/google";
+import "./globals.css";
 
 import ChatBot from "@/components/chatbot/chatbot";
+import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
+import { Toaster } from "@/components/ui/sonner";
+
+// const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
+
+const titiliumWeb = Titillium_Web({
+  variable: "--font-titillium",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "600", "700", "900"],
+});
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gravion.space"),
-  title: "Gravion | AI-Powered Mineral Exploration",
+  title: {
+    default: "Gravion | AI-Powered Mineral Exploration",
+    template: "%s | Gravion",
+  },
   description:
     "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
   applicationName: "Gravion",
+  creator: "Gravion",
+  publisher: "Gravion",
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     // Brand
     "Gravion",
     "Gravion Inc",
     "Gravion AI",
+    "gravion",
 
     // Core offering (high intent)
     "AI mineral exploration",
@@ -58,9 +93,10 @@ export const metadata: Metadata = {
     title: "Gravion | AI-Powered Mineral Exploration",
     description:
       "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
-    url: "https://gravion.space",
+    url: "/",
     siteName: "Gravion",
     type: "website",
+    locale: "en_US",
     images: [
       {
         url: "https://gravion.space/Logo_Emblem4.png",
@@ -75,7 +111,7 @@ export const metadata: Metadata = {
     title: "Gravion | AI-Powered Mineral Exploration",
     description:
       "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
-    images: ["https://gravion.space/Logo_Emblem4.png"]
+    images: ["https://gravion.space/Logo_Emblem4.png"],
   },
   authors: [
     {
@@ -83,45 +119,41 @@ export const metadata: Metadata = {
       url: "https://gravion.space",
     },
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   manifest: "/manifest.json",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Titillium+Web:wght@300;400;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body
-        className="min-h-screen bg-background font-titillium antialiased"
-        suppressHydrationWarning={true}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-screen flex-col">
-            <Navigation />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
-        </ThemeProvider>
+    <html
+      lang="en"
+      className={cn(
+        "h-full",
+        "antialiased",
+        titiliumWeb.variable,
+        orbitron.variable,
+        "font-sans dark"
+      )}
+      style={{ colorScheme: "dark" }}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-background font-titillium antialiased" suppressHydrationWarning>
+        <div className="relative flex min-h-screen flex-col">
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+        <Toaster richColors position="top-right" />
         <ChatBot />
       </body>
     </html>

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Satellite, Map, Users, Phone, Globe2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Map, Menu, Phone, Satellite, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import "./navbar/navigation.css";
 
@@ -58,7 +58,7 @@ export default function Navigation() {
         "fixed top-0 z-50 w-full transition-all duration-300",
         isScrolled
           ? "bg-background/80 backdrop-blur-md border-b"
-          : "bg-transparent",
+          : "bg-transparent"
       )}
     >
       <div className="px-4 sm:px-6 flex h-16 items-center justify-between w-full">
@@ -82,7 +82,7 @@ export default function Navigation() {
                 "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300",
                 pathname === route.path
                   ? "text-primary after:w-full"
-                  : "text-muted-foreground hover:text-foreground hover:after:w-full",
+                  : "text-muted-foreground hover:text-foreground hover:after:w-full"
               )}
             >
               {route.name}
@@ -110,7 +110,7 @@ export default function Navigation() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent className="w-[280px] sm:w-[350px] bg-card">
+          <SheetContent className="w-70 sm:w-87.5 bg-card">
             <div className="flex flex-col gap-6 mt-8">
               {routes.map((route) => (
                 <Link
@@ -120,7 +120,7 @@ export default function Navigation() {
                     "flex items-center gap-2 px-2 py-1 rounded-md transition-colors",
                     pathname === route.path
                       ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   )}
                 >
                   {route.icon}

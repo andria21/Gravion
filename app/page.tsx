@@ -1,29 +1,44 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
+import { HomeUseCases } from "@/components/home-use-cases";
 import { HudContainer } from "@/components/ui/hud-container";
-import { UseCaseCard } from "@/components/use-case-card";
+import { SectionHeader } from "@/components/ui/section-header";
+import VideoPlayer from "@/components/video-player/VideoPlayer";
+import type { Metadata } from "next";
 import {
-  Shield,
-  Mountain,
-  Search,
-  Database,
-  Lock,
+  Activity,
+  ClipboardCheck,
   Compass,
-  Globe,
-  Satellite,
   Cpu,
   Crosshair,
-  ClipboardCheck,
-  Radio,
-  Activity,
+  Database,
   FlaskConical,
-  Plane,
-  ShieldCheck,
+  Globe,
+  Radio,
+  Satellite,
+  ShieldCheck
 } from "lucide-react";
-import VideoPlayer from "@/components/video-player/VideoPlayer";
-import GeologicalReports from "@/components/GeologicalReports";
+import Image from "next/image";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "AI-Powered Mineral Exploration",
+  description:
+    "Gravion detects 43 minerals from orbit using AI-powered satellite data, helping teams move from remote sensing signals to staked exploration targets.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Gravion | AI-Powered Mineral Exploration",
+    description:
+      "Detect gold, copper, lithium, and 43 minerals from orbit with Gravion's AI-powered satellite exploration platform.",
+    url: "/",
+  },
+  twitter: {
+    title: "Gravion | AI-Powered Mineral Exploration",
+    description:
+      "AI-powered satellite mineral exploration for faster, lower-risk resource discovery.",
+  },
+};
 
 export default function Home() {
   return (
@@ -40,7 +55,7 @@ export default function Home() {
             playsInline
           />
           <div className="absolute inset-0 bg-black/60"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/20 to-background"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 py-32 text-center">
@@ -87,8 +102,8 @@ export default function Home() {
               className="w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-white"
             >
               <Link href="/about" className="relative z-10">
-                <span className="relative z-10">LEARN MORE</span>
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span className="relative z-10">LEARN ABOUT GRAVION</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             </Button>
           </div>
@@ -250,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* Demo Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-card/20">
+      <section className="py-20 bg-linear-to-b from-background to-card/20">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="INTERACTIVE DEMO"
@@ -304,72 +319,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Primary Application Section - Mining */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <SectionHeader
-            title="PRIMARY APPLICATION: MINING"
-            description="Revolutionizing mineral exploration with AI-driven spectral analysis and anomaly detection."
-            align="center"
-            className="mb-10"
-          />
-
-          <div className="max-w-4xl mx-auto mb-20">
-            <Link href="/applications#mining" className="block h-full">
-              <UseCaseCard
-                title="Mining & Mineral Exploration"
-                description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact — helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
-                icon={<Mountain />}
-                variant="secondary"
-                index={0}
-                className="h-full border-primary/50 shadow-[0_0_30px_rgba(0,255,255,0.1)]"
-              />
-            </Link>
-          </div>
-
-          {/* Future Applications Compact Section */}
-          <div className="max-w-6xl mx-auto border-t border-border/40 pt-16">
-            <h3 className="text-xl font-semibold mb-8 text-muted-foreground uppercase tracking-widest">
-              Future Applications
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-80 hover:opacity-100 transition-opacity">
-              <Link href="/applications#search-rescue" className="block h-full">
-                <UseCaseCard
-                  title="Search & Rescue"
-                  description="Identifying signs of life and terrain shifts across difficult terrain using thermal and satellite-based anomaly detection."
-                  icon={<Search />}
-                  variant="accent"
-                  index={1}
-                  className="h-full text-sm"
-                />
-              </Link>
-              <Link href="/applications#military" className="block h-full">
-                <UseCaseCard
-                  title="Military"
-                  description="Supporting operations by detecting thermal, spectral, and terrain-based anomalies through satellite comparisons over time."
-                  icon={<Shield />}
-                  variant="primary"
-                  index={2}
-                  className="h-full text-sm"
-                />
-              </Link>
-
-              {/* <Link href="/applications#security" className="block h-full">
-                <UseCaseCard
-                  title="Security Systems"
-                  description="AI-driven anomaly detection for private and commercial security environments, analyzing visual, spectral, and thermal feeds."
-                  icon={<Lock />}
-                  variant="accent"
-                  comingSoon={true}
-                  index={3}
-                  className="h-full text-sm"
-                />
-              </Link> */}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <HomeUseCases />
       {/* Stats & Patent Section */}
       <section className="py-20 bg-card/30">
         <div className="container mx-auto px-4">
@@ -393,11 +343,11 @@ export default function Home() {
 
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 shadow-[0_0_15px_rgba(0,255,255,0.05)]">
                   <div className="flex items-start gap-3">
-                    <div className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <div className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
                     <div>
-                      <h4 className="font-bold text-primary mb-1">
+                      <h3 className="font-bold text-primary mb-1">
                         NVIDIA Inception Program — Accepted March 2026
-                      </h4>
+                      </h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         Access to GPU compute infrastructure, AI training
                         resources, and the NVIDIA partner and investor network.
@@ -408,11 +358,11 @@ export default function Home() {
 
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 shadow-[0_0_15px_rgba(0,255,255,0.05)]">
                   <div className="flex items-start gap-3">
-                    <div className="mt-1 flex-shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <div className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
                     <div>
-                      <h4 className="font-bold text-primary mb-1">
+                      <h3 className="font-bold text-primary mb-1">
                         Lambda GPU Cloud — Active Infrastructure Partner
-                      </h4>
+                      </h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         High-performance GPU compute access for training and
                         inference of Gravion&apos;s multi-engine spectral
@@ -484,9 +434,9 @@ export default function Home() {
               {/* NVIDIA Recognition Block */}
               <div className="mt-8 pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center gap-6 text-left">
                 <div className="flex-1">
-                  <h4 className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">
+                  <h3 className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">
                     Recognized by NVIDIA
-                  </h4>
+                  </h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Gravion is an accepted member of the NVIDIA Inception
                     Program — a global initiative supporting the most promising
@@ -495,7 +445,7 @@ export default function Home() {
                     of satellite imagery.
                   </p>
                 </div>
-                <div className="flex-shrink-0 self-start md:self-center">
+                <div className="shrink-0 self-start md:self-center">
                   <Image
                     src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
                     alt="NVIDIA Inception Program Member"
@@ -509,9 +459,9 @@ export default function Home() {
               {/* Lambda Recognition Block */}
               <div className="mt-6 pt-6 border-t border-primary/10 flex flex-col md:flex-row items-center gap-6 text-left">
                 <div className="flex-1">
-                  <h4 className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">
+                  <h3 className="text-sm font-bold text-primary mb-2 uppercase tracking-wider">
                     Lambda GPU Cloud Partner
-                  </h4>
+                  </h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     Gravion leverages Lambda GPU Cloud infrastructure to
                     accelerate training and inference of our proprietary
@@ -520,7 +470,7 @@ export default function Home() {
                     satellite imagery.
                   </p>
                 </div>
-                <div className="flex-shrink-0 self-start md:self-center mr-2">
+                <div className="shrink-0 self-start md:self-center mr-2">
                   <Image
                     src="/lambda-logos/lambda_logo_horizontal_white-2000px.png"
                     alt="Lambda GPU Cloud Partner"

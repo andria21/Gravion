@@ -2,12 +2,14 @@
 
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
+type IconElement = React.ReactElement<{ className?: string }>;
 
 interface UseCaseCardProps {
   title: string;
   description: string;
-  icon: React.ReactElement;
+  icon: IconElement;
   className?: string;
   variant?: "primary" | "secondary" | "accent";
   comingSoon?: boolean;
@@ -25,12 +27,7 @@ export function UseCaseCard({
   disclaimerText = false,
   index = 0,
 }: UseCaseCardProps) {
-  const glowColor =
-    variant === "secondary"
-      ? "var(--secondary)"
-      : variant === "accent"
-      ? "var(--accent)"
-      : "var(--primary)";
+  const scanlineRepeatDelay = 1 + (index % 4) * 0.5;
 
   return (
     <motion.div
@@ -57,15 +54,11 @@ export function UseCaseCard({
         },
         className
       )}
-      style={{
-        // @ts-ignore
-        "--glow-color": `hsl(${glowColor} / 0.5)`,
-      }}
     >
       {/* Dynamic Background Gradient on Hover */}
       <motion.div
         className={cn(
-          "absolute inset-0 bg-gradient-to-br from-transparent to-transparent opacity-0 transition-opacity duration-500",
+          "absolute inset-0 bg-linear-to-br from-transparent to-transparent opacity-0 transition-opacity duration-500",
           {
             "via-primary/10": variant === "primary",
             "via-secondary/10": variant === "secondary",
@@ -80,7 +73,7 @@ export function UseCaseCard({
       {/* Sci-fi Scanline Effect */}
       <motion.div
         className={cn(
-          "absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent to-transparent opacity-20 z-0",
+          "absolute left-0 right-0 h-px bg-linear-to-r from-transparent to-transparent opacity-20 z-0",
           {
             "via-primary": variant === "primary",
             "via-secondary": variant === "secondary",
@@ -92,7 +85,7 @@ export function UseCaseCard({
           duration: 3,
           ease: "linear",
           repeat: Infinity,
-          repeatDelay: Math.random() * 2 + 1,
+          repeatDelay: scanlineRepeatDelay,
         }}
       />
 
@@ -139,7 +132,7 @@ export function UseCaseCard({
               "text-secondary": variant === "secondary",
               "text-accent": variant === "accent",
             },
-            icon.props.className
+            icon.props?.className
           ),
         })}
       </motion.div>
