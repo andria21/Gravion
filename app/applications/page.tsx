@@ -136,7 +136,7 @@ export default function ApplicationsPage() {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
 
                 {/* Scanline effect */}
-                <div className="absolute top-0 w-full h-1 bg-secondary/50 shadow-[0_0_10px_rgba(var(--secondary),0.8)] animate-[scan_3s_linear_infinite] opacity-30"></div>
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1 animate-scan bg-secondary/50 shadow-[0_0_10px_hsl(180_100%_50%/0.8)]"></div>
               </div>
             </div>
           </motion.section>
@@ -156,7 +156,7 @@ export default function ApplicationsPage() {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
 
                 {/* Scanline effect */}
-                <div className="absolute top-0 w-full h-1 bg-accent/50 shadow-[0_0_10px_rgba(var(--accent),0.8)] animate-[scan_4s_linear_infinite] opacity-30"></div>
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1 bg-accent/50 shadow-[0_0_10px_hsl(0_84%_60%/0.8)] animate-[scan_4s_linear_infinite]"></div>
               </div>
               <div>
                 <HudContainer className="h-full" variant="accent">
@@ -287,7 +287,7 @@ export default function ApplicationsPage() {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1595183842183-a75727376c8c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
 
                 {/* Scanline effect */}
-                <div className="absolute top-0 w-full h-1 bg-primary/50 shadow-[0_0_10px_rgba(var(--primary),0.8)] animate-[scan_3s_linear_infinite] opacity-30"></div>
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1 animate-scan bg-primary/50 shadow-[0_0_10px_hsl(180_100%_50%/0.8)]"></div>
               </div>
             </div>
           </motion.section>
@@ -307,7 +307,7 @@ export default function ApplicationsPage() {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-60"></div>
 
                 {/* Scanline effect */}
-                <div className="absolute top-0 w-full h-1 bg-accent/50 shadow-[0_0_10px_rgba(var(--accent),0.8)] animate-[scan_4s_linear_infinite] opacity-30"></div>
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1 bg-accent/50 shadow-[0_0_10px_hsl(0_84%_60%/0.8)] animate-[scan_4s_linear_infinite]"></div>
               </div>
               <div>
                 <HudContainer className="h-full" variant="accent">
