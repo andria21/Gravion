@@ -99,9 +99,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://gravion.space/Logo_Emblem4.png",
+        url: "/logos/Logo 88.png",
         width: 1200,
-        height: 530,
+        height: 627,
         alt: "Gravion AI Mineral Exploration",
       },
     ],
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     title: "Gravion | AI-Powered Mineral Exploration",
     description:
       "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
-    images: ["https://gravion.space/Logo_Emblem4.png"],
+    images: ["/logos/Logo 88.png"],
   },
   authors: [
     {
@@ -147,7 +147,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       style={{ colorScheme: "dark" }}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-background font-titillium antialiased" suppressHydrationWarning>
+      <body
+        className="min-h-screen bg-background font-titillium antialiased"
+        suppressHydrationWarning
+      >
         <div className="relative flex min-h-screen flex-col">
           <Navigation />
           <main className="flex-1">{children}</main>
