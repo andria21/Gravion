@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/logos/Logo 88.png",
+        url: "https://gravion.space/logos/Logo%2088.png",
         width: 1200,
         height: 627,
         alt: "Gravion AI Mineral Exploration",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     title: "Gravion | AI-Powered Mineral Exploration",
     description:
       "AI-powered satellite mineral exploration. Gravion detects gold, copper, lithium and 43 minerals from orbit. NVIDIA Inception member.",
-    images: ["/logos/Logo 88.png"],
+    images: ["https://gravion.space/logos/Logo%2088.png"],
   },
   authors: [
     {
