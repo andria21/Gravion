@@ -97,14 +97,14 @@ export const metadata: Metadata = {
     siteName: "Gravion",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "https://gravion.space/logos/Logo%2088.png",
-        width: 1200,
-        height: 627,
-        alt: "Gravion AI Mineral Exploration",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://gravion.space/logos/Logo%2088.png",
+    //     width: 1200,
+    //     height: 627,
+    //     alt: "Gravion AI Mineral Exploration",
+    //   },
+    // ],
   },
   twitter: {
     card: "summary_large_image",
