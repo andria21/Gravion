@@ -10,6 +10,7 @@ export function HomeUseCases() {
     <section className="py-20">
       <div className="container mx-auto px-4 text-center">
         <SectionHeader
+          eyebrow="04 — Applications"
           title="PRIMARY APPLICATION: MINING"
           description="Revolutionizing mineral exploration with AI-driven spectral analysis and anomaly detection."
           align="center"
@@ -20,7 +21,7 @@ export function HomeUseCases() {
           <Link href="/applications#mining" className="block h-full">
             <UseCaseCard
               title="Mining & Mineral Exploration"
-              description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact â€” helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
+              description="Gravion detects mineral concentrations, gold anomalies, and underground voids by analyzing spectral data and time-lapse satellite imagery. It enables smarter exploration with reduced environmental impact — helping teams focus excavation efforts, cut costs, and improve discovery rates across active or prospective sites."
               icon={<Mountain />}
               variant="secondary"
               index={0}

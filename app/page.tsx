@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { HomeUseCases } from "@/components/home-use-cases";
 import { HudContainer } from "@/components/ui/hud-container";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section-header";
 import VideoPlayer from "@/components/video-player/VideoPlayer";
 import type { Metadata } from "next";
 import {
   Activity,
+  ArrowRight,
   ClipboardCheck,
   Compass,
   Cpu,
@@ -55,224 +57,215 @@ export default function Home() {
             playsInline
           />
           <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-grid opacity-60"></div>
+          <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] md:h-[720px] md:w-[720px] rounded-full bg-primary/10 blur-[120px] animate-[float-glow_8s_ease-in-out_infinite]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.65)_100%)]"></div>
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-background/20 to-background"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 py-32 text-center">
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
-              <ShieldCheck className="w-3 h-3" />
-              <span>PATENT PENDING - 63/791, 903</span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
-              <ClipboardCheck className="w-3 h-3" />
-              <span>CONFIRMATION - 4990</span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-medium text-primary tracking-wider uppercase shadow-[0_0_10px_rgba(0,255,255,0.15)]">
-              <Database className="w-3 h-3" />
-              <span>PATENT CENTER - 70089816</span>
-            </div>
-          </div>
-
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-wider mb-6 max-w-4xl mx-auto">
-            AI-Powered Mineral Exploration
-            <span className="text-primary">.</span>
-          </h1>
-
-          <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            43 minerals detected from orbit. From satellite data to staked
-            claims.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="w-auto group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105"
-            >
-              <Link href="/map" className="relative z-10">
-                <span className="relative z-10">SEE OUR TARGETS</span>
-                <span className="absolute inset-0 bg-primary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="w-auto group relative overflow-hidden transition-all duration-300 hover:border-primary hover:text-white"
-            >
-              <Link href="/about" className="relative z-10">
-                <span className="relative z-10">LEARN ABOUT GRAVION</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              </Link>
-            </Button>
-          </div>
+        {/* HUD frame corners */}
+        <div className="pointer-events-none absolute inset-x-4 top-24 bottom-6 md:inset-x-10 z-10 hidden sm:block">
+          <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-primary/40" />
+          <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-primary/40" />
+          <span className="absolute left-0 bottom-0 h-6 w-6 border-l border-b border-primary/40" />
+          <span className="absolute right-0 bottom-0 h-6 w-6 border-r border-b border-primary/40" />
+          <span className="eyebrow absolute left-4 top-3 text-primary/60 hidden lg:block">
+            Gravion // Orbital Mineral Intelligence
+          </span>
+          <span className="eyebrow absolute right-4 top-3 text-primary/60 hidden lg:block">
+            43 Signatures · 4 Engines
+          </span>
+          <span className="eyebrow absolute left-4 bottom-3 text-primary/60 hidden lg:inline-flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            Field Campaign 01 · Wyoming · Complete
+          </span>
         </div>
 
-        {/* Tactical targeting overlay effect */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-          <div className="w-6 h-6 relative">
-            <div className="absolute inset-0 border-2 border-primary rounded-full opacity-30 animate-[ping_4s_ease-out_infinite]"></div>
-            <div className="absolute inset-2 bg-primary rounded-full"></div>
+        <div className="container relative z-10 mx-auto px-4 py-32 text-center">
+          <Reveal delay={0.1}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider leading-[1.1] mb-6 max-w-5xl mx-auto">
+              <span className="text-gradient">AI-Powered Mineral Exploration</span>
+              <span className="text-primary drop-shadow-[0_0_12px_rgba(0,255,255,0.8)]">.</span>
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
+              43 minerals detected from orbit. From satellite data to staked
+              claims.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="btn-shine w-auto group h-12 px-8 font-semibold tracking-wider shadow-[0_0_25px_rgba(0,255,255,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,255,255,0.6)]"
+              >
+                <Link href="/map">
+                  SEE OUR TARGETS
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="w-auto group h-12 px-8 tracking-wider border-white/15 bg-white/5 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-primary/60 hover:text-white"
+              >
+                <Link href="/about">LEARN ABOUT GRAVION</Link>
+              </Button>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.45}>
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/80">
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="w-3 h-3 text-primary" />
+                Patent Pending - 63/791, 903
+              </span>
+              <span className="hidden sm:inline text-primary/30">/</span>
+              <span className="inline-flex items-center gap-1.5">
+                <ClipboardCheck className="w-3 h-3 text-primary" />
+                Confirmation - 4990
+              </span>
+              <span className="hidden sm:inline text-primary/30">/</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Database className="w-3 h-3 text-primary" />
+                Patent Center - 70089816
+              </span>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2">
+          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground/70">
+            Scroll
+          </span>
+          <div className="relative h-10 w-px overflow-hidden bg-primary/15">
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-linear-to-b from-transparent to-primary animate-[scroll-cue_2s_ease-in-out_infinite]"></span>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner strip */}
+      <section className="relative border-y border-white/5 bg-background/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-14">
+          <span className="eyebrow text-muted-foreground">Program &amp; Compute Partners</span>
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14">
+            <Image
+              src="/nvidia-logos/nvidia-inception-program-badge-rgb-1c-blk-for-screen.png"
+              alt="NVIDIA Inception Program"
+              width={130}
+              height={46}
+              className="h-10 w-auto invert grayscale mix-blend-screen opacity-60 transition-opacity duration-300 hover:opacity-100"
+            />
+            <Image
+              src="/lambda-logos/lambda_logo_horizontal_white-2000px.png"
+              alt="Lambda GPU Cloud"
+              width={130}
+              height={30}
+              className="h-6 w-auto opacity-60 transition-opacity duration-300 hover:opacity-100"
+            />
           </div>
         </div>
       </section>
 
       {/* By the Numbers Section */}
-      <section className="py-20 bg-background/70">
+      <section className="py-24 bg-background/70">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="BY THE NUMBERS"
-            description="Key metrics that highlight the power of Gravion's AI-driven approach."
-            align="center"
-            className="mb-12"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
-            <HudContainer
-              variant="secondary"
-              className="flex flex-col items-center justify-center p-6 h-full"
-            >
-              <h3 className="text-4xl font-bold text-primary mb-2">43</h3>
-              <p className="text-muted-foreground text-xs">
-                minerals detectable from orbit
-              </p>
-            </HudContainer>
-            <HudContainer
-              variant="secondary"
-              className="flex flex-col items-center justify-center p-6 h-full"
-            >
-              <h3 className="text-4xl font-bold text-primary mb-2">4</h3>
-              <p className="text-muted-foreground text-xs">
-                independent AI engines (spectral, structural, alteration,
-                anomaly)
-              </p>
-            </HudContainer>
-            <HudContainer
-              variant="secondary"
-              className="flex flex-col items-center justify-center p-6 h-full"
-            >
-              <h3 className="text-4xl font-bold text-primary mb-2">$300-800</h3>
-              <p className="text-muted-foreground text-xs">
-                per target vs. $50,000-500,000 traditional exploration
-              </p>
-            </HudContainer>
-            <HudContainer
-              variant="secondary"
-              className="flex flex-col items-center justify-center p-6 h-full"
-            >
-              <h3 className="text-4xl font-bold text-primary mb-2">10+</h3>
-              <p className="text-muted-foreground text-xs">
-                active exploration targets in Wyoming
-              </p>
-            </HudContainer>
-            <HudContainer
-              variant="secondary"
-              className="flex flex-col items-center justify-center p-6 h-full"
-            >
-              <Globe className="h-8 w-8 text-primary mb-3" />
-              <p className="text-muted-foreground text-xs">
-                Multi-commodity detection calibrated against known deposits of
-                gold, copper, lithium, and other minerals
-              </p>
-            </HudContainer>
+          <Reveal>
+            <SectionHeader
+              eyebrow="01 — Metrics"
+              title="BY THE NUMBERS"
+              description="Key metrics that highlight the power of Gravion's AI-driven approach."
+              align="center"
+              className="mb-14"
+            />
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10">
+            {STATS.map((stat, i) => (
+              <Reveal
+                key={stat.label}
+                delay={i * 0.08}
+                className="group relative flex flex-col justify-between gap-6 bg-background p-6 text-left transition-colors duration-300 hover:bg-card"
+              >
+                <span className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/60">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {stat.value ? (
+                  <div className="text-gradient-primary font-heading text-3xl lg:text-2xl xl:text-[1.75rem] 2xl:text-4xl font-bold tracking-tight whitespace-nowrap">
+                    {stat.value}
+                  </div>
+                ) : (
+                  <Globe className="h-9 w-9 text-primary" />
+                )}
+                <p className="text-muted-foreground text-sm leading-snug">
+                  {stat.label}
+                </p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-background relative overflow-hidden">
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <SectionHeader
-            title="HOW IT WORKS"
-            description="From orbit to extraction: our streamlined exploration process."
-            align="center"
-            className="mb-16"
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow="02 — Process"
+              title="HOW IT WORKS"
+              description="From orbit to extraction: our streamlined exploration process."
+              align="center"
+              className="mb-16"
+            />
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {/* Step 1 */}
-            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-                <Satellite className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Step 1</h3>
-              <h4 className="font-semibold text-primary mb-3">
-                Satellite Acquisition
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                Multi-spectral data ingested across target region
-              </p>
-            </HudContainer>
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {/* Connector line between step icons */}
+            <div className="glow-line absolute left-[10%] right-[10%] top-[3.5rem] hidden lg:block" />
 
-            {/* Step 2 */}
-            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-                <Cpu className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Step 2</h3>
-              <h4 className="font-semibold text-primary mb-3">AI Analysis</h4>
-              <p className="text-sm text-muted-foreground">
-                4 engines analyze spectral, structural, alteration, anomaly
-                signals
-              </p>
-            </HudContainer>
-
-            {/* Step 3 */}
-            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-                <Crosshair className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Step 3</h3>
-              <h4 className="font-semibold text-primary mb-3">
-                Target Generation
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                Convergent signals identify high-priority targets with GPS
-                coordinates
-              </p>
-            </HudContainer>
-
-            {/* Step 4 */}
-            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-                <ClipboardCheck className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Step 4</h3>
-              <h4 className="font-semibold text-primary mb-3">
-                Validation & Claims
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                Field sampling, lab analysis
-              </p>
-            </HudContainer>
-
-            {/* Step 5 */}
-            <HudContainer className="h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)]">
-                <Globe className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Step 5</h3>
-              <h4 className="font-semibold text-primary mb-3">
-                Partner & Scale
-              </h4>
-              <p className="text-sm text-muted-foreground">
-                Joint venture structuring and claim development with industry
-                partners.
-              </p>
-            </HudContainer>
+            {STEPS.map((step, i) => (
+              <Reveal key={step.title} delay={i * 0.1} className="h-full">
+                <HudContainer className="group h-full flex flex-col items-center text-center p-6 bg-card/40 backdrop-blur-sm border-primary/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_40px_-15px_rgba(0,255,255,0.4)]">
+                  <div className="relative w-16 h-16 rounded-full bg-background flex items-center justify-center mb-6 border border-primary/30 text-primary shadow-[0_0_15px_rgba(0,255,255,0.3)] transition-shadow duration-300 group-hover:shadow-[0_0_30px_rgba(0,255,255,0.6)]">
+                    <span className="absolute -inset-1.5 rounded-full border border-dashed border-primary/20" />
+                    <step.icon className="w-7 h-7" />
+                  </div>
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground mb-2">
+                    STEP {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-semibold text-primary mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {step.description}
+                  </p>
+                </HudContainer>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Demo Section */}
-      <section className="py-20 bg-linear-to-b from-background to-card/20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="INTERACTIVE DEMO"
-            description="Experience Gravion AI in action. No signup required"
-            align="center"
-            className="mb-10"
-          />
+      <section className="py-24 bg-linear-to-b from-background to-card/20 relative overflow-hidden">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[480px] w-[80%] max-w-4xl rounded-full bg-primary/10 blur-[120px] pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative">
+          <Reveal>
+            <SectionHeader
+              eyebrow="03 — Live Demo"
+              title="INTERACTIVE DEMO"
+              description="Experience Gravion AI in action. No signup required"
+              align="center"
+              className="mb-10"
+            />
+          </Reveal>
 
           {/* <div className="absolute inset-0 flex items-center justify-center">
                 <Button
@@ -284,8 +277,16 @@ export default function Home() {
                 </Button>
               </div> */}
 
-          <HudContainer className="mx-auto max-w-4xl">
-            <div className="aspect-video relative overflow-hidden rounded bg-black">
+          <Reveal>
+          <HudContainer className="mx-auto max-w-4xl shadow-[0_30px_80px_-30px_rgba(0,255,255,0.35)]">
+            <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                Gravion Platform
+              </span>
+              <span>No Signup Required</span>
+            </div>
+            <div className="aspect-video relative overflow-hidden rounded bg-black ring-1 ring-white/10">
               {/* <video
                 src="https://res.cloudinary.com/djynatwlg/video/upload/v1747128968/xy5m2b6uhckarhqk0vy9.mp4"
                 controls={true}
@@ -316,16 +317,18 @@ export default function Home() {
               </div> */}
             </div>
           </HudContainer>
+          </Reveal>
         </div>
       </section>
 
       <HomeUseCases />
       {/* Stats & Patent Section */}
-      <section className="py-20 bg-card/30">
+      <section className="py-24 bg-card/30 border-y border-white/5">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+            <Reveal>
               <SectionHeader
+                eyebrow="05 — Traction"
                 title="TRACTION"
                 description="Our technology is gaining momentum and proving its capabilities in real-world scenarios."
                 className="mb-6"
@@ -341,7 +344,8 @@ export default function Home() {
                   for Q2 2026.
                 </p>
 
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 shadow-[0_0_15px_rgba(0,255,255,0.05)]">
+                <div className="relative overflow-hidden bg-primary/5 border border-primary/20 rounded-lg p-5 pl-6 shadow-[0_0_15px_rgba(0,255,255,0.05)] transition-colors duration-300 hover:border-primary/40">
+                  <span className="absolute left-0 top-0 h-full w-0.5 bg-linear-to-b from-primary to-primary/0" />
                   <div className="flex items-start gap-3">
                     <div className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
                     <div>
@@ -356,7 +360,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 shadow-[0_0_15px_rgba(0,255,255,0.05)]">
+                <div className="relative overflow-hidden bg-primary/5 border border-primary/20 rounded-lg p-5 pl-6 shadow-[0_0_15px_rgba(0,255,255,0.05)] transition-colors duration-300 hover:border-primary/40">
+                  <span className="absolute left-0 top-0 h-full w-0.5 bg-linear-to-b from-primary to-primary/0" />
                   <div className="flex items-start gap-3">
                     <div className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary animate-pulse" />
                     <div>
@@ -389,8 +394,9 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
+            <Reveal delay={0.15} className="h-full">
             <HudContainer variant="secondary" className="h-full text-center">
               <SectionHeader
                 title="AI & COMPUTE ARCHITECTURE"
@@ -481,72 +487,61 @@ export default function Home() {
                 </div>
               </div>
             </HudContainer>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* Roadmap Section */}
-      <section className="py-20 bg-background/40">
+      <section className="py-24 bg-background/40">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="TECHNOLOGY ROADMAP"
-            description="Our proprietary deep learning models driving discovery."
-            align="center"
-            className="mb-12"
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow="06 — Technology"
+              title="TECHNOLOGY ROADMAP"
+              description="Our proprietary deep learning models driving discovery."
+              align="center"
+              className="mb-14"
+            />
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <Activity className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Spectral Analysis</h3>
-              <p className="text-sm text-muted-foreground">
-                Convolutional networks trained to identify specific mineral
-                reflectance signatures across hundreds of spectral bands.
-              </p>
-            </HudContainer>
-
-            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <Compass className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Structural Geology</h3>
-              <p className="text-sm text-muted-foreground">
-                Computer vision models that map faults, fractures, and
-                lineaments to understand trap dynamics and geological context.
-              </p>
-            </HudContainer>
-
-            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <FlaskConical className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Alteration Mapping</h3>
-              <p className="text-sm text-muted-foreground">
-                Detects subtle hydrothermal alteration zones indicative of
-                mineral deposits using chemical ratios and thermal data.
-              </p>
-            </HudContainer>
-
-            <HudContainer className="p-6 h-full flex flex-col items-center text-center hover:border-primary/50 transition-colors">
-              <Radio className="h-10 w-10 text-primary mb-4 opacity-80" />
-              <h3 className="font-bold mb-2">Anomaly Detection</h3>
-              <p className="text-sm text-muted-foreground">
-                Unsupervised learning algorithms that flag statistical
-                deviations and unique geological signatures from background
-                noise.
-              </p>
-            </HudContainer>
+            {ENGINES.map((engine, i) => (
+              <Reveal key={engine.title} delay={i * 0.1} className="h-full">
+                <HudContainer className="group p-6 h-full flex flex-col text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_40px_-15px_rgba(0,255,255,0.4)]">
+                  <div className="mb-6 flex items-center justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-md border border-primary/25 bg-primary/5 text-primary transition-colors duration-300 group-hover:bg-primary/15">
+                      <engine.icon className="h-6 w-6" />
+                    </div>
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/70">
+                      ENGINE {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="font-bold mb-2">{engine.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {engine.description}
+                  </p>
+                </HudContainer>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container mx-auto px-4 text-center">
-          <SectionHeader
-            title="OUR TEAM"
-            description="Built by operators with deep field and technical experience"
-            align="center"
-            className="mb-10"
-          />
+          <Reveal>
+            <SectionHeader
+              eyebrow="07 — Team"
+              title="OUR TEAM"
+              description="Built by operators with deep field and technical experience"
+              align="center"
+              className="mb-10"
+            />
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
             <Link href="/about" className="group">
               <HudContainer className="h-full transition-all duration-300 group-hover:border-primary/40">
                 <div className="flex flex-col h-full">
@@ -583,20 +578,122 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4 text-center">
-          <SectionHeader
-            title="UNLOCK GRAVION"
-            description="Be among the first to access Gravion's groundbreaking technology"
-            align="center"
-            className="mb-8"
-          />
+      <section className="py-24 px-4">
+        <Reveal className="container mx-auto">
+          <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-card px-6 py-20 text-center shadow-[0_0_80px_-20px_rgba(0,255,255,0.25)]">
+            <div className="absolute inset-0 bg-grid opacity-70 pointer-events-none"></div>
+            <div className="absolute left-1/2 top-0 h-64 w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[100px] pointer-events-none"></div>
+            <div className="absolute inset-x-0 top-0 glow-line"></div>
 
-          <Button asChild size="lg">
-            <Link href="/contact">SCHEDULE A CALL</Link>
-          </Button>
-        </div>
+            <div className="relative">
+              <SectionHeader
+                eyebrow="Get Started"
+                title="UNLOCK GRAVION"
+                description="Be among the first to access Gravion's groundbreaking technology"
+                align="center"
+                className="mb-10"
+              />
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="btn-shine group h-12 px-8 font-semibold tracking-wider shadow-[0_0_25px_rgba(0,255,255,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,255,255,0.6)]"
+                >
+                  <Link href="/contact">
+                    SCHEDULE A CALL
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="h-12 px-8 tracking-wider border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-primary/60 hover:text-white"
+                >
+                  <Link href="/map">EXPLORE THE MAP</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </section>
     </div>
   );
 }
+
+const STATS = [
+  { value: "43", label: "minerals detectable from orbit" },
+  {
+    value: "4",
+    label: "independent AI engines (spectral, structural, alteration, anomaly)",
+  },
+  {
+    value: "$300-800",
+    label: "per target vs. $50,000-500,000 traditional exploration",
+  },
+  { value: "10+", label: "active exploration targets in Wyoming" },
+  {
+    value: null,
+    label:
+      "Multi-commodity detection calibrated against known deposits of gold, copper, lithium, and other minerals",
+  },
+];
+
+const STEPS = [
+  {
+    icon: Satellite,
+    title: "Satellite Acquisition",
+    description: "Multi-spectral data ingested across target region",
+  },
+  {
+    icon: Cpu,
+    title: "AI Analysis",
+    description:
+      "4 engines analyze spectral, structural, alteration, anomaly signals",
+  },
+  {
+    icon: Crosshair,
+    title: "Target Generation",
+    description:
+      "Convergent signals identify high-priority targets with GPS coordinates",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Validation & Claims",
+    description: "Field sampling, lab analysis",
+  },
+  {
+    icon: Globe,
+    title: "Partner & Scale",
+    description:
+      "Joint venture structuring and claim development with industry partners.",
+  },
+];
+
+const ENGINES = [
+  {
+    icon: Activity,
+    title: "Spectral Analysis",
+    description:
+      "Convolutional networks trained to identify specific mineral reflectance signatures across hundreds of spectral bands.",
+  },
+  {
+    icon: Compass,
+    title: "Structural Geology",
+    description:
+      "Computer vision models that map faults, fractures, and lineaments to understand trap dynamics and geological context.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Alteration Mapping",
+    description:
+      "Detects subtle hydrothermal alteration zones indicative of mineral deposits using chemical ratios and thermal data.",
+  },
+  {
+    icon: Radio,
+    title: "Anomaly Detection",
+    description:
+      "Unsupervised learning algorithms that flag statistical deviations and unique geological signatures from background noise.",
+  },
+];
