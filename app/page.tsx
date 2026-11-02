@@ -6,18 +6,23 @@ import { SectionHeader } from "@/components/ui/section-header";
 import VideoPlayer from "@/components/video-player/VideoPlayer";
 import type { Metadata } from "next";
 import {
-  Activity,
   ArrowRight,
   ClipboardCheck,
-  Compass,
   Cpu,
   Crosshair,
   Database,
-  FlaskConical,
+  Eye,
   Globe,
-  Radio,
+  History,
+  Layers,
+  Merge,
+  Mountain,
+  Radar,
+  RefreshCw,
+  Route,
   Satellite,
-  ShieldCheck
+  ShieldCheck,
+  SlidersHorizontal
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -73,7 +78,7 @@ export default function Home() {
             Gravion // Orbital Mineral Intelligence
           </span>
           <span className="eyebrow absolute right-4 top-3 text-primary/60 hidden lg:block">
-            43 Signatures · 4 Engines
+            43 Signatures · 8 Engines
           </span>
           <span className="eyebrow absolute left-4 bottom-3 text-primary/60 hidden lg:inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
@@ -507,17 +512,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ENGINES.map((engine, i) => (
-              <Reveal key={engine.title} delay={i * 0.1} className="h-full">
+              <Reveal key={engine.title} delay={(i % 4) * 0.08} className="h-full">
                 <HudContainer className="group p-6 h-full flex flex-col text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_10px_40px_-15px_rgba(0,255,255,0.4)]">
                   <div className="mb-6 flex items-center justify-between">
                     <div className="flex h-12 w-12 items-center justify-center rounded-md border border-primary/25 bg-primary/5 text-primary transition-colors duration-300 group-hover:bg-primary/15">
                       <engine.icon className="h-6 w-6" />
                     </div>
                     <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground/70">
-                      ENGINE {String(i + 1).padStart(2, "0")}
+                      ENGINE {String(i).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="font-bold mb-2">{engine.title}</h3>
+                  <h3 className="font-bold mb-1">{engine.title}</h3>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary/80 mb-3">
+                    {engine.nickname}
+                  </span>
                   <p className="text-sm text-muted-foreground">
                     {engine.description}
                   </p>
@@ -525,6 +533,19 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 rounded-md border border-dashed border-primary/20 px-6 py-4 text-center">
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/80">
+                <SlidersHorizontal className="h-4 w-4 text-primary/70" />
+                Engine 08 · Optional
+              </span>
+              <span className="text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground/80">Sensor Optimization</span>
+                {" "}— decides the optimal sensor mix for the budget.
+              </span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -625,8 +646,8 @@ export default function Home() {
 const STATS = [
   { value: "43", label: "minerals detectable from orbit" },
   {
-    value: "4",
-    label: "independent AI engines (spectral, structural, alteration, anomaly)",
+    value: "8",
+    label: "AI engines, from multi-sensor fusion to geological reasoning",
   },
   {
     value: "$300-800",
@@ -650,7 +671,7 @@ const STEPS = [
     icon: Cpu,
     title: "AI Analysis",
     description:
-      "4 engines analyze spectral, structural, alteration, anomaly signals",
+      "8 engines fuse sensor data, flag anomalies, and apply geological reasoning",
   },
   {
     icon: Crosshair,
@@ -673,27 +694,55 @@ const STEPS = [
 
 const ENGINES = [
   {
-    icon: Activity,
-    title: "Spectral Analysis",
-    description:
-      "Convolutional networks trained to identify specific mineral reflectance signatures across hundreds of spectral bands.",
+    icon: Layers,
+    title: "Alignment & Registration",
+    nickname: "The Foundation",
+    description: "Aligns every pixel from every sensor to the same map.",
   },
   {
-    icon: Compass,
-    title: "Structural Geology",
-    description:
-      "Computer vision models that map faults, fractures, and lineaments to understand trap dynamics and geological context.",
+    icon: Eye,
+    title: "Vision Model",
+    nickname: "The Eyes",
+    description: "Classifies every pixel: water, rock, vegetation, soil, and more.",
   },
   {
-    icon: FlaskConical,
-    title: "Alteration Mapping",
+    icon: Merge,
+    title: "Sensor Fusion",
+    nickname: "The Brain Merger",
     description:
-      "Detects subtle hydrothermal alteration zones indicative of mineral deposits using chemical ratios and thermal data.",
+      "Fuses RGB, NIR, thermal, and LiDAR into one unified feature cube.",
   },
   {
-    icon: Radio,
+    icon: Radar,
     title: "Anomaly Detection",
+    nickname: "The Anomaly Hunter",
     description:
-      "Unsupervised learning algorithms that flag statistical deviations and unique geological signatures from background noise.",
+      "Variational autoencoders and Isolation Forest flag what doesn't look normal.",
+  },
+  {
+    icon: Mountain,
+    title: "Spatial Reasoning",
+    nickname: "The Geologist",
+    description:
+      "Clusters anomalies, applies domain rules, and rejects false positives.",
+  },
+  {
+    icon: History,
+    title: "Change Detection",
+    nickname: "The Historian",
+    description: "Tracks changes across months and years.",
+  },
+  {
+    icon: Route,
+    title: "Mission Planning",
+    nickname: "The Strategist",
+    description:
+      "Recommends the next action: drone survey, new imagery, or a priority list.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Human Feedback",
+    nickname: "The Learning Loop",
+    description: "Expert corrections make the system smarter over time.",
   },
 ];
