@@ -284,13 +284,6 @@ export default function Home() {
 
           <Reveal>
           <HudContainer className="mx-auto max-w-4xl shadow-[0_30px_80px_-30px_rgba(0,255,255,0.35)]">
-            <div className="mb-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              <span className="inline-flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-                Gravion Platform
-              </span>
-              <span>No Signup Required</span>
-            </div>
             <div className="aspect-video relative overflow-hidden rounded bg-black ring-1 ring-white/10">
               {/* <video
                 src="https://res.cloudinary.com/djynatwlg/video/upload/v1747128968/xy5m2b6uhckarhqk0vy9.mp4"
