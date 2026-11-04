@@ -5,12 +5,12 @@ import { SectionHeader } from "@/components/ui/section-header";
 import {
   ArrowRight,
   Cpu,
-  Eye,
-  HeartPulse,
+  Crosshair,
   Layers,
   Network,
   Quote,
-  ShieldAlert,
+  Satellite,
+  ScanSearch,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -110,8 +110,9 @@ export default function AboutPage() {
 
               <p className="mb-6 text-xl leading-relaxed text-foreground">
                 Gravion’s mission is to build a new layer of planetary awareness
-                — one that prevents loss of life, uncovers hidden dangers, and
-                reveals untapped opportunities beneath the surface of our world.
+                — one that reveals untapped mineral resources beneath the
+                surface of our world, faster and at a fraction of the cost of
+                traditional exploration.
               </p>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -123,10 +124,9 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  Gravion exists to bridge the gap between chaos and clarity,
-                  between what we know and what we’ve never been able to see.
-                  It’s built not just to respond to emergencies, but to prevent
-                  them. Not just to explore, but to protect.
+                  Gravion exists to bridge the gap between what we know and what
+                  lies beneath — turning satellite signals into high-priority
+                  exploration targets before a single drill hits the ground.
                 </p>
 
                 <p className="border-l-2 border-primary/60 pl-4 text-foreground/90">
@@ -513,9 +513,9 @@ const GLANCE = [
 ];
 
 const PILLARS = [
-  { icon: HeartPulse, title: "Prevent loss of life" },
-  { icon: ShieldAlert, title: "Uncover hidden dangers" },
-  { icon: Eye, title: "Reveal opportunities" },
+  { icon: Satellite, title: "Detect minerals from orbit" },
+  { icon: ScanSearch, title: "Map alteration zones" },
+  { icon: Crosshair, title: "Pinpoint priority targets" },
 ];
 
 const LEADERSHIP = [
