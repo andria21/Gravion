@@ -3,7 +3,6 @@ import { HomeUseCases } from "@/components/home-use-cases";
 import { HudContainer } from "@/components/ui/hud-container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section-header";
-import VideoPlayer from "@/components/video-player/VideoPlayer";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -258,67 +257,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Demo Section */}
-      <section className="py-24 bg-linear-to-b from-background to-card/20 relative overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[480px] w-[80%] max-w-4xl rounded-full bg-primary/10 blur-[120px] pointer-events-none"></div>
-        <div className="container mx-auto px-4 relative">
-          <Reveal>
-            <SectionHeader
-              eyebrow="03 — Live Demo"
-              title="INTERACTIVE DEMO"
-              description="Experience Gravion AI in action. No signup required"
-              align="center"
-              className="mb-10"
-            />
-          </Reveal>
-
-          {/* <div className="absolute inset-0 flex items-center justify-center">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-background/40 backdrop-blur"
-                >
-                  Watch Demo
-                </Button>
-              </div> */}
-
-          <Reveal>
-          <HudContainer className="mx-auto max-w-4xl shadow-[0_30px_80px_-30px_rgba(0,255,255,0.35)]">
-            <div className="aspect-video relative overflow-hidden rounded bg-black ring-1 ring-white/10">
-              {/* <video
-                src="https://res.cloudinary.com/djynatwlg/video/upload/v1747128968/xy5m2b6uhckarhqk0vy9.mp4"
-                controls={true}
-                className="w-full h-full object-cover"
-                preload="metadata"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                Your browser does not support the video tag.
-              </video> */}
-
-              <VideoPlayer />
-
-              {/* HUD overlay elements */}
-              {/* <div className="absolute top-4 left-4 text-xs text-primary font-orbitron opacity-80">
-                MISSION: THERMAL SCAN
-              </div>
-              <div className="absolute top-4 right-4 text-xs text-primary font-orbitron opacity-80">
-                STATUS: ACTIVE
-              </div>
-              <div className="absolute bottom-4 left-4 text-xs text-primary font-orbitron opacity-80">
-                LAT: 41.8781° N | LONG: 87.6298° W
-              </div>
-              <div className="absolute bottom-4 right-4 text-xs text-primary font-orbitron opacity-80">
-                SENSORS: ONLINE
-              </div> */}
-            </div>
-          </HudContainer>
-          </Reveal>
-        </div>
-      </section>
-
       <HomeUseCases />
       {/* Stats & Patent Section */}
       <section className="py-24 bg-card/30 border-y border-white/5">
@@ -326,7 +264,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <Reveal>
               <SectionHeader
-                eyebrow="05 — Traction"
+                eyebrow="04 — Traction"
                 title="TRACTION"
                 description="Our technology is gaining momentum and proving its capabilities in real-world scenarios."
                 className="mb-6"
@@ -495,7 +433,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <Reveal>
             <SectionHeader
-              eyebrow="06 — Technology"
+              eyebrow="05 — Technology"
               title="TECHNOLOGY ROADMAP"
               description="Our proprietary deep learning models driving discovery."
               align="center"
@@ -547,7 +485,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <Reveal>
             <SectionHeader
-              eyebrow="07 — Team"
+              eyebrow="06 — Team"
               title="OUR TEAM"
               description="Built by operators with deep field and technical experience"
               align="center"

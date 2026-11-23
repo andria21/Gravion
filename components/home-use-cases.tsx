@@ -10,7 +10,7 @@ export function HomeUseCases() {
     <section className="py-20">
       <div className="container mx-auto px-4 text-center">
         <SectionHeader
-          eyebrow="04 — Applications"
+          eyebrow="03 — Applications"
           title="PRIMARY APPLICATION: MINING"
           description="Revolutionizing mineral exploration with AI-driven spectral analysis and anomaly detection."
           align="center"
